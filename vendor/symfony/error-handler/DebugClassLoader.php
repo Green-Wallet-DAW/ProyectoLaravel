@@ -57,7 +57,7 @@ class DebugClassLoader
         'null' => 'null',
         'resource' => 'resource',
         'boolean' => 'bool',
-        'true' => 'true',
+        'true' => 'bool',
         'false' => 'false',
         'integer' => 'int',
         'array' => 'array',
@@ -75,7 +75,6 @@ class DebugClassLoader
         '$this' => 'static',
         'list' => 'array',
         'class-string' => 'string',
-        'never' => 'never',
     ];
 
     private const BUILTIN_RETURN_TYPES = [
@@ -93,9 +92,6 @@ class DebugClassLoader
         'parent' => true,
         'mixed' => true,
         'static' => true,
-        'null' => true,
-        'true' => true,
-        'never' => true,
     ];
 
     private const MAGIC_METHODS = [
@@ -797,12 +793,6 @@ class DebugClassLoader
     private function setReturnType(string $types, string $class, string $method, string $filename, ?string $parent, \ReflectionType $returnType = null): void
     {
         if ('__construct' === $method) {
-            return;
-        }
-
-        if ('null' === $types) {
-            self::$returnTypes[$class][$method] = ['null', 'null', $class, $filename];
-
             return;
         }
 

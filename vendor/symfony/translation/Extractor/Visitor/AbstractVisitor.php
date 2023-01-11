@@ -42,25 +42,32 @@ abstract class AbstractVisitor
 
     protected function getStringArguments(Node\Expr\CallLike|Node\Attribute|Node\Expr\New_ $node, int|string $index, bool $indexIsRegex = false): array
     {
+        $args = $node instanceof Node\Expr\CallLike ? $node->getArgs() : $node->args;
+
         if (\is_string($index)) {
             return $this->getStringNamedArguments($node, $index, $indexIsRegex);
         }
 
-        $args = $node instanceof Node\Expr\CallLike ? $node->getRawArgs() : $node->args;
-
-        if (!($arg = $args[$index] ?? null) instanceof Node\Arg) {
+        if (\count($args) < $index) {
             return [];
         }
 
-        return (array) $this->getStringValue($arg->value);
+        /** @var Node\Arg $arg */
+        $arg = $args[$index];
+        if (!$result = $this->getStringValue($arg->value)) {
+            return [];
+        }
+
+        return [$result];
     }
 
     protected function hasNodeNamedArguments(Node\Expr\CallLike|Node\Attribute|Node\Expr\New_ $node): bool
     {
-        $args = $node instanceof Node\Expr\CallLike ? $node->getRawArgs() : $node->args;
+        $args = $node instanceof Node\Expr\CallLike ? $node->getArgs() : $node->args;
 
+        /** @var Node\Arg $arg */
         foreach ($args as $arg) {
-            if ($arg instanceof Node\Arg && null !== $arg->name) {
+            if (null !== $arg->name) {
                 return true;
             }
         }

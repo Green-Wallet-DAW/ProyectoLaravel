@@ -111,18 +111,14 @@ class FormRequest extends Request implements ValidatesWhenResolved
     {
         $rules = $this->container->call([$this, 'rules']);
 
-        $validator = $factory->make(
+        if ($this->isPrecognitive()) {
+            $rules = $this->filterPrecognitiveRules($rules);
+        }
+
+        return $factory->make(
             $this->validationData(), $rules,
             $this->messages(), $this->attributes()
         )->stopOnFirstFailure($this->stopOnFirstFailure);
-
-        if ($this->isPrecognitive()) {
-            $validator->setRules(
-                $this->filterPrecognitiveRules($validator->getRulesWithoutPlaceholders())
-            );
-        }
-
-        return $validator;
     }
 
     /**

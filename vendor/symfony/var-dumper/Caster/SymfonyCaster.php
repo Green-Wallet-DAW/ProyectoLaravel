@@ -15,7 +15,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Uid\Ulid;
 use Symfony\Component\Uid\Uuid;
 use Symfony\Component\VarDumper\Cloner\Stub;
-use Symfony\Component\VarExporter\Internal\LazyObjectState;
 
 /**
  * @final
@@ -66,22 +65,6 @@ class SymfonyCaster
         }
 
         return $a;
-    }
-
-    public static function castLazyObjectState($state, array $a, Stub $stub, bool $isNested)
-    {
-        if (!$isNested) {
-            return $a;
-        }
-
-        $stub->cut += \count($a) - 1;
-
-        return ['status' => new ConstStub(match ($a['status']) {
-            LazyObjectState::STATUS_INITIALIZED_FULL => 'INITIALIZED_FULL',
-            LazyObjectState::STATUS_INITIALIZED_PARTIAL => 'INITIALIZED_PARTIAL',
-            LazyObjectState::STATUS_UNINITIALIZED_FULL => 'UNINITIALIZED_FULL',
-            LazyObjectState::STATUS_UNINITIALIZED_PARTIAL => 'UNINITIALIZED_PARTIAL',
-        }, $a['status'])];
     }
 
     public static function castUuid(Uuid $uuid, array $a, Stub $stub, bool $isNested)

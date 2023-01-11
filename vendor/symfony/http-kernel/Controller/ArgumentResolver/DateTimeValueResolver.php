@@ -43,16 +43,16 @@ final class DateTimeValueResolver implements ArgumentValueResolverInterface, Val
         }
 
         $value = $request->attributes->get($argument->getName());
-        $class = \DateTimeInterface::class === $argument->getType() ? \DateTimeImmutable::class : $argument->getType();
 
         if ($value instanceof \DateTimeInterface) {
-            return [$value instanceof $class ? $value : $class::createFromInterface($value)];
+            return [$value];
         }
 
         if ($argument->isNullable() && !$value) {
             return [null];
         }
 
+        $class = \DateTimeInterface::class === $argument->getType() ? \DateTimeImmutable::class : $argument->getType();
         $format = null;
 
         if ($attributes = $argument->getAttributes(MapDateTime::class, ArgumentMetadata::IS_INSTANCEOF)) {

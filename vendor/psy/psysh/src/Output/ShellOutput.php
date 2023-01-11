@@ -165,6 +165,8 @@ class ShellOutput extends ConsoleOutput
 
     /**
      * Set the output Theme.
+     *
+     * @param Theme
      */
     public function setTheme(Theme $theme)
     {

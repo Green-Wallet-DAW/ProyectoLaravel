@@ -103,7 +103,7 @@ trait SoftDeletes
     /**
      * Restore a soft-deleted model instance.
      *
-     * @return bool
+     * @return bool|null
      */
     public function restore()
     {
@@ -131,7 +131,7 @@ trait SoftDeletes
     /**
      * Restore a soft-deleted model instance without raising any events.
      *
-     * @return bool
+     * @return bool|null
      */
     public function restoreQuietly()
     {
