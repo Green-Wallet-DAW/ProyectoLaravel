@@ -81,6 +81,10 @@ a{
 }
 
 
+
+/* #049201 */
+
+
 /* *{
     border:0px solid black;
     color:white;
@@ -89,7 +93,7 @@ a{
   .aside{
     /* Rectangle 1 */
     position: relative;
-    width: 20vw;
+    /* width: 20vw; */
     min-height: 73vh;
   
     background: rgba(2, 117, 0, 0.91);

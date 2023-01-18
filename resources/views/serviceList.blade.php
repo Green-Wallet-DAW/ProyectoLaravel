@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/prueba3.css">
+    <link rel="stylesheet" href="/css/plantilla.css">
     <link rel="stylesheet" href="/css/serviceList.css">
     <title>Service List</title>
 </head>
@@ -51,35 +51,37 @@
       <div id="cabz"><a href="#">Green Wallets</a></div>
     </div>
     <div class="row">
-      <div class="aside flex-shrink-0" >
-        <a href="/" class="d-flex align-items-center justify-content-center py-2 mb-3 text-decoration-none border-bottom">
-          <span class="fs-1 text-light  fw-semibold">DASHBOARD</span>
-        </a>
-        <ul class="list-unstyled ps-0">
-          <li class="mb-1">
-            <button class="btn btn-toggle align-items-center rounded collapsed fs-3 text-light" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-              QUERIES
-            </button>
-            <div class="subelement collapse show" id="home-collapse">
-              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                <li><a href="#" class="link-light rounded fs-4">Users</a></li>
-                <li><a href="#" class="link-light rounded fs-4">Communities</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="mb-1">
-            <button class="btn btn-toggle align-items-center rounded collapsed fs-3 text-light" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
-              TOKEN STORE
-            </button>
-            <div class="subelement collapse" id="orders-collapse">
-              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                <li><a href="#" class="link-light rounded fs-4">User Services</a></li>
-                <li><a href="#" class="link-light rounded fs-4">Community Services</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="border-top my-3 "></li>
-        </ul>
+      <div class="col-3">
+        <div class="aside flex-shrink-0" >
+          <a href="/" class="d-flex align-items-center justify-content-center py-2 mb-3 text-decoration-none border-bottom">
+            <span class="fs-1 text-light  fw-semibold">DASHBOARD</span>
+          </a>
+          <ul class="list-unstyled ps-0">
+            <li class="mb-1">
+              <button class="btn btn-toggle align-items-center rounded collapsed fs-3 text-light" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+                QUERIES
+              </button>
+              <div class="subelement collapse show" id="home-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li><a href="#" class="link-light rounded fs-4">Users</a></li>
+                  <li><a href="#" class="link-light rounded fs-4">Communities</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="mb-1">
+              <button class="btn btn-toggle align-items-center rounded collapsed fs-3 text-light" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+                TOKEN STORE
+              </button>
+              <div class="subelement collapse" id="orders-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li><a href="#" class="link-light rounded fs-4">User Services</a></li>
+                  <li><a href="#" class="link-light rounded fs-4">Community Services</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="border-top my-3 "></li>
+          </ul>
+        </div>
       </div>
       <div class="col">
         <div id="caja">
@@ -99,12 +101,8 @@
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, dolor repellat quo hic dolorum, eligendi impedit vel, illo dignissimos fugit exercitationem doloribus mollitia ipsam qui. Dignissimos culpa incidunt voluptatem aspernatur?
       
           </div>
+        </div>
       </div>
-      </div>
-
-
-
-
     </div>
 
     {{-- <h1>USUARIOS</h1> --}}
