@@ -51,7 +51,7 @@
       <div id="cabz"><a href="#">Green Wallets</a></div>
     </div>
     <div class="row">
-      <div class="col-3">
+      <div class="col">
         <div class="aside flex-shrink-0" >
           <a href="/" class="d-flex align-items-center justify-content-center py-2 mb-3 text-decoration-none border-bottom">
             <span class="fs-1 text-light  fw-semibold">DASHBOARD</span>
