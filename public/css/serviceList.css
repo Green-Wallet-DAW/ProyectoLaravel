@@ -65,9 +65,12 @@ a{
 
 
 /* Aside */
+.row{
+    color:white;
+}
 .aside{
     /* Rectangle 1 */
-  
+    
     position: relative;
     width: 20vw;
     min-height: 73vh;
