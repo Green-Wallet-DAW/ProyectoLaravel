@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\serviceListController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,3 +25,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::view('/prueba','prueba');
 Route::view('/usuarios','usuarios');
 Route::view('/serviceList', 'serviceList');
+// Route::get('/usuarios', [serviceListController::class, 'usuarios']);
