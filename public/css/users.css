@@ -4,3 +4,11 @@
 th{
     font-size: 25px;
 }
+.input-group, #myInput{
+    width: 20%;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+.input-group-append{
+    border-color: transparent;
+}
