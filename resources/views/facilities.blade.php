@@ -92,9 +92,7 @@
            {{-- Facilities --}}
 
         <div class="col-8">
-            <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam nesciunt suscipit, dolorem, odit accusamus neque exercitationem, voluptatum quos eligendi necessitatibus ullam eum fugit ipsum consequatur doloremque quis ex adipisci itaque.
-            </p>
+            
         </div>
     </div>
 
