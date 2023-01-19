@@ -49,39 +49,46 @@
     <div class="container-fluid d-xl-none">
       <div id="cabz"><a href="#">Green Wallets</a></div>
     </div>
-    <div class="aside flex-shrink-0" >
-        <a href="/" class="d-flex align-items-center justify-content-center py-2 mb-3 text-decoration-none border-bottom">
-          <span class="fs-1 text-light  fw-semibold">DASHBOARD</span>
-        </a>
-        <ul class="list-unstyled ps-0">
-          <li class="mb-1">
-            <button class="btn btn-toggle align-items-center rounded collapsed fs-3 text-light" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-              QUERIES
-            </button>
-            <div class="subelement collapse show" id="home-collapse">
-              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                <li><a href="#" class="link-light rounded fs-4">Users</a></li>
-                <li><a href="#" class="link-light rounded fs-4">Communities</a></li>
-                <li><a href="#" class="link-light rounded fs-4">Facilities</a></li>
-                <li><a href="#" class="link-light rounded fs-4">Machines</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="mb-1">
-            <button class="btn btn-toggle align-items-center rounded collapsed fs-3 text-light" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
-              TOKEN STORE
-            </button>
-            <div class="subelement collapse" id="orders-collapse">
-              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                <li><a href="#" class="link-light rounded fs-4">User Services</a></li>
-                <li><a href="#" class="link-light rounded fs-4">Community Services</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="border-top my-3 "></li>
-      
-        </ul>
+    <div class="row">
+      <div class="col">
+        <div class="aside flex-shrink-0" >
+          <a href="/" class="d-flex align-items-center justify-content-center py-2 mb-3 text-decoration-none border-bottom">
+            <span class="fs-1 text-light  fw-semibold">DASHBOARD</span>
+          </a>
+          <ul class="list-unstyled ps-0">
+            <li class="mb-1">
+              <button class="btn btn-toggle align-items-center rounded collapsed fs-3 text-light" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+                QUERIES
+              </button>
+              <div class="subelement collapse show" id="home-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li><a href="#" class="link-light rounded fs-4">Users</a></li>
+                  <li><a href="#" class="link-light rounded fs-4">Communities</a></li>
+                  <li><a href="#" class="link-light rounded fs-4">Facilities</a></li>
+                  <li><a href="#" class="link-light rounded fs-4">Machines</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="mb-1">
+              <button class="btn btn-toggle align-items-center rounded collapsed fs-3 text-light" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+                TOKEN STORE
+              </button>
+              <div class="subelement collapse" id="orders-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li><a href="#" class="link-light rounded fs-4">User Services</a></li>
+                  <li><a href="#" class="link-light rounded fs-4">Community Services</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="border-top my-3 "></li>
+        
+          </ul>
+        </div>
       </div>
+      <div class="col">
+        
+      </div>
+    </div>
     {{-- <h1>USUARIOS</h1> --}}
     <div class="footer bg-dark-subtle">
         <p class="copyright">Copyright © 2022 Green Wallets - All Rights Reserved.</p>
