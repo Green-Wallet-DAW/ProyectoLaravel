@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/plantilla.css">
+    <link rel="stylesheet" href="/css/users.css">
+
     <title>Document</title>
 </head>
 <body>
@@ -50,7 +52,7 @@
       <div id="cabz"><a href="#">Green Wallets</a></div>
     </div>
     <div class="row">
-      <div class="col">
+      <div class="col-3">
         <div class="aside flex-shrink-0" >
           <a href="/" class="d-flex align-items-center justify-content-center py-2 mb-3 text-decoration-none border-bottom">
             <span class="fs-1 text-light  fw-semibold">DASHBOARD</span>
@@ -85,8 +87,73 @@
           </ul>
         </div>
       </div>
-      <div class="col">
-        
+      <div class="col-8 mt-5 mb-3">
+        <div id="main">
+          <div class="container">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">User Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">C.U.M.N</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Usuario 1</td>
+                    <td>Email 1</td>
+                    <td>123456789M</td>
+                    <td>
+                        <a href="#" class="btn btn-info" data-bs-toggle="tooltip" title="More details"><i class="bi bi-eye"></i></a>
+                        <a href="#" class="btn btn-warning mx-1" data-bs-toggle="tooltip" title="Edit user"><i class="bi bi-pencil"></i></a>
+                        <a href="#" class="btn btn-danger" data-bs-toggle="tooltip" title="Delete user"><i class="bi bi-trash"></i></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>paco88</td>
+                    <td>email@email.com</td>
+                    <td>432156789M</td>
+                    <td>
+                        <a href="#" class="btn btn-info" data-bs-toggle="tooltip" title="More details"><i class="bi bi-eye"></i></a>
+                        <a href="#" class="btn btn-warning mx-1" data-bs-toggle="tooltip" title="Edit user"><i class="bi bi-pencil"></i></a>
+                        <a href="#" class="btn btn-danger" data-bs-toggle="tooltip" title="Delete user"><i class="bi bi-trash"></i></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>juan</td>
+                    <td>email@gmail.com</td>
+                    <td>123454701P</td>
+                    <td>
+                        <a href="#" class="btn btn-info" data-bs-toggle="tooltip" title="More details"><i class="bi bi-eye"></i></a>
+                        <a href="#" class="btn btn-warning mx-1" data-bs-toggle="tooltip" title="Edit user"><i class="bi bi-pencil"></i></a>
+                        <a href="#" class="btn btn-danger" data-bs-toggle="tooltip" title="Delete user"><i class="bi bi-trash"></i></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>hphpññ</td>
+                    <td>gmail@email.com</td>
+                    <td>654345666K</td>
+                    <td>
+                        <a href="#" class="btn btn-info" data-bs-toggle="tooltip" title="More details"><i class="bi bi-eye"></i></a>
+                        <a href="#" class="btn btn-warning mx-1" data-bs-toggle="tooltip" title="Edit user"><i class="bi bi-pencil"></i></a>
+                        <a href="#" class="btn btn-danger" data-bs-toggle="tooltip" title="Delete user"><i class="bi bi-trash"></i></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>user5</td>
+                    <td>hotmail@email.com</td>
+                    <td>123542369Q</td>
+                    <td>
+                        <a href="#" class="btn btn-info" data-bs-toggle="tooltip" title="More details"><i class="bi bi-eye"></i></a>
+                        <a href="#" class="btn btn-warning mx-1" data-bs-toggle="tooltip" title="Edit user"><i class="bi bi-pencil"></i></a>
+                        <a href="#" class="btn btn-danger" data-bs-toggle="tooltip" title="Delete user"><i class="bi bi-trash"></i></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
     {{-- <h1>USUARIOS</h1> --}}
