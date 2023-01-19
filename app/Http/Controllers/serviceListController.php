@@ -7,7 +7,5 @@ use Illuminate\Http\Request;
 
 class serviceListController extends Controller
 {
-    function usuarios(){
-        redirect()->to("/usuarios");
-    }
+
 }
