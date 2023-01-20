@@ -19,7 +19,9 @@
     <div id="main">
       <div class="container">
         <div class="input-group">
+
           <input class="form-control border-end-0 border" type="text" id="myInput" placeholder="Search by name">
+
           <span class="input-group-append bg-transparent">
               <button id="botonS" class="btn" type="button" disabled>
                 <i class="bi bi-search"></i>

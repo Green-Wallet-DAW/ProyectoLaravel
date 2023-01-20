@@ -14,6 +14,7 @@
 
 @extends('plantilla')
 
+
 @section('contenidoPagina')
 <div class="col">
   <div id="caja">
@@ -34,6 +35,7 @@
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus incidunt earum expedita pariatur saepe dolore tempore sed fugiat dignissimos modi suscipit quidem, eaque aut. Ipsa necessitatibus quam corporis quo inventore!
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat recusandae nostrum corrupti nemo. Consequatur minima officiis, doloremque nulla, placeat sint earum tempore vero neque tenetur provident quaerat et! Quam, aspernatur!
       </div>
+
   </div>
 </div>
 @endsection()
