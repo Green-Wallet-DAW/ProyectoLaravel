@@ -83,9 +83,10 @@ a{
 
   .aside{
     /* Rectangle 1 */
-    position: relative;
+    position: static;
     width: 20vw;
-    min-height: 73vh;
+    min-height: 100vh;
+    height: 100%;
   
     background: rgba(2, 117, 0, 0.91);
   }

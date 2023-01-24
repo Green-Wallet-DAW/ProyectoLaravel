@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\serviceListController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,8 +20,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::view('/prueba','prueba');
 Route::view('/users','users');
 Route::view('/serviceList', 'serviceList');
+Route::get('/serviceLists', [serviceListController::class, 'showservices'])->name('serviceList');
