@@ -25,4 +25,6 @@ Auth::routes();
 Route::view('/prueba','prueba');
 Route::view('/users','users');
 Route::view('/serviceList', 'serviceList');
-Route::get('/serviceLists', [serviceListController::class, 'showservices'])->name('serviceList');
+Route::get('/serviceList', [serviceListController::class, 'showservices'])->name('serviceList');
+Route::get('/editServices{id}', [serviceListController::class, 'editServices'])->name('editServices');
+Route::get('/updateService{id}', [serviceListController::class, 'updateService'])->name('updateService');

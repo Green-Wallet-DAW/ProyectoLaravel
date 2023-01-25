@@ -9,6 +9,9 @@
     margin-top: 2%;
     cursor: default;
 }
+.caja>span{
+    margin-left: 10%;
+}
 #flechaCaja{
     position: relative;
     left: 20px;
@@ -25,7 +28,7 @@
 }
 #precioEnTokens{
     position: relative;
-    top: 20px;
+    top: 15px;
     left: 30px;
     padding: 10px;
     font-size: 30px;
@@ -42,4 +45,17 @@
 #boton{
     background-color: #F8F8F8;
     border: none;
+}
+
+.boton-Editar{
+    /* margin-top: 2%; */
+    /* margin-left: 50%; */
+    margin-left: 42%;
+    /* position: fixed; */
+}
+.boton-Accion{
+    /* margin-top: 2%; */
+    /* margin-left: 50%; */
+    margin-left: 50%;
+    /* position: fixed; */
 }
