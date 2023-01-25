@@ -7,10 +7,10 @@ use App\Models\Usuario;
 
 class UsuarioController extends Controller
 {
-    public function index(Request $request)
+    public function indexUsers(Request $request)
     {
-        $task = Usuario::all();
-        return $task;
+        $usuarios = Usuario::all();
+        return view('usuarios',['usuarios'=>$usuarios]);
         //Esta función nos devolvera todas las tareas que tenemos en nuestra BD
     }
 
