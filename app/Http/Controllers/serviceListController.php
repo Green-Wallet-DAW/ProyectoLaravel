@@ -42,4 +42,8 @@ class serviceListController extends Controller{
 
         return redirect()->route('serviceList');
 }
+    public function deleteService(Request $deleteRequest){
+
+        
+    }
 }
