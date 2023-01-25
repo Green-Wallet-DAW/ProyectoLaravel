@@ -19,11 +19,14 @@
 
 
 
+  <a href="/createService" class="btn btn-success boton-Agregar" title="Add a Service">Add a new Service</a>  
+
+  
 @forelse ($servicios as $servicio)
 
     
-<form action="" method="GET">
 
+<form action="" method="GET">
     <div id="caja">
       <div class="row">
         <div class="col">
@@ -32,8 +35,9 @@
                 <path id="path1" d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
             </svg>
             <span id="tituloCaja">{{$servicio->name}}</span><span id="precioEnTokens">{{$servicio->precio}}</span> </div>
-            <div class="col"><a href="{{ route('editServices', $servicio->id)}}" class="btn btn-warning boton-Editar" title="Edit service {{$servicio->id}}">Edit</a>  
-              <a class="btn btn-danger" title="Delete service {{$servicio->id}}">Delete</a></div>
+            <div class="col">
+              <a href="{{ route('editServices', $servicio->id)}}" class="btn btn-warning boton-Editar" title="Edit service {{$servicio->id}}">Edit</a>  
+              <a href="{{ route('deleteService', $servicio->id)}}" class="btn btn-danger" title="Delete service {{$servicio->id}}">Delete</a></div>
           </button>
         </div>
       <div class="row">

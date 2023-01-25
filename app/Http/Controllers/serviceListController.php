@@ -42,8 +42,33 @@ class serviceListController extends Controller{
 
         return redirect()->route('serviceList');
 }
-    public function deleteService(Request $deleteRequest){
+    public function deleteService($id){
 
-        
+        $deleteItem = Servicio::findOrFail($id);
+        $deleteItem->delete();
+
+        return back();
+
+    }
+
+
+    public function addService(Request $request){
+
+        $validation = $request->validate([
+            'name' => 'required|min:1',
+            'description' => 'required',
+            'link' => 'required',
+            'precio' => 'required|min:1|max:999',
+        ]);
+        $newItem = new Servicio();
+        $newItem->name = $validation['name'];
+        $newItem->description = $validation['description'];
+        $newItem->link = $validation['link'];
+        $newItem->precio = $validation['precio'];
+
+        $newItem->save();
+        // $validation->save();
+
+        return redirect()->route('serviceList');
     }
 }
