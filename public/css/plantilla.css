@@ -19,7 +19,7 @@ html, body{
     height: 100%;
     margin: 0px;
     padding: 0px;
-    overflow-x: hidden; 
+    overflow-x: hidden;
 }
 
 .navbar{
@@ -86,15 +86,15 @@ a{
     position: relative;
     width: 20vw;
     min-height: 73vh;
-  
+    height:100%;
     background: rgba(2, 117, 0, 0.91);
   }
   .subelement{
-  
+
     background: rgba(4, 79, 2, 0.91);
-  
+
   }
-  
+
   .link-light{
     padding-left: 30px;
   }
@@ -125,5 +125,5 @@ a{
     justify-content: space-evenly;
     align-items: center;
     flex-direction: row;
-    
+
 }
