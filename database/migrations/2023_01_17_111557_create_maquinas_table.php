@@ -22,13 +22,9 @@ return new class extends Migration
             $table->string('fabricante',25);
             $table->integer('id_instalation')->unsigned();
             $table->primary('modelo');
-<<<<<<< HEAD
-            $table->foreign('id_instalation')->references('id')->on('instalaciones')->onDelete('cascade')->onUpdate('cascade');
-=======
             $table->foreign('id_instalation')->references('id')->on('instalaciones')
             ->onDelete('cascade')
             ->onUpdate('cascade');
->>>>>>> refs/remotes/origin/master
             $table->timestamps();
         });
     }
