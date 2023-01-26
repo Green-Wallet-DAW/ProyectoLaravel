@@ -14,6 +14,7 @@
 
 @extends('plantilla')
 
+
 @section('contenidoPagina')
 <div class="col">
   <div id="caja">
@@ -31,8 +32,10 @@
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae nulla placeat, accusantium aperiam minus dicta expedita maiores rerum quaerat quos asperiores fugiat voluptatibus culpa, at quis. Cupiditate optio neque similique.
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas accusantium, quam totam ea fugiat vero inventore beatae dolorum voluptatibus praesentium perferendis atque maxime. Soluta, neque! Vitae laboriosam esse eligendi enim.
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, dolor repellat quo hic dolorum, eligendi impedit vel, illo dignissimos fugit exercitationem doloribus mollitia ipsam qui. Dignissimos culpa incidunt voluptatem aspernatur?
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus incidunt earum expedita pariatur saepe dolore tempore sed fugiat dignissimos modi suscipit quidem, eaque aut. Ipsa necessitatibus quam corporis quo inventore!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat recusandae nostrum corrupti nemo. Consequatur minima officiis, doloremque nulla, placeat sint earum tempore vero neque tenetur provident quaerat et! Quam, aspernatur!
+      </div>
 
-    </div>
   </div>
 </div>
 @endsection()
