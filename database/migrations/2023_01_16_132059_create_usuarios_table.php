@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('usuarios', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name',20);
+            $table->string('name',40);
             $table->string('password',255);
             $table->string('email',100);
-            $table->integer('token')->default(0);
+            $table->float('token', 8, 2)->default(0);
             $table->enum('rol',['user','admin'])->default('user');
-            $table->integer('cumn')->nullable();
+            $table->string('cumn', 50)->nullable();
             $table->integer('phone_number');
             $table->boolean('newsletter')->default(false);
             $table->integer('number_comunity')->default(0);

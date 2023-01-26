@@ -49,7 +49,7 @@
     <div class="container-fluid d-xl-none">
       <div id="cabz"><a href="#">Green Wallets</a></div>
     </div>
-    <div class="row">
+    <div class="row mt-5">
       <div class="col-3">
         <div class="aside flex-shrink-0" >
           <a href="/" class="d-flex align-items-center justify-content-center py-2 mb-3 text-decoration-none border-bottom">
@@ -62,7 +62,7 @@
               </button>
               <div class="subelement collapse show" id="home-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                  <li><a href="#" class="link-light rounded fs-4">Users</a></li>
+                  <li><a href="{{route('usuarios')}}" class="link-light rounded fs-4">Users</a></li>
                   <li><a href="#" class="link-light rounded fs-4">Communities</a></li>
                   <li><a href="#" class="link-light rounded fs-4">Facilities</a></li>
                   <li><a href="#" class="link-light rounded fs-4">Machines</a></li>
@@ -75,13 +75,12 @@
               </button>
               <div class="subelement collapse" id="orders-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                  <li><a href="#" class="link-light rounded fs-4">User Services</a></li>
+                  <li><a href="/serviceList" class="link-light rounded fs-4">User Services</a></li>
                   <li><a href="#" class="link-light rounded fs-4">Community Services</a></li>
                 </ul>
               </div>
             </li>
             <li class="border-top my-3 "></li>
-        
           </ul>
         </div>
       </div>
@@ -90,11 +89,11 @@
       </div>
     </div>
     {{-- <h1>USUARIOS</h1> --}}
-    <div class="footer bg-dark-subtle">
+    {{-- <div class="footer bg-dark-subtle">
         <p class="copyright">Copyright © 2022 Green Wallets - All Rights Reserved.</p>
         <a class="privacy" href="https://wallets.green/privacy-policy">PRIVACY POLICY</a>
         <p>Powered by<a class="linkFooter" href="https://www.godaddy.com/websites/website-builder?isc=pwugc&utm_source=wsb&utm_medium=applications&utm_campaign=en-ie_corp_applications_base"> GoDaddy</a></p>
-    </div>
+    </div> --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 </body>

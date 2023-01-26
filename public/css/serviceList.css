@@ -1,4 +1,5 @@
 #caja{
+
     background-color: #F8F8F8;
     width: 65vw;
     mix-blend-mode: darken;
@@ -6,7 +7,13 @@
     border-radius: 30px;
     padding-bottom: 25px;
     padding-right: 30px;
+    margin-top: 2%;
     cursor: default;
+    margin-top: 3%;
+    margin-left: 5%;
+}
+.caja>span{
+    margin-left: 10%;
 }
 #flechaCaja{
     position: relative;
@@ -22,6 +29,16 @@
     font-weight: 700;
     color: black;
 }
+#precioEnTokens{
+    position: relative;
+    top: 15px;
+    left: 30px;
+    padding: 10px;
+    font-size: 30px;
+    font-weight: 700;
+    margin-top: 10%;
+    color: black;
+}
 #descripcionCaja, #contenido{
     margin-left: 30px;
     margin-top: 30px;
@@ -31,4 +48,18 @@
 #boton{
     background-color: #F8F8F8;
     border: none;
+}
+
+.boton-Editar{
+    /* margin-top: 2%; */
+    /* margin-left: 50%; */
+    margin-left: 42%;
+    /* position: fixed; */
+}
+.boton-Agregar{
+    height: 10%;
+    width: 10%;
+}
+.cajasFormulario{
+    margin-top: 6%;
 }
