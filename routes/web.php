@@ -1,6 +1,10 @@
 <?php
 
+<<<<<<< HEAD
 use App\Http\Controllers\UsuarioController;
+=======
+use App\Http\Controllers\serviceListController;
+>>>>>>> refs/remotes/origin/master
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +28,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::view('/prueba','prueba');
 Route::view('/serviceList', 'serviceList');
+<<<<<<< HEAD
 
 Route::view('/plantilla', 'plantilla');
 Route::view('/plantillaUser', 'plantillaUser');
@@ -35,3 +40,6 @@ Route::patch('/updateUser/{id}', [UsuarioController::class, 'updateUser'])->name
 Route::delete('/deleteUser/{id}', [UsuarioController::class,'deleteUser'])->name('deleteUser');
 Route::view('/createUser', 'createUser');
 Route::patch('/addUser', [UsuarioController::class, 'addUser'])->name('addUser');
+=======
+Route::view('/facilities', 'facilities');
+>>>>>>> refs/remotes/origin/master

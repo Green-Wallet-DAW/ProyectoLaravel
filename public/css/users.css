@@ -4,6 +4,7 @@
 th{
     font-size: 25px;
 }
+<<<<<<< HEAD
 #ppp{
     display: inline-block;
 }
@@ -51,4 +52,13 @@ th{
 .checkUser{
     height: 20px;
     width: 20px;
+=======
+.input-group, #myInput{
+    width: 20%;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+.input-group-append{
+    border-color: transparent;
+>>>>>>> refs/remotes/origin/master
 }

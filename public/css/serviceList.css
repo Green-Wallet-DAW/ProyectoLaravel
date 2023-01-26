@@ -1,4 +1,5 @@
 #caja{
+
     background-color: #F8F8F8;
     width: 65vw;
     mix-blend-mode: darken;
@@ -7,6 +8,8 @@
     padding-bottom: 25px;
     padding-right: 30px;
     cursor: default;
+    margin-top: 3%;
+    margin-left: 5%;
 }
 #flechaCaja{
     position: relative;
