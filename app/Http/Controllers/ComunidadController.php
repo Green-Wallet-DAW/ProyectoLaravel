@@ -43,13 +43,13 @@ class ComunidadController extends Controller
         $task->master = $request->master;
 
         $task->save();
-       
+
         return $task;
         //Esta función actualizará la tarea que hayamos seleccionado
-       
+
     }
 
-     public function destroy(Request $request)
+    public function destroy(Request $request)
     {
         $task = Comunidad::destroy($request->id);  //task tienen el id que se ha borrado
 
@@ -57,5 +57,69 @@ class ComunidadController extends Controller
             "message" => "Tarea con id =" . $task . " ha sido borrado con éxito"
         ], 201);
         //Esta función obtendra el id de la tarea que hayamos seleccionado y la borrará de nuestra BD
-}
+    }
+
+    public function indexAdmin()
+    {
+
+        $comunidades = Comunidad::all();
+
+        return view('comunidadIndex', ['comunidades' => $comunidades]);  //view('index',compact('datos');
+    }
+
+    public function almacenarAdmin(Request $request)
+    {
+
+        //LA MEJOR FORMA DE INSERTAR DATOS ya que se hace la comprobación de los campos obligatorios para que no hagan inyeccion y luego inserta.
+        $comunidades = request()->validate(
+            [
+                'name' => 'required|max:25',
+                'token' => 'required',
+                'description' => 'required',
+                'master' => 'required'
+            ]
+        );
+
+        Comunidad::create($comunidades);
+
+        return redirect()->route('comunidadIndex');
+        //return back(); //te redirecciona a la misma página
+    }
+    public function editarAdmin($id)
+    {
+
+        $comunidad = Comunidad::findOrFail($id);  //como no está el dato si nos equivocamos de id nos muestra la página de error 404, podemos crear uno personalizado en la view->errors->404.blade.php , creamos carpeta "errors"
+        return view('comunidadEditar', compact('comunidad'));
+    }
+
+
+    public function actualizarAdmin(Request $request)
+    {
+        $validacion = $request->validate([
+            'name' => 'required|max:25',
+            'token' => 'required',
+            'description' => 'required',
+            'master' => 'required'
+        ]);
+
+        Comunidad::whereId($request->id)->update($validacion); //otra opción
+
+        /*  //otra forma de almacenar
+         $datos = Dato::find($id);   //podremos utilizar findOrFail($id) para que en caso de no encontrar no falle
+         $datos->nombre = $validacion['nombre'];
+         $datos->descripcion = $validacion['descripcion'];
+         $datos->update();*/
+
+        return redirect()->route('comunidadIndex');
+    }
+
+    // formar de recuperar datos de un formulario. $request->get('nombre'); $request->nombre;  $request->input('nombre');
+
+    public function borrarAdmin($id)
+    {
+
+        $comunidad = Comunidad::findOrFail($id);
+        $comunidad->delete();
+        return redirect()->route('comunidadIndex');
+    }
 }

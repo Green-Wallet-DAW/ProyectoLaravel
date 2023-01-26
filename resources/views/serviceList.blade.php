@@ -50,19 +50,7 @@
         
     </div>
       </div>
-      
 
-      </div>
-
-
-  
-
-
-</form>
-@empty
-<h2>No hay nada</h2>
-
-@endforelse
-
-
+  </div>
+</div>
 @endsection()

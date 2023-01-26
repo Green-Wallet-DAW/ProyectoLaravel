@@ -91,10 +91,12 @@ a{
     /* Rectangle 1 */
     position: fixed;
     width: 20vw;
-    min-height: 73vh;
     height: 100%;
-    margin-top: 3.7%;
-    
+<<<<<<< HEAD
+    min-height: 92vh;
+=======
+    min-height: 73vh;
+>>>>>>> refs/remotes/origin/master
   
     background: rgba(2, 117, 0, 0.91);
   }
@@ -144,4 +146,8 @@ a{
 }
 .btn-success{
     background-color: #049201;
+<<<<<<< HEAD
+    border-radius: 10px;
+=======
+>>>>>>> refs/remotes/origin/master
 }

@@ -1,8 +1,9 @@
 <?php
 
+use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\serviceListController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ComunidadController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,7 +24,6 @@ Auth::routes();
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::view('/prueba','prueba');
-Route::view('/users','users');
 Route::view('/serviceList', 'serviceList');
 Route::get('/serviceList', [serviceListController::class, 'showservices'])->name('serviceList');
 
@@ -34,3 +34,27 @@ Route::patch('/addService', [serviceListController:: class, 'addService'])->name
 Route::get('/editServices{id}', [serviceListController::class, 'editServices'])->name('editServices');
 Route::get('/updateService{id}', [serviceListController::class, 'updateService'])->name('updateService');
 Route::get('/deleteServices{id}', [serviceListController::class, 'deleteService'])->name('deleteService');
+
+
+Route::view('/plantilla', 'plantilla');
+Route::view('/plantillaUser', 'plantillaUser');
+
+Route::get('/usuarios', [UsuarioController::class, 'indexUsers'])->name('usuarios');
+Route::get('/showUser/{id}', [UsuarioController::class, 'showUser'])->name('showUser');
+Route::get('/editUser/{id}', [UsuarioController::class, 'editUser'])->name('editUser');
+Route::patch('/updateUser/{id}', [UsuarioController::class, 'updateUser'])->name('updateUser');
+Route::delete('/deleteUser/{id}', [UsuarioController::class,'deleteUser'])->name('deleteUser');
+Route::view('/createUser', 'createUser');
+Route::patch('/addUser', [UsuarioController::class, 'addUser'])->name('addUser');
+
+Route::view('/facilities', 'facilities');
+
+
+
+Route::get('/comunidadIndex', [ComunidadController::class, 'indexAdmin'])->name('comunidadIndex');
+Route::post('/comunidadAlmacenar', [ComunidadController::class, 'almacenarAdmin'])->name('comunidadAlmacenar');
+Route::get('/comunidadEditar/{id}', [ComunidadController::class,'editarAdmin'])->name('comunidadEditar');
+Route::patch('/comunidadActualizar/{id}', [ComunidadController::class,'actualizarAdmin'])->name('comunidadActualizar');
+Route::delete('/comunidadBorrar/{id}', [ComunidadController::class,'borrarAdmin'])->name('comunidadBorrar');
+Route::view('/comunidadInsertar','comunidadInsertar')->name('comunidadInsertar');
+
