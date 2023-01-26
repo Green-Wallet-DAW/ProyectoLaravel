@@ -60,4 +60,7 @@ class ServicioController extends Controller
         ], 201);
         //Esta función obtendra el id de la tarea que hayamos seleccionado y la borrará de nuestra BD
 }
+
+//  Esta function se encarga de mostrar solo el nombre del servicio, 
+
 }

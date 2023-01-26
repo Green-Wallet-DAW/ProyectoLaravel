@@ -20,9 +20,17 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::view('/prueba','prueba');
 Route::view('/users','users');
 Route::view('/serviceList', 'serviceList');
-Route::view('/facilities', 'facilities');
+Route::get('/serviceList', [serviceListController::class, 'showservices'])->name('serviceList');
+
+Route::view('/createService', 'createService');
+// Route::post('/createService', [serviceListController::class, 'addService'])->name('createService');
+Route::patch('/addService', [serviceListController:: class, 'addService'])->name('addService');
+
+Route::get('/editServices{id}', [serviceListController::class, 'editServices'])->name('editServices');
+Route::get('/updateService{id}', [serviceListController::class, 'updateService'])->name('updateService');
+Route::get('/deleteServices{id}', [serviceListController::class, 'deleteService'])->name('deleteService');

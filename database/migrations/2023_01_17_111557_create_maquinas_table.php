@@ -23,6 +23,7 @@ return new class extends Migration
             $table->integer('id_instalation')->unsigned();
             $table->primary('modelo');
             $table->foreign('id_instalation')->references('id')->on('instalaciones');
+            $table->timestamps();
         });
     }
 

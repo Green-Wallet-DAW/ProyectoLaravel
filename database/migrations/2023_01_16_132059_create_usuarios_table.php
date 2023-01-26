@@ -22,9 +22,10 @@ return new class extends Migration
             $table->enum('rol',['user','admin'])->default('user');
             $table->integer('cumn')->nullable();
             $table->integer('phone_number');
-            $table->enum('newsletter',['SI','NO'])->default('NO');
+            $table->boolean('newsletter')->default(false);
             $table->integer('number_comunity')->default(0);
             $table->unique(array('email','phone_number'));
+            $table->timestamps();
         });
     }
 
