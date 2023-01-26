@@ -18,12 +18,11 @@ return new class extends Migration
             $table->integer('id_user')->unsigned();
             $table->primary(array('id_comunity','id_user'));
             $table->foreign('id_comunity')->references('id')->on('comunidades')
-           
             ->onUpdate('cascade');
             $table->foreign('id_user')->references('id')->on('usuarios')
-            
             ->onUpdate('cascade');
-            $table->timestamps(0);
+            $table->timestamps();
+
         });
     }
 

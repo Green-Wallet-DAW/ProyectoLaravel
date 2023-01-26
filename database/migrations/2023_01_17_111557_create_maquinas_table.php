@@ -25,7 +25,7 @@ return new class extends Migration
             $table->foreign('id_instalation')->references('id')->on('instalaciones')
             ->onDelete('cascade')
             ->onUpdate('cascade');
-            $table->timestamps(0);
+            $table->timestamps();
         });
     }
 

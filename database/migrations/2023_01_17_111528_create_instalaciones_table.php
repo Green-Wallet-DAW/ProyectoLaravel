@@ -18,9 +18,8 @@ return new class extends Migration
             $table->integer('number_machine');
             $table->integer('id_user')->unsigned();
             $table->foreign('id_user')->references('id')->on('usuarios')
-           
             ->onUpdate('cascade');
-            $table->timestamps(0);
+            $table->timestamps();
         });
     }
 

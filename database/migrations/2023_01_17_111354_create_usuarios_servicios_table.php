@@ -23,7 +23,8 @@ return new class extends Migration
             $table->foreign('id_user')->references('id')->on('usuarios')
            
             ->onUpdate('cascade');
-            $table->timestamps(0);
+            $table->timestamps();
+
         });
     }
 
