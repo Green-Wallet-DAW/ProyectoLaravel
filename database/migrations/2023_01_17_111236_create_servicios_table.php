@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('link',100);
             $table->integer('tokens')->default(0);
             $table->integer('precio');
+            $table->timestamps(0);
         });
     }
 

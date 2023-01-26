@@ -17,7 +17,10 @@ return new class extends Migration
             $table->increments('id');
             $table->integer('number_machine');
             $table->integer('id_user')->unsigned();
-            $table->foreign('id_user')->references('id')->on('usuarios');
+            $table->foreign('id_user')->references('id')->on('usuarios')
+           
+            ->onUpdate('cascade');
+            $table->timestamps(0);
         });
     }
 

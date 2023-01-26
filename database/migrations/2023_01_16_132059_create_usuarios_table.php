@@ -25,6 +25,7 @@ return new class extends Migration
             $table->enum('newsletter',['SI','NO'])->default('NO');
             $table->integer('number_comunity')->default(0);
             $table->unique(array('email','phone_number'));
+            $table->timestamps(0);
         });
     }
 

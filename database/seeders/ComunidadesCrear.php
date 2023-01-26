@@ -21,7 +21,7 @@ class ComunidadesCrear extends Seeder
             DB::table('comunidades')->insert([
            'name' => Str::random(10),
            'description' => Str::random(100),
-           //'master' => mt_rand(1, 100)
+           'master' => mt_rand(1, 10),
            ]);
         }
     }

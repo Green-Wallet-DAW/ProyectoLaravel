@@ -7,6 +7,7 @@ use App\Http\Controllers\ComunidadController;
 use App\Http\Controllers\InstalacionController;
 use App\Http\Controllers\ServicioController;
 use App\Http\Controllers\MaquinaController;
+use App\Http\Controllers\BdController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -55,3 +56,7 @@ Route::put('/maquina/actualizar/{id}', [MaquinaController::class, 'update']);
 Route::post('/maquina/guardar', [MaquinaController::class, 'store']);
 Route::delete('/maquina/borrar/{id}', [MaquinaController::class, 'destroy']);
 Route::get('/maquina/buscar/{id}', [MaquinaController::class, 'show']);
+
+
+Route::get('/unirseacomunidad', [BdController::class, 'unirseacomunidad']);
+Route::get('/miscomunidades', [BdController::class, 'miscomunidades']);
