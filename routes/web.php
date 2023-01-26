@@ -4,6 +4,8 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\serviceListController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ComunidadController;
+use App\Http\Controllers\AuthController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,13 +32,26 @@ Route::view('/serviceList', 'serviceList');
 Route::view('/plantilla', 'plantilla');
 Route::view('/plantillaUser', 'plantillaUser');
 
-Route::get('/usuarios', [UsuarioController::class, 'indexUsers'])->name('usuarios');
-Route::get('/showUser/{id}', [UsuarioController::class, 'showUser'])->name('showUser');
-Route::get('/editUser/{id}', [UsuarioController::class, 'editUser'])->name('editUser');
-Route::patch('/updateUser/{id}', [UsuarioController::class, 'updateUser'])->name('updateUser');
-Route::delete('/deleteUser/{id}', [UsuarioController::class,'deleteUser'])->name('deleteUser');
-Route::view('/createUser', 'createUser');
-Route::patch('/addUser', [UsuarioController::class, 'addUser'])->name('addUser');
+
+
+
+Route::view('/login', 'login')->name('logear');
+Route::post('/login-usuario', [AuthController::class, 'login'])->name('login');
+Route::view('/registrar', 'registrar');
+Route::post('/registro', [AuthController::class, 'registro'])->name('registro');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::group(['middleware' => 'admin'], function(){
+    Route::get('/usuarios', [UsuarioController::class, 'indexUsers'])->name('usuarios');
+    Route::get('/showUser/{id}', [UsuarioController::class, 'showUser'])->name('showUser');
+    Route::get('/editUser/{id}', [UsuarioController::class, 'editUser'])->name('editUser');
+    Route::patch('/updateUser/{id}', [UsuarioController::class, 'updateUser'])->name('updateUser');
+    Route::delete('/deleteUser/{id}', [UsuarioController::class,'deleteUser'])->name('deleteUser');
+    Route::view('/createUser', 'createUser');
+    Route::patch('/addUser', [UsuarioController::class, 'addUser'])->name('addUser');
+});
+
+
 
 Route::view('/facilities', 'facilities');
 
