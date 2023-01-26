@@ -6,7 +6,7 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\serviceListController;
 >>>>>>> refs/remotes/origin/master
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ComunidadController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,4 +42,14 @@ Route::view('/createUser', 'createUser');
 Route::patch('/addUser', [UsuarioController::class, 'addUser'])->name('addUser');
 =======
 Route::view('/facilities', 'facilities');
+<<<<<<< HEAD
+>>>>>>> refs/remotes/origin/master
+=======
+
+Route::get('/comunidadIndex', [ComunidadController::class, 'indexAdmin'])->name('comunidadIndex');
+Route::post('/comunidadAlmacenar', [ComunidadController::class, 'almacenarAdmin'])->name('comunidadAlmacenar');
+Route::get('/comunidadEditar/{id}', [ComunidadController::class,'editarAdmin'])->name('comunidadEditar');
+Route::patch('/comunidadActualizar/{id}', [ComunidadController::class,'actualizarAdmin'])->name('comunidadActualizar');
+Route::delete('/comunidadBorrar/{id}', [ComunidadController::class,'borrarAdmin'])->name('comunidadBorrar');
+Route::view('/comunidadInsertar','comunidadInsertar')->name('comunidadInsertar');
 >>>>>>> refs/remotes/origin/master

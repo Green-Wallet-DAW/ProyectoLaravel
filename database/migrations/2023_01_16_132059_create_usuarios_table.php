@@ -26,6 +26,10 @@ return new class extends Migration
             $table->integer('number_comunity')->default(0);
             $table->unique(array('email','phone_number'));
             $table->timestamps();
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/master
         });
     }
 

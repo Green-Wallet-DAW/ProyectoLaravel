@@ -20,7 +20,13 @@ return new class extends Migration
             $table->string('link',100);
             $table->integer('tokens')->default(0);
             $table->integer('precio');
+<<<<<<< HEAD
             $table->timestamps();
+=======
+
+            $table->timestamps();
+
+>>>>>>> refs/remotes/origin/master
         });
     }
 

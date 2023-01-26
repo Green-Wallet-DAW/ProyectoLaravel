@@ -110,7 +110,13 @@
     <div id="main">
       <div class="container">
         <div class="input-group">
+<<<<<<< HEAD:resources/views/plantillaUser.blade.php
           <input class="form-control border-end-0 border" type="text" value="search" id="myInput" placeholder="Search by name">
+=======
+
+          <input class="form-control border-end-0 border" type="text" id="myInput" placeholder="Search by name">
+
+>>>>>>> refs/remotes/origin/master:resources/views/users.blade.php
           <span class="input-group-append bg-transparent">
               <button id="botonS" class="btn" type="button" disabled>
                 <i class="bi bi-search"></i>
