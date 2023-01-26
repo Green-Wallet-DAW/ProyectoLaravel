@@ -17,18 +17,12 @@ return new class extends Migration
             $table->integer('id_comunity')->unsigned();
             $table->integer('id_user')->unsigned();
             $table->primary(array('id_comunity','id_user'));
-<<<<<<< HEAD
-            $table->foreign('id_comunity')->references('id')->on('comunidades')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('id_user')->references('id')->on('usuarios')->onDelete('cascade')->onUpdate('cascade');
-            $table->timestamps();
-=======
             $table->foreign('id_comunity')->references('id')->on('comunidades')
-            ->onUpdate('cascade');
+            ->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('id_user')->references('id')->on('usuarios')
-            ->onUpdate('cascade');
+            ->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
 
->>>>>>> refs/remotes/origin/master
         });
     }
 

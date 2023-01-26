@@ -52,7 +52,7 @@
     <div class="row mt-5">
       <div class="col-3">
         <div class="aside flex-shrink-0" >
-          <a href="/" class="d-flex align-items-center justify-content-center py-2 mb-3 text-decoration-none border-bottom">
+          <a href="{{route('usuarios')}}" class="d-flex align-items-center justify-content-center py-2 mb-3 text-decoration-none border-bottom">
             <span class="fs-1 text-light  fw-semibold">DASHBOARD</span>
           </a>
           <ul class="list-unstyled ps-0">
