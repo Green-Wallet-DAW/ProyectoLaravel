@@ -19,6 +19,7 @@ return new class extends Migration
             $table->primary(array('id_comunity','id_user'));
             $table->foreign('id_comunity')->references('id')->on('comunidades');
             $table->foreign('id_user')->references('id')->on('usuarios');
+            $table->timestamps();
         });
     }
 

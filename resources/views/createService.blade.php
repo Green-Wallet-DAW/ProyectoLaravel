@@ -11,14 +11,11 @@
             </ul>
         </div>
     @endif
-        {{-- Se inicia el Formulario --}}
 
 <form method="POST" action="{{ route('addService') }}">
-    
         <div class="form-group"> 
-            {{-- Se usa PATCH para que se pueda enviar la información --}}
+
             @method('PATCH')
-            {{-- Se usa  --}}
               @csrf
               
               <label for="name">Name:</label>
@@ -39,6 +36,6 @@
           <button class="btn btn-success" type="submit" >Create</button>
       </form>
   </div>
+</div>
 
 @endsection
-

@@ -53,9 +53,10 @@
     margin-left: 42%;
     /* position: fixed; */
 }
-.boton-Accion{
-    /* margin-top: 2%; */
-    /* margin-left: 50%; */
-    margin-left: 50%;
-    /* position: fixed; */
+.boton-Agregar{
+    height: 10%;
+    width: 10%;
+}
+.cajasFormulario{
+    margin-top: 6%;
 }
