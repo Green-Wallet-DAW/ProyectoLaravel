@@ -19,27 +19,18 @@ class BdController extends Controller
     return $comunidades;
     }
     public function miscomunidades(){
-        $sql='SELECT comunidades.name, comunidades.token, comunidades.description, maquinas.carbono_ahorrado, maquinas.energy_produced FROM `comunidades`
-        inner join usuarios_comunidades on usuarios_comunidades.id_comunity=comunidades.id
+        $sql='SELECT comunidades.name, comunidades.token, comunidades.description, sum(maquinas.carbono_ahorrado)as carbono_ahorrado, sum(maquinas.energy_produced)as energy_produced FROM `usuarios_comunidades`
+        inner join comunidades on usuarios_comunidades.id_comunity=comunidades.id
         inner join usuarios on usuarios.id=usuarios_comunidades.id_user
         inner join instalaciones on instalaciones.id_user=usuarios.id
-        inner join maquinas on maquinas.id_instalation=instalaciones.id';
+        inner join maquinas on maquinas.id_instalation=instalaciones.id
+        group by comunidades.id';
         $comunidades=DB::select($sql);
      return $comunidades;
-//      SELECT comunidades.name, comunidades.token, comunidades.description, sum(maquinas.carbono_ahorrado)as carbono_ahorrado, sum(maquinas.energy_produced)as energy_produced FROM `usuarios_comunidades`
-// inner join comunidades on usuarios_comunidades.id_comunity=comunidades.id
-// inner join usuarios on usuarios.id=usuarios_comunidades.id_user
-// inner join instalaciones on instalaciones.id_user=usuarios.id
-// inner join maquinas on maquinas.id_instalation=instalaciones.id
-// group by comunidades.id;;
+
      }
 
-    //  SELECT comunidades.name, comunidades.token, comunidades.description, (select sum(maquinas.carbono_ahorrado)as carbono_ahorrado,sum(maquinas.energy_produced)as energy_produced from maquinas inner) FROM `usuarios_comunidades`
-    //  inner join comunidades on usuarios_comunidades.id_comunity=comunidades.id
-    //  inner join usuarios on usuarios.id=usuarios_comunidades.id_user
-    //  inner join instalaciones on instalaciones.id_user=usuarios.id
-    //  inner join maquinas on maquinas.id_instalation=instalaciones.id
-    //  group by comunidades.id;
+
 
 
 

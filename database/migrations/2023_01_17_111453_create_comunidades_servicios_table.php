@@ -20,6 +20,7 @@ return new class extends Migration
             $table->foreign('id_comunity')->references('id')->on('comunidades')
             ->onUpdate('cascade');
             $table->foreign('id_service')->references('id')->on('servicios')
+            ->onDelete('cascade')
             ->onUpdate('cascade');
             $table->timestamps();
         });
