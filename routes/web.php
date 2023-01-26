@@ -26,10 +26,6 @@ Route::view('/prueba','prueba');
 Route::view('/users','users');
 Route::view('/serviceList', 'serviceList');
 Route::get('/serviceList', [serviceListController::class, 'showservices'])->name('serviceList');
-<<<<<<< HEAD
-Route::get('/editServices/{id}', [serviceListController::class, 'editServices'])->name('editServices');
-Route::get('/updateService{id}', [serviceListController::class, 'updateService'])->name('updateService');
-=======
 
 Route::view('/createService', 'createService');
 // Route::post('/createService', [serviceListController::class, 'addService'])->name('createService');
@@ -38,4 +34,3 @@ Route::patch('/addService', [serviceListController:: class, 'addService'])->name
 Route::get('/editServices{id}', [serviceListController::class, 'editServices'])->name('editServices');
 Route::get('/updateService{id}', [serviceListController::class, 'updateService'])->name('updateService');
 Route::get('/deleteServices{id}', [serviceListController::class, 'deleteService'])->name('deleteService');
->>>>>>> 8a8b0d4051d6dab66e1dcc57b4483e9c78f44f22
