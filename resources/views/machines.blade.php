@@ -14,52 +14,54 @@
 
 @extends('plantilla')
 @section('contenidoPagina')
-    <div class="container row d-flex">
-        <div class="col">
-
-            <h3>Maquinas</h3>
+    <div class="container ">
+        <div class="row">
             <table>
+                <th>Name</th>
+                <th>Description</th>
                 @forelse ($machines as $item)
-                <p>Modelo: {{$item->Nombre}}</p>
+                <tr>
+
+                    <td>{{$item->Nombre}}</td>
+                    <td>{{$item->Descripcion}}</td>
+
+                    <td>
+                        <a href="{{ route('editMachines', $item->id)}}" class="btn btn-secondary" >Edit</a> <!--añadimos también EDITAR-->
+                    </td>
+                    <td>
+                        <form action="{{ route('deleteMachines', $item->id)}}" method="post"> <!--añadimos también BORRAR-->
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger" >Delete</button>
+                        </form>
+                    </td>
+                </tr>
                 @empty
                 <li>NO HAY NADA </li>
                 @endforelse
             </table>
         </div>
-        <div class="col">
-            @if ($errors->any())
-                <ul>
-                    @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            <br/>
-            @endif
 
-        </div>
-        <div class="row ">
+        <div class="row  d-flex align-items-md-center">
             <div class="col">
-
-                <div class="formulario">
-
-                </div>
                 <form method="post" action="{{ route('addMachines') }}">
-
+                    @method('PATCH')
                     @csrf
-                    <label for="Nombre">Nombre:</label>
-                    <input type="text" name="Nombre" value="{{old('Nombre')}}"/>
+                <div class="mb-3">
+                    <label for="Nombre" class="form-label">Nombre</label>
+                    <input type="text" name="Nombre"  class="form-control"  value="{{old('Nombre')}}"/>
                 {!! $errors->first('name', '<small>:message</small><br>' )!!}
-
-                    <label for="Descripcion">Descripcion:</label>
-                    <input type="text" name="Descripcion" value="{{old('Descripcion')}}"/>
+                </div>
+                <div class="mb-3">
+                    <label for="Descripcion">Descripcion</label>
+                    <input type="text" name="Descripcion"  class="form-control"  value="{{old('Descripcion')}}"/>
                 {!! $errors->first('descripcion', '<small>:message</small><br>' )!!}
+                </div>
 
-
-                    <button type="submit">Crear</button>
+                    <button type="submit" style="btn btn-primary">Add machine</button>
                 </form>
             </div>
         </div>
-
     </div>
 @endsection()
 </body>
