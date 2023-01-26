@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('token')->default(0);
             $table->string('description',255);
             $table->integer('master')->unsigned()->default(0);
+            $table->foreign('master')->references('id')->on('usuarios')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
