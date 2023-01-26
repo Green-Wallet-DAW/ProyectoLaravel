@@ -10,7 +10,7 @@
     <title>User Details</title>
 </head>
     {{-- <h1>USUARIOS</h1> --}}
-    @extends('plantilla');
+    @extends('plantillaUser');
     @section('contenidoPagina')
     <div class="col-8 mt-5 mb-3">
         <div class="userBox">
