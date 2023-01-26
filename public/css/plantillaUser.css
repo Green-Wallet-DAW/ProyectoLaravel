@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+
+@font-face{
+
+    font-family: 'League Spartan', sans-serif;
+
+}
+
+*{
+    font-family: 'League Spartan', sans-serif;
+    /* text-decoration: none; */
+    /* border: 1px solid black; */
+
+}
+
+html, body{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+
+.navbar{
+    padding: 0px;
+}
+#nav{
+    width: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-top: -3vh;
+    padding-top: 1vh;
+    background-color: white;
+    position: fixed;
+
+}
+.navbar-brand{
+    font-size: 40px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.lista{
+    font-size: 25px;
+}
+#home{
+    font-weight: 900;
+}
+.navbar-toggler{
+    border-color: #049201;
+    color: #049201;
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(4,146,1, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+#borde{
+    border-top: 1px solid black;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+#sec{
+    display: flex;
+}
+#cabz{
+    background-color: #049201;
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+a{
+    text-align: center;
+}
+#cabz>a{
+    font-size: 40px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+    color: white;
+}
+.container-fluid{
+    margin: 0px;
+    padding: 0px;
+}
+
+.nav-link{
+    font-size: 20px;
+}
+
+  .aside{
+    /* Rectangle 1 */
+    width: 20vw;
+    height: 100%;
+    min-height: 92vh;
+  
+    background: rgba(2, 117, 0, 0.91);
+  }
+  .subelement{
+  
+    background: rgba(4, 79, 2, 0.91);
+  
+  }
+  
+  .link-light{
+    padding-left: 30px;
+  }
+
+  .linkFooter{
+    color: #049201;
+}
+.footer>p{
+    color: #9F9F9F;
+
+}
+.copyright{
+    float: left;
+}
+
+.privacy{
+    color: #F8F8F8;
+    margin-right: 20%;
+    margin-top: 5%;
+}
+.footer{
+    /* margin-top:50vw; */
+    position:relative;
+    background-color: #252525;
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+}
+.btn-success{
+    background-color: #049201;
+    border-radius: 10px;
+}

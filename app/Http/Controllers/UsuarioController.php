@@ -7,61 +7,85 @@ use App\Models\Usuario;
 
 class UsuarioController extends Controller
 {
-    public function index(Request $request)
+    public function indexUsers(Request $request)
     {
-        $task = Usuario::all();
-        return $task;
+        $usuarios = Usuario::all();
+        return view('usuarios',['usuarios'=>$usuarios]);
         //Esta función nos devolvera todas las tareas que tenemos en nuestra BD
     }
 
-    public function store(Request $request)
+    public function addUser(Request $request)
     {
+
+        $request->validate([
+            'name'=>'required|max:40|min:5',
+            'password'=>'required|max:255|min:10',
+            'email'=>'required|max:100',
+            'phone_number'=>'required'
+        ]);
+
         $task = new Usuario();
         $task->name = $request->name;
         $task->password = password_hash($request->password,PASSWORD_DEFAULT);
         $task->email = $request->email;
         $task->cumn = $request->cumn;
         $task->phone_number = $request->phone_number;
-        $task->newsletter = $request->newsletter;
+        $task->rol = $request->role;
+        if($request->has('news')){
+            $task->newsletter = 1;
+        }else{
+            $task->newsletter = 0;
+        };
 
         $task->save();
-        //Esta función guardará las tareas que enviaremos
-        return response()->json([
-            "message" => "Tarea almacenada con éxito"
-        ], 201);
+        return redirect()->route('usuarios');
     }
-    public function show(Request $request)
+    public function showUser(Request $request)
     {
         $task = Usuario::findOrFail($request->id);
-        return $task;
+        return view('showUser',['task'=>$task]);
         //Esta función devolverá los datos de una tarea que hayamos seleccionado para cargar el formulario con sus datos
     }
 
-    public function update(Request $request)
+    public function editUser($id)
     {
+        $task = $task = Usuario::findOrFail($id);
+        return view('editUser',['task'=>$task]);
+    }
+
+    public function updateUser(Request $request)
+    {
+
+        $request->validate([
+            'name'=>'required|max:40|min:5',
+            'email'=>'required|max:100',
+            'phone_number'=>'required'
+        ]);
+
         $task = Usuario::findOrFail($request->id);
 
         $task->name = $request->name;
-        $task->password = password_hash($request->password,PASSWORD_DEFAULT);
         $task->email = $request->email;
         $task->cumn = $request->cumn;
         $task->phone_number = $request->phone_number;
-        $task->newsletter = $request->newsletter;
-
-        $task->save();
+        $task->rol = $request->role;
+        if($request->has('news')){
+            $task->newsletter = 1;
+        }else{
+            $task->newsletter = 0;
+        };
+        $task->update();
        
-        return $task;
+        return redirect()->route('usuarios');
         //Esta función actualizará la tarea que hayamos seleccionado
        
     }
 
-     public function destroy(Request $request)
+     public function deleteUser(Request $request)
     {
-        $task = Usuario::destroy($request->id);  //task tienen el id que se ha borrado
+        $task = Usuario::findOrFail($request->id);
+        $task->delete(); 
 
-        return response()->json([
-            "message" => "Tarea con id =" . $task . " ha sido borrado con éxito"
-        ], 201);
-        //Esta función obtendra el id de la tarea que hayamos seleccionado y la borrará de nuestra BD
+        return redirect()->route('usuarios');
 }
 }

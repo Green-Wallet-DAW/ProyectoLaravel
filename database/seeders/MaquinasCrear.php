@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Seeders;
-
+use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -26,7 +26,8 @@ class MaquinasCrear extends Seeder
            'components' => Str::random(10),
            'fabricante' => Str::random(10),
            'id_instalation' => mt_rand(1, 10),
-           
+           'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
            ]);
         }
     }
