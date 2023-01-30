@@ -12,8 +12,11 @@ use App\Models\Servicio;
 class BdController extends Controller
 {
     public function unirseacomunidad(){
-       $sql='SELECT comunidades.name, count(usuarios_comunidades.id_user) as members FROM `usuarios_comunidades`
+       $sql='SELECT comunidades.name, sum(maquinas.energy_produced)as energy_produced,count(usuarios_comunidades.id_user) as members FROM `usuarios_comunidades`
        inner join comunidades on usuarios_comunidades.id_comunity=comunidades.id
+       inner join usuarios on usuarios.id=usuarios_comunidades.id_user
+         inner join instalaciones on instalaciones.id_user=usuarios.id
+        inner join maquinas on maquinas.id_instalation=instalaciones.id
        group by comunidades.name;';
        $comunidades=DB::select($sql);
     return $comunidades;
