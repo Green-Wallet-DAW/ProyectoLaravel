@@ -48,6 +48,9 @@
           <div>{{$servicio->link}}</div>
         
     </div>
+    <div id="contenido{{$servicio->id}}" class="collapse form-group">
+      <div>{{$servicio->rol_usuario}}</div>
+    </div>
       </div>
       
 

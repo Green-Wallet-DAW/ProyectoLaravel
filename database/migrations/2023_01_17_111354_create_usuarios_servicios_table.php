@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('id_service')->unsigned();
             $table->integer('id_user')->unsigned();
             $table->primary(array('id_service','id_user'));
+            $table->enum('rol_service', array("COMMUNITY","USER"));
             $table->foreign('id_service')->references('id')->on('servicios');
             $table->foreign('id_user')->references('id')->on('usuarios');
             $table->timestamps();

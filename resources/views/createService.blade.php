@@ -52,8 +52,16 @@
             <label for="precio">Price</label>
             <input class="form-control" type="number"  name="precio" value=""/>
         </div>
+        <div class="form-group formularioCaja">
+            <label for="rol_service">Service</label>
+            <select class="form-control" type="number"  name="rol_service" value="">
+            <option value="COMMUNITY">COMMUNITY</option>
+            <option value="USER">USER</option>
+            </select>
+        </div>
           <button class="btn btn-success botonFormulario" type="submit" >Create</button>
       </form>
+
   </div>
 
 

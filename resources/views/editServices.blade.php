@@ -51,6 +51,13 @@
             <label for="precio">Price</label>
             <input class="form-control" type="number"  name="precio" value="{{ $item->precio }}"/>
         </div>
+        <div class="form-group formularioCaja">
+            <label for="rol_service">Service</label>
+            <select class="form-control" type="number"  name="rol_service" value="{{ $item->rol_service }}">
+            <option value="COMMUNITY">COMMUNITY</option>
+            <option value="USER">USER</option>
+            </select>
+        </div>
           <button class="btn btn-success botonFormulario" type="submit" >Update</button>
       </form>
 </div>
