@@ -19,24 +19,21 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="lista navbar-nav ms-auto">
-              <li class="nav-item me-xl-2">
-                <a id="home" class="nav-link active" aria-current="page" href="#">HOME</a>
-              </li>
-              <li class="nav-item mx-xl-2">
-                <a class="nav-link active" href="#">WHAT WE DO</a>
-              </li>
-              <li class="nav-item mx-xl-2">
-                <a class="nav-link active" href="#">FINANCIAL INSTITUTIONS</a>
-              </li>
-              <li class="nav-item mx-xl-2">
-                <a class="nav-link active" href="#">COMPANIES</a>
-              </li>
-              <li class="nav-item mx-xl-2">
-                <a class="nav-link active" href="#">INDIVIDUALS</a>
-              </li>
-              <li class="nav-item mx-xl-2">
-                <a class="nav-link active" href="#">PROFILE</a>
-              </li>
+                <li class="nav-item me-xl-2">
+                    <a id="home" class="nav-link active" aria-current="page" href="{{route ('usuarios')}}">HOME</a>
+                  </li>
+                  <li class="nav-item mx-xl-2">
+                    <a class="nav-link active" href="https://wallets.green/what-we-do" target="_blank">WHAT WE DO</a>
+                  </li>
+                  <li class="nav-item mx-xl-2">
+                    <a class="nav-link active" href="https://wallets.green/financial-institutions" target="_blank">FINANCIAL INSTITUTIONS</a>
+                  </li>
+                  <li class="nav-item mx-xl-2">
+                    <a class="nav-link active" href="https://wallets.green/companies" target="_blank">COMPANIES</a>
+                  </li>
+                  <li class="nav-item mx-xl-2">
+                    <a class="nav-link active" href="https://wallets.green/individuals" target="_blank">INDIVIDUALS</a>
+                  </li>
             </ul>
           </div>
         </div>
@@ -59,13 +56,12 @@
                         </div>
                         <div class="form-group col">
                             {{-- <label>Password</label> --}}
-                            <input type="password" name="password" class="form-control p_input" placeholder="Password*">
-                            {!! $errors->first('password', '<small>:message</small><br>' )!!} 
+                            <input id="password" type="password" name="password" class="form-control p_input" placeholder="Password*">
+                            {!! $errors->first('password', '<small>:message</small><br>' )!!}
                         </div>
                         <div class="form-group col">
                             {{-- <label>Confirm Password</label> --}}
-                            <input type="password" name="password_confirmation " class="form-control p_input" placeholder="Confirm password*">
-                            {!! $errors->first('password_confirmation ', '<small>:message</small><br>' )!!} 
+                            <input id="password_confirmation" type="password" name="password_confirmation" class="form-control p_input" placeholder="Confirm password*"> 
                         </div>
                     </div>
                     <div class="row">
@@ -87,7 +83,8 @@
                     </div>
                     <div class="form-group pb-0">
                         <input class="checkUser data" type="checkbox" name="terms" id="terms">
-                        <label for="terms"><a id="privacy" href="https://wallets.green/privacy-policy"><strong>I accept Terms and Conditions*</strong></a></label>
+                        <label for="terms"><a id="privacy" href="https://wallets.green/privacy-policy" target="_blank"><strong>I accept Terms and Conditions of Use*</strong></a></label>
+                        {!! $errors->first('terms', '<small>The Terms and Conditions of Use must be accepted</small><br>' )!!} 
                     </div>
                     <div class="row">
                         <div class="form-group col-9 pb-0">
@@ -107,7 +104,6 @@
             </div>
         </div>
     </div>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 </body>

@@ -23,11 +23,11 @@ use App\Http\Controllers\BdController;
 //     return $request->user();
 // });
 
-Route::get('/usuarios', [UsuarioController::class, 'index']);
-Route::put('/usuario/actualizar/{id}', [UsuarioController::class, 'update']);
-Route::post('/usuario/guardar', [UsuarioController::class, 'store']);
-Route::delete('/usuario/borrar/{id}', [UsuarioController::class, 'destroy']);
-Route::get('/usuario/buscar/{id}', [UsuarioController::class, 'show']);
+    // Route::get('/usuarios', [UsuarioController::class, 'index']);
+    Route::put('/user/profile/{id}', [UsuarioController::class, 'updateUser']);
+    // Route::post('/usuario/guardar', [UsuarioController::class, 'store']);
+    // Route::delete('/usuario/borrar/{id}', [UsuarioController::class, 'destroy']);
+    Route::get('/user/{id}', [UsuarioController::class, 'showUser']);
 
 
 Route::get('/comunidades', [ComunidadController::class, 'index']);

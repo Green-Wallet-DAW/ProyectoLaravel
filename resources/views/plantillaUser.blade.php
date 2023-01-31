@@ -18,22 +18,19 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="lista navbar-nav ms-auto">
               <li class="nav-item me-xl-2">
-                <a id="home" class="nav-link active" aria-current="page" href="#">HOME</a>
+                <a id="home" class="nav-link active" aria-current="page" href="{{route ('usuarios')}}">HOME</a>
               </li>
               <li class="nav-item mx-xl-2">
-                <a class="nav-link active" href="#">WHAT WE DO</a>
+                <a class="nav-link active" href="https://wallets.green/what-we-do">WHAT WE DO</a>
               </li>
               <li class="nav-item mx-xl-2">
-                <a class="nav-link active" href="#">FINANCIAL INSTITUTIONS</a>
+                <a class="nav-link active" href="https://wallets.green/financial-institutions">FINANCIAL INSTITUTIONS</a>
               </li>
               <li class="nav-item mx-xl-2">
-                <a class="nav-link active" href="#">COMPANIES</a>
+                <a class="nav-link active" href="https://wallets.green/companies">COMPANIES</a>
               </li>
               <li class="nav-item mx-xl-2">
-                <a class="nav-link active" href="#">INDIVIDUALS</a>
-              </li>
-              <li class="nav-item mx-xl-2">
-                <a class="nav-link active" href="#">PROFILE</a>
+                <a class="nav-link active" href="https://wallets.green/individuals">INDIVIDUALS</a>
               </li>
               <li class="nav-item ms-xl-2 d-flex align-items-center">
                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="bi bi-box-arrow-right flecha"></i></a>
