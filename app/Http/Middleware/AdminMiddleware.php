@@ -22,6 +22,10 @@ class AdminMiddleware
 
                 return $next($request);    //significa continua
             }
+            if (auth()->user()->rol == "USER") {   //si es role es admin
+
+                return $next($request);    //significa continua
+            }
         }
         return redirect()->route('login');  //en caso contrario va al login
     }
