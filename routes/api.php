@@ -7,6 +7,8 @@ use App\Http\Controllers\ComunidadController;
 use App\Http\Controllers\InstalacionController;
 use App\Http\Controllers\ServicioController;
 use App\Http\Controllers\MaquinaController;
+use App\Http\Controllers\serviceListController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -36,11 +38,8 @@ Route::delete('/comunidad/borrar/{id}', [ComunidadController::class, 'destroy'])
 Route::get('/comunidad/buscar/{id}', [ComunidadController::class, 'show']);
 
 
-Route::get('/servicios', [ServicioController::class, 'index']);
-Route::put('/servicio/actualizar/{id}', [ServicioController::class, 'update']);
-Route::post('/servicio/guardar', [ServicioController::class, 'store']);
-Route::delete('/servicio/borrar/{id}', [ServicioController::class, 'destroy']);
-Route::get('/servicio/buscar/{id}', [ServicioController::class, 'show']);
+Route::get('/serviceList', [serviceListController::class, 'showAllServices']);
+Route::get('/serviceList/search/{id}', [serviceListController::class, 'showServicesById']);
 
 
 Route::get('/instalaciones', [InstalacionController::class, 'index']);

@@ -8,6 +8,23 @@ use App\Models\Servicio;
 use Illuminate\Support\Facades\Auth;
 
 class serviceListController extends Controller{
+
+
+// Muestra los servicios usando toda la información 
+
+    public function showAllServices(){
+        $servicios = Servicio::all();
+        return $servicios;
+    }
+
+
+public function showUserServices(){
+
+}
+
+// Muestra los servicios usando toda la información 
+
+
     public function showServices(){
         
         $servicios = Servicio::all();
@@ -15,13 +32,18 @@ class serviceListController extends Controller{
         return view('serviceList', ['servicios'=> $servicios]);
     }
 
-    public function editServices($id){
+// Permite encontrar el servicio para su edición, usando la id para modificar uno en específico
 
-        $item = Servicio::findOrFail($id);
+
+    public function editServices(Request $request){
+
+        $item = Servicio::findOrFail($request->id);
         return view('editServices', compact('item'));
     }
 
-    public function updateService(Request $request, $id)
+    // Permite guardar los cambios de la edición
+
+    public function updateService(Request $request)
     {   
         
         $validation = $request->validate([
@@ -29,28 +51,33 @@ class serviceListController extends Controller{
             'description' => 'required',
             'link' => 'required',
             'precio' => 'required|min:1|max:999',
-            
+            'rol_service'=> 'required'
         ]);
         
 
-         $item = Servicio::findOrFail($id);
+         $item = Servicio::findOrFail($request->id);
          $item->name = $validation['name'];
          $item->description = $validation['description'];
          $item->link = $validation['link'];
          $item->precio = $validation['precio'];
+         $item->rol_service = $validation['rol_service'];
          $item->update();
 
         return redirect()->route('serviceList');
 }
-    public function deleteService($id){
 
-        $deleteItem = Servicio::findOrFail($id);
+    // permite eliminar un servicio usando la id para que no se elimine todo. Se usa request para que se genere un array. Esto es importante para la api
+
+    public function deleteService(Request $request){
+
+        $deleteItem = Servicio::findOrFail($request->id);
         $deleteItem->delete();
 
         return back();
 
     }
 
+// Permite añadir servicios
 
     public function addService(Request $request){
 
@@ -70,5 +97,12 @@ class serviceListController extends Controller{
         // $validation->save();
 
         return redirect()->route('serviceList');
+    }
+
+    // Muestra los servicios usando la id
+
+    public function showServicesById(Request $request){
+        $service = Servicio::findOrFail($request->id);
+        return $service;
     }
 }
