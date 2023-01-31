@@ -60,3 +60,5 @@ Route::get('/maquina/buscar/{id}', [MaquinaController::class, 'show']);
 
 Route::get('/unirseacomunidad', [BdController::class, 'unirseacomunidad']);
 Route::get('/miscomunidades', [BdController::class, 'miscomunidades']);
+Route::get('/misusuarios', [BdController::class, 'misusuarios']);
+Route::get('/globalcoms', [BdController::class, 'totalPro']);
