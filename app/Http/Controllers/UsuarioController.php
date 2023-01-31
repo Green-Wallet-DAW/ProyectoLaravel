@@ -18,10 +18,10 @@ class UsuarioController extends Controller
     {
 
         $request->validate([
-            'name'=>'required|max:40|min:5',
+            'name'=>'required|max:40|min:5|unique:usuarios,name',
             'password'=>'required|max:255|min:10',
-            'email'=>'required|max:100',
-            'phone_number'=>'required'
+            'email'=>'required|max:100|unique:usuarios,email',
+            'phone_number'=>'required|unique:usuarios,phone_number'
         ]);
 
         $task = new Usuario();

@@ -1,0 +1,48 @@
+.userBox{
+    margin: 0px;
+    padding: 0px;
+}
+.login{
+    margin-top: 20vh;
+    min-height: 20vh;
+    padding: 30px;
+    font-size: 20px;
+}
+body{
+    display: flex;
+    justify-content: center;
+}
+.form-group{
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.textB{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 6vh;
+    font-weight: 600;
+    font-size: 48px;
+}
+#enlace{
+    color: #049201;
+    text-decoration: none;
+}
+
+#data{
+    height: 20px;
+    width: 20px;
+    margin-right: 1vw;
+}
+
+#forgot{
+    background-color: white;
+    color: #049201;
+    border-color: #049201;
+    border-width: 3px;
+}
+
+#logB{
+    min-width: 220px;
+}

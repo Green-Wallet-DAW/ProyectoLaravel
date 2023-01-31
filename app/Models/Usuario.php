@@ -4,10 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Auth\Authenticatable as AuthenticableTrait;
 
-class Usuario extends Model
+class Usuario extends Model implements Authenticatable
 {
     use HasFactory;
+    use AuthenticableTrait;
     protected $table = 'usuarios';  //hacemos referencia a la tabla artículos
     protected $fillable = ['name', 'password', 'email', 'token', 'rol', 'cumn', 'phone_number', 'newsletter', 'number_comunities'];   
        //fillable para proteger los campos que desea que permitan la actualización a la hora de insertar en la base de datos por asignación masiva

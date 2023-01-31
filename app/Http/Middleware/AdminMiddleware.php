@@ -18,11 +18,11 @@ class AdminMiddleware
     public function handle(Request $request, Closure $next)
     {
         if (Auth::check()) {    //si está autentificado
-            if (auth()->user()->role == "admin") {   //si es role es admin
+            if (auth()->user()->rol == "admin") {   //si es role es admin
 
                 return $next($request);    //significa continua
             }
         }
-        return redirect()->route('logear');  //en caso contrario va al login
+        return redirect()->route('login');  //en caso contrario va al login
     }
 }

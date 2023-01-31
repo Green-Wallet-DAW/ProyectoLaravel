@@ -23,7 +23,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::view('/prueba','prueba');
 Route::view('/serviceList', 'serviceList');
@@ -35,10 +35,10 @@ Route::view('/plantillaUser', 'plantillaUser');
 
 
 
-Route::view('/login', 'login')->name('logear');
-Route::post('/login-usuario', [AuthController::class, 'login'])->name('login');
 Route::view('/registrar', 'registrar');
-Route::post('/registro', [AuthController::class, 'registro'])->name('registro');
+Route::patch('/registro', [AuthController::class, 'registro'])->name('registro');
+Route::view('/login', 'login')->name('login');
+Route::post('/login_usuario', [AuthController::class, 'login_usuario'])->name('login_usuario');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::group(['middleware' => 'admin'], function(){

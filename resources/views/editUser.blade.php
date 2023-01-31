@@ -30,7 +30,7 @@
             @csrf
             <div class="cajaUE fs-1">
                 <strong>Edit form for {{$task->name}}</strong>
-                <button type="submit" class="btn btn-success fs-4">Update</button>
+                <button type="submit" class="btn btn-success btn-block enter-btn fs-4">Update</button>
             </div>
             <div class="eUser"> 
                 

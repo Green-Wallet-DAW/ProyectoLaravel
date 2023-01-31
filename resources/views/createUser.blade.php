@@ -20,7 +20,7 @@
             @csrf
             <div class="cajaUE fs-1">
                 <strong >Creating a user</strong>
-                <button type="submit" class="btn btn-success fs-4">Create</button>
+                <button type="submit" class="btn btn-success btn-block enter-btn fs-4">Create</button>
             </div>
             
             <div class="eUser">

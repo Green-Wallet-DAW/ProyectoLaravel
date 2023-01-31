@@ -12,6 +12,9 @@
     <title>User List</title>
 </head>
     {{-- <h1>USUARIOS</h1> --}}
+  @guest
+    <a href="{{route('login')}}">Login</a>
+  @else
   @extends('plantillaUser');
   @section('contenidoPagina')
   <div class="col-8 mt-5 mb-3">
@@ -54,7 +57,7 @@
               @endforelse
             </tbody>
         </table>
-      
+        @endguest
   </div>
   @endsection
   <script>
