@@ -39,6 +39,8 @@ Route::get('/comunidad/buscar/{id}', [ComunidadController::class, 'show']);
 
 
 Route::get('/serviceList', [serviceListController::class, 'showAllServices']);
+Route::get('/serviceList/user', [serviceListController::class, 'showUserServices']);
+Route::get('/serviceList/community', [serviceListController::class, 'showCommunityServices']);
 Route::get('/serviceList/search/{id}', [serviceListController::class, 'showServicesById']);
 
 

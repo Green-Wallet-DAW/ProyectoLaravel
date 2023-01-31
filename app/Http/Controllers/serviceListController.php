@@ -18,8 +18,14 @@ class serviceListController extends Controller{
     }
 
 
-public function showUserServices(){
+public function showUserServices(Request $request){
+    $userService = Servicio::where($request->rol_service, 'USER')->get();
+    return $userService;
+}
 
+public function showCommunityServices(Request $request){
+    $communityServices = Servicio::where($request->rol_service, 'COMMUNITY')->get();
+    return $communityServices;
 }
 
 // Muestra los servicios usando toda la información 
