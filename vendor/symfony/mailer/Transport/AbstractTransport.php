@@ -73,10 +73,14 @@ abstract class AbstractTransport implements TransportInterface
 
             $event = new MessageEvent($message, $envelope, (string) $this);
             $this->dispatcher->dispatch($event);
+            if ($event->isRejected()) {
+                return null;
+            }
+
             $envelope = $event->getEnvelope();
             $message = $event->getMessage();
 
-            if ($message instanceof TemplatedEmail && ($message->getTextTemplate() || $message->getHtmlTemplate())) {
+            if ($message instanceof TemplatedEmail && !$message->isRendered()) {
                 throw new LogicException(sprintf('You must configure a "%s" when a "%s" instance has a text or HTML template set.', BodyRendererInterface::class, get_debug_type($message)));
             }
 
@@ -108,9 +112,7 @@ abstract class AbstractTransport implements TransportInterface
      */
     protected function stringifyAddresses(array $addresses): array
     {
-        return array_map(function (Address $a) {
-            return $a->toString();
-        }, $addresses);
+        return array_map(fn (Address $a) => $a->toString(), $addresses);
     }
 
     protected function getLogger(): LoggerInterface

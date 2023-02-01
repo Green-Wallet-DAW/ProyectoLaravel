@@ -112,7 +112,7 @@ class UsuarioController extends Controller
         $task->email = $request->email;
         $task->cumn = $request->cumn;
         $task->phone_number = $request->phone_number;
-        $task->rol = $request->role;
+        // $task->rol = $request->role;
         if($request->has('news')){
             $task->newsletter = 1;
         }else{

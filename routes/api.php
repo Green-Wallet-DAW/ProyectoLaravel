@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
@@ -23,17 +24,29 @@ use App\Http\Controllers\BdController;
 //     return $request->user();
 // });
 
-Route::view('/registrarU', 'registrar');
-Route::patch('/registroU', [AuthController::class, 'registro']);
-Route::view('/loginU', 'login');
-Route::post('/login_usuarioU', [AuthController::class, 'login_usuario']);
-Route::post('/logout', [AuthController::class, 'logout']);
+// Route::view('/registrarU', 'registrar');
+// Route::patch('/registroU', [AuthController::class, 'registro']);
+// Route::view('/loginU', 'login');
+// Route::post('/login_usuarioU', [AuthController::class, 'login_usuario']);
+// Route::post('/logout', [AuthController::class, 'logout']);
+
+
+Auth::routes();
+
+Route::post('loginU', [AuthController::class,'loginU']);
+Route::post('registerU', [AuthController::class,'registerU']);
+
+Route::group(['middleware' => 'auth:api'], function () {
+        Route::get('detailsU', [AuthController::class,'detailsU']);
+        Route::get('logoutU', [AuthController::class,'logoutU']);
+});
 
 Route::group(['middleware' => 'user'], function(){
     
 });
     Route::get('/profile/{id}', [UsuarioController::class, 'show']);
-    Route::patch('/profile/update/{id}', [UsuarioController::class, 'update']);
+    Route::put('/profile/update/{id}', [UsuarioController::class, 'update']);
+    // Route::get('/indexUser', [UsuarioController::class, 'index']);
 
 
 
