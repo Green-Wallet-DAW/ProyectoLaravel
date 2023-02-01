@@ -84,11 +84,7 @@
           </ul>
         </div>
       </div>
-<<<<<<< HEAD
-      <div id="contenido" class="col-9">
-=======
       <div class="col-9">
->>>>>>> refs/remotes/origin/master
         @yield('contenidoPagina')
       </div>
     </div>
