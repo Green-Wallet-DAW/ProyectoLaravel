@@ -37,7 +37,7 @@ Route::post('/comunidad/guardar', [ComunidadController::class, 'store']);
 Route::delete('/comunidad/borrar/{id}', [ComunidadController::class, 'destroy']);
 Route::get('/comunidad/buscar/{id}', [ComunidadController::class, 'show']);
 
-
+// Rutas de las API para que muestre los servicios
 Route::get('/serviceList', [serviceListController::class, 'showAllServices']);
 Route::get('/serviceList/user', [serviceListController::class, 'showUserServices']);
 Route::get('/serviceList/community', [serviceListController::class, 'showCommunityServices']);
