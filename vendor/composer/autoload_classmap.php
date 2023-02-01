@@ -15,22 +15,8 @@ return array(
     'App\\Http\\Controllers\\Auth\\ResetPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ResetPasswordController.php',
     'App\\Http\\Controllers\\Auth\\VerificationController' => $baseDir . '/app/Http/Controllers/Auth/VerificationController.php',
     'App\\Http\\Controllers\\BdController' => $baseDir . '/app/Http/Controllers/BdController.php',
-<<<<<<< HEAD
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
-=======
-    'App\\Http\\Controllers\\ComSerController' => $baseDir . '/app/Http/Controllers/ComSerController.php',
-    'App\\Http\\Controllers\\ComunidadController' => $baseDir . '/app/Http/Controllers/ComunidadController.php',
-    'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
-    'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
-    'App\\Http\\Controllers\\InstalacionController' => $baseDir . '/app/Http/Controllers/InstalacionController.php',
-    'App\\Http\\Controllers\\MaquinaController' => $baseDir . '/app/Http/Controllers/MaquinaController.php',
-    'App\\Http\\Controllers\\ServicioController' => $baseDir . '/app/Http/Controllers/ServicioController.php',
-    'App\\Http\\Controllers\\UsuComController' => $baseDir . '/app/Http/Controllers/UsuComController.php',
-    'App\\Http\\Controllers\\UsuSerController' => $baseDir . '/app/Http/Controllers/UsuSerController.php',
-    'App\\Http\\Controllers\\UsuarioController' => $baseDir . '/app/Http/Controllers/UsuarioController.php',
-    'App\\Http\\Controllers\\serviceListController' => $baseDir . '/app/Http/Controllers/serviceListController.php',
->>>>>>> refs/remotes/origin/master
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',
@@ -41,20 +27,8 @@ return array(
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\ValidateSignature' => $baseDir . '/app/Http/Middleware/ValidateSignature.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
-<<<<<<< HEAD
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Models\\Usuario' => $baseDir . '/app/Models/Usuario.php',
-=======
-    'App\\Models\\Comunidad' => $baseDir . '/app/Models/Comunidad.php',
-    'App\\Models\\ComunidadServicio' => $baseDir . '/app/Models/ComunidadServicio.php',
-    'App\\Models\\Instalacion' => $baseDir . '/app/Models/Instalacion.php',
-    'App\\Models\\Maquina' => $baseDir . '/app/Models/Maquina.php',
-    'App\\Models\\Servicio' => $baseDir . '/app/Models/Servicio.php',
-    'App\\Models\\User' => $baseDir . '/app/Models/User.php',
-    'App\\Models\\Usuario' => $baseDir . '/app/Models/Usuario.php',
-    'App\\Models\\UsuarioComunidad' => $baseDir . '/app/Models/UsuarioComunidad.php',
-    'App\\Models\\UsuarioServicio' => $baseDir . '/app/Models/UsuarioServicio.php',
->>>>>>> refs/remotes/origin/master
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
@@ -199,16 +173,6 @@ return array(
     'Carbon\\Translator' => $vendorDir . '/nesbot/carbon/src/Carbon/Translator.php',
     'Carbon\\TranslatorImmutable' => $vendorDir . '/nesbot/carbon/src/Carbon/TranslatorImmutable.php',
     'Carbon\\TranslatorStrongTypeInterface' => $vendorDir . '/nesbot/carbon/src/Carbon/TranslatorStrongTypeInterface.php',
-<<<<<<< HEAD
-=======
-    'Collective\\Html\\Componentable' => $vendorDir . '/laravelcollective/html/src/Componentable.php',
-    'Collective\\Html\\Eloquent\\FormAccessible' => $vendorDir . '/laravelcollective/html/src/Eloquent/FormAccessible.php',
-    'Collective\\Html\\FormBuilder' => $vendorDir . '/laravelcollective/html/src/FormBuilder.php',
-    'Collective\\Html\\FormFacade' => $vendorDir . '/laravelcollective/html/src/FormFacade.php',
-    'Collective\\Html\\HtmlBuilder' => $vendorDir . '/laravelcollective/html/src/HtmlBuilder.php',
-    'Collective\\Html\\HtmlFacade' => $vendorDir . '/laravelcollective/html/src/HtmlFacade.php',
-    'Collective\\Html\\HtmlServiceProvider' => $vendorDir . '/laravelcollective/html/src/HtmlServiceProvider.php',
->>>>>>> refs/remotes/origin/master
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Cron\\AbstractField' => $vendorDir . '/dragonmantank/cron-expression/src/Cron/AbstractField.php',
     'Cron\\CronExpression' => $vendorDir . '/dragonmantank/cron-expression/src/Cron/CronExpression.php',
@@ -221,16 +185,7 @@ return array(
     'Cron\\MinutesField' => $vendorDir . '/dragonmantank/cron-expression/src/Cron/MinutesField.php',
     'Cron\\MonthField' => $vendorDir . '/dragonmantank/cron-expression/src/Cron/MonthField.php',
     'Database\\Factories\\UserFactory' => $baseDir . '/database/factories/UserFactory.php',
-<<<<<<< HEAD
     'Database\\Seeders\\DatabaseSeeder' => $baseDir . '/database/seeders/DatabaseSeeder.php',
-=======
-    'Database\\Seeders\\ComunidadesCrear' => $baseDir . '/database/seeders/ComunidadesCrear.php',
-    'Database\\Seeders\\DatabaseSeeder' => $baseDir . '/database/seeders/DatabaseSeeder.php',
-    'Database\\Seeders\\InstalacionesCrear' => $baseDir . '/database/seeders/InstalacionesCrear.php',
-    'Database\\Seeders\\MaquinasCrear' => $baseDir . '/database/seeders/MaquinasCrear.php',
-    'Database\\Seeders\\ServiciosCrear' => $baseDir . '/database/seeders/ServiciosCrear.php',
-    'Database\\Seeders\\UsuariosCrear' => $baseDir . '/database/seeders/UsuariosCrear.php',
->>>>>>> refs/remotes/origin/master
     'DebugBar\\Bridge\\CacheCacheCollector' => $vendorDir . '/maximebf/debugbar/src/DebugBar/Bridge/CacheCacheCollector.php',
     'DebugBar\\Bridge\\DoctrineCollector' => $vendorDir . '/maximebf/debugbar/src/DebugBar/Bridge/DoctrineCollector.php',
     'DebugBar\\Bridge\\MonologCollector' => $vendorDir . '/maximebf/debugbar/src/DebugBar/Bridge/MonologCollector.php',
@@ -1151,13 +1106,6 @@ return array(
     'Hamcrest\\Type\\IsString' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Type/IsString.php',
     'Hamcrest\\Util' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
     'Hamcrest\\Xml\\HasXPath' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
-<<<<<<< HEAD
-=======
-    'Ibex\\CrudGenerator\\Commands\\CrudGenerator' => $vendorDir . '/ibex/crud-generator/src/Commands/CrudGenerator.php',
-    'Ibex\\CrudGenerator\\Commands\\GeneratorCommand' => $vendorDir . '/ibex/crud-generator/src/Commands/GeneratorCommand.php',
-    'Ibex\\CrudGenerator\\CrudServiceProvider' => $vendorDir . '/ibex/crud-generator/src/CrudServiceProvider.php',
-    'Ibex\\CrudGenerator\\ModelGenerator' => $vendorDir . '/ibex/crud-generator/src/ModelGenerator.php',
->>>>>>> refs/remotes/origin/master
     'Illuminate\\Auth\\Access\\AuthorizationException' => $vendorDir . '/laravel/framework/src/Illuminate/Auth/Access/AuthorizationException.php',
     'Illuminate\\Auth\\Access\\Events\\GateEvaluated' => $vendorDir . '/laravel/framework/src/Illuminate/Auth/Access/Events/GateEvaluated.php',
     'Illuminate\\Auth\\Access\\Gate' => $vendorDir . '/laravel/framework/src/Illuminate/Auth/Access/Gate.php',

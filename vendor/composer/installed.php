@@ -3,11 +3,7 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-<<<<<<< HEAD
         'reference' => 'dccda09a20218d358d8f78ed46b259cd0547cc2e',
-=======
-        'reference' => '7142ac6f061b504e0a4eeecddd797905e7516fec',
->>>>>>> refs/remotes/origin/master
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -170,18 +166,6 @@
             'aliases' => array(),
             'dev_requirement' => true,
         ),
-<<<<<<< HEAD
-=======
-        'ibex/crud-generator' => array(
-            'pretty_version' => 'v1.3.3',
-            'version' => '1.3.3.0',
-            'reference' => '5736a2c53c5534cceb03d97ce9613aacb97c810c',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../ibex/crud-generator',
-            'aliases' => array(),
-            'dev_requirement' => true,
-        ),
->>>>>>> refs/remotes/origin/master
         'illuminate/auth' => array(
             'dev_requirement' => false,
             'replaced' => array(
@@ -392,11 +376,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-<<<<<<< HEAD
             'reference' => 'dccda09a20218d358d8f78ed46b259cd0547cc2e',
-=======
-            'reference' => '7142ac6f061b504e0a4eeecddd797905e7516fec',
->>>>>>> refs/remotes/origin/master
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -456,18 +436,6 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
-<<<<<<< HEAD
-=======
-        'laravelcollective/html' => array(
-            'pretty_version' => 'v6.3.0',
-            'version' => '6.3.0.0',
-            'reference' => '78c3cb516ac9e6d3d76cad9191f81d217302dea6',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../laravelcollective/html',
-            'aliases' => array(),
-            'dev_requirement' => true,
-        ),
->>>>>>> refs/remotes/origin/master
         'league/commonmark' => array(
             'pretty_version' => '2.3.7',
             'version' => '2.3.7.0',
