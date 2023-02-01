@@ -38,15 +38,19 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'usuarios',
         ],
+
+        'api' => [   /*añadimos linea api*/
+            'driver' => 'passport', 
+            'provider' => 'usuarios',  
+            'hash' => true,
+    
+        ],
+
     ], 
 
     
-    'api' => [   /*añadimos linea api*/
-        'driver' => 'passport', 
-        'provider' => 'usuarios',  
-    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -66,14 +70,9 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'usuarios' => [
             'driver' => 'eloquent',
             'model' => App\Models\Usuario::class,
-            'table' => 'usuarios',
-        ],
-
-        'usuarios' => [
-            'driver' => 'passport',
             'table' => 'usuarios',
         ],
 

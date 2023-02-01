@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
@@ -9,6 +8,9 @@ use App\Http\Controllers\InstalacionController;
 use App\Http\Controllers\ServicioController;
 use App\Http\Controllers\MaquinaController;
 use App\Http\Controllers\BdController;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\AuthController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -31,15 +33,14 @@ use App\Http\Controllers\BdController;
 // Route::post('/logout', [AuthController::class, 'logout']);
 
 
-Auth::routes();
-
 Route::post('loginU', [AuthController::class,'loginU']);
 Route::post('registerU', [AuthController::class,'registerU']);
 
 Route::group(['middleware' => 'auth:api'], function () {
-        Route::get('detailsU', [AuthController::class,'detailsU']);
         Route::get('logoutU', [AuthController::class,'logoutU']);
 });
+
+Route::get('detailsU', [AuthController::class,'detailsU']);
 
 Route::group(['middleware' => 'user'], function(){
     

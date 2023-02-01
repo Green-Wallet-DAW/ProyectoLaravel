@@ -98,13 +98,12 @@ class AuthController extends Controller
      */
     public function registerU(Request $request)
     {
-        dd($request);
         $validator = Validator::make($request->all(), [
             'name'=>'required|max:40|min:5|unique:usuarios,name',
-            'password'=>'required|confirmed|max:255|min:10',
+            'password'=>'required|max:255|min:10',
             'email'=>'required|max:100|unique:usuarios,email',
             'phone_number'=>'required|unique:usuarios,phone_number',
-            'terms'=>'accepted'
+            // 'terms'=>'accepted'
         ]);
         if ($validator->fails()) {
             return response()->json(['error' => $validator->errors()], 401);
@@ -112,6 +111,9 @@ class AuthController extends Controller
         $input = $request->all();
         $input['password'] = password_hash($request->password,PASSWORD_DEFAULT);
         $user = Usuario::create($input);
+
+        // dd($input);
+
         $success['token'] =  $user->createToken('MyApp')->accessToken;
         $success['name'] =  $user->name;
         $success['email'] =  $user->email;
@@ -119,11 +121,13 @@ class AuthController extends Controller
         $success['phone_number'] =  $user->phone_number;
         $success['cumn'] =  $user->cumn;
         $success['rol'] =  "user";
-        if($user->has('news')){
-            $success['news'] = 1;
-        }else{
-            $success['news'] = 0;
-        };
+        $success['newsletter'] =  $user->newsletter;
+
+        // if($user->has('news')){
+        //     $input['news'] = 1;
+        // }else{
+        //     $input['news'] = 0;
+        // };
         return response()->json(['success' => $success], $this->successStatus);
     }
     /** 

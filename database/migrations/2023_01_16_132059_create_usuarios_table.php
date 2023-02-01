@@ -21,7 +21,7 @@ return new class extends Migration
             $table->float('token', 8, 2)->default(0);
             $table->enum('rol',['user','admin'])->default('user');
             $table->string('cumn', 50)->nullable();
-            $table->integer('phone_number');
+            $table->string('phone_number');
             $table->boolean('newsletter')->default(false);
             $table->integer('number_comunity')->default(0);
             $table->unique(array('email','phone_number'));
