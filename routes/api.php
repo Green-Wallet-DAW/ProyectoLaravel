@@ -32,9 +32,8 @@ Route::post('/logout', [AuthController::class, 'logout']);
 Route::group(['middleware' => 'user'], function(){
     
 });
-    Route::get('/profile/{id}', [UsuarioController::class, 'showUser']);
-    Route::get('/profile/edit/{id}', [UsuarioController::class, 'editUser']); //Formulario
-    Route::patch('/profile/update/{id}', [UsuarioController::class, 'updateUser']);
+    Route::get('/profile/{id}', [UsuarioController::class, 'show']);
+    Route::patch('/profile/update/{id}', [UsuarioController::class, 'update']);
 
 
 

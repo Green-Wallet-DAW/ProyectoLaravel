@@ -87,5 +87,45 @@ class UsuarioController extends Controller
         $task->delete(); 
 
         return redirect()->route('usuarios');
-}
+    }
+
+    ///////// FUNCIONES API
+
+    public function show(Request $request)
+    {
+        $task = Usuario::findOrFail($request->id);
+        return $task;
+        //Esta función devolverá los datos de una tarea que hayamos seleccionado para cargar el formulario con sus datos
+    }
+
+    public function update(Request $request)
+    {
+
+        $request->validate([
+            'name'=>'required|max:40|min:5',
+            'email'=>'required|max:100',
+            'phone_number'=>'required'
+        ]);
+        $task = Usuario::findOrFail($request->id);
+
+        $task->name = $request->name;
+        $task->email = $request->email;
+        $task->cumn = $request->cumn;
+        $task->phone_number = $request->phone_number;
+        $task->rol = $request->role;
+        if($request->has('news')){
+            $task->newsletter = 1;
+        }else{
+            $task->newsletter = 0;
+        };
+
+        $task->save();
+       
+        return $task;
+        //Esta función actualizará la tarea que hayamos seleccionado
+       
+    }
+
+
+
 }
