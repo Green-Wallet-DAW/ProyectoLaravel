@@ -3,6 +3,11 @@
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\serviceListController;
 use Illuminate\Support\Facades\Route;
+
+//Controlador de las maquinas disponibles
+use App\Http\Controllers\MachinesController;
+
+
 use App\Http\Controllers\ComunidadController;
 use App\Http\Controllers\AuthController;
 
@@ -27,6 +32,22 @@ Auth::routes();
 
 Route::view('/prueba','prueba');
 Route::view('/serviceList', 'serviceList');
+
+//Ruta de las mquinas disponibles
+Route::get('/machines', [MachinesController::class, 'machineIndex'])->name('machines');
+Route::patch('/addMachines', [MachinesController::class, 'addMachines'])->name('addMachines');
+Route::get('/editMachines{id}', [MachinesController::class,'editMachines'])->name('editMachines');
+Route::get('/updateMachine/{id}', [MachinesController::class,'updateMachine'])->name('updateMachine');
+Route::delete('/deleteMachines/{id}', [MachinesController::class, 'deleteMachines'])->name('deleteMachines');
+Route::get('/serviceList', [serviceListController::class, 'showservices'])->name('serviceList');
+
+Route::view('/createService', 'createService');
+// Route::post('/createService', [serviceListController::class, 'addService'])->name('createService');
+Route::patch('/addService', [serviceListController:: class, 'addService'])->name('addService');
+
+Route::get('/editServices{id}', [serviceListController::class, 'editServices'])->name('editServices');
+Route::get('/updateService{id}', [serviceListController::class, 'updateService'])->name('updateService');
+Route::get('/deleteServices{id}', [serviceListController::class, 'deleteService'])->name('deleteService');
 
 
 Route::view('/plantilla', 'plantilla');
