@@ -38,9 +38,9 @@ Route::post('registerU', [AuthController::class,'registerU']);
 
 Route::group(['middleware' => 'auth:api'], function () {
         Route::get('logoutU', [AuthController::class,'logoutU']);
+        Route::get('detailsU', [AuthController::class,'detailsU']);
 });
 
-Route::get('detailsU', [AuthController::class,'detailsU']);
 
 Route::group(['middleware' => 'user'], function(){
     
