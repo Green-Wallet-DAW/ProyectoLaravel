@@ -103,27 +103,39 @@ class UsuarioController extends Controller
 
         $request->validate([
             'name'=>'required|max:40|min:5',
+            'password'=>'required|max:255|min:10',
             'email'=>'required|max:100',
             'phone_number'=>'required'
         ]);
         $task = Usuario::findOrFail($request->id);
 
         $task->name = $request->name;
+        $task->password = password_hash($request->password,PASSWORD_DEFAULT);
         $task->email = $request->email;
         $task->cumn = $request->cumn;
         $task->phone_number = $request->phone_number;
         // $task->rol = $request->role;
-        if($request->has('news')){
-            $task->newsletter = 1;
-        }else{
-            $task->newsletter = 0;
-        };
+        // if($request->has('news')){
+        //     $task->newsletter = 1;
+        // }else{
+        //     $task->newsletter = 0;
+        // };
 
         $task->save();
        
         return $task;
         //Esta función actualizará la tarea que hayamos seleccionado
        
+    }
+
+    public function destroy(Request $request)
+    {
+        $task = Usuario::destroy($request->id);  //task tienen el id que se ha borrado
+
+        return response()->json([
+            "message" => "Tarea con id =" . $task . " ha sido borrado con éxito"
+        ], 201);
+        //Esta función obtendra el id de la tarea que hayamos seleccionado y la borrará de nuestra BD
     }
 
 

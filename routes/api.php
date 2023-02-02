@@ -25,28 +25,19 @@ use App\Http\Controllers\AuthController;
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
-
-// Route::view('/registrarU', 'registrar');
-// Route::patch('/registroU', [AuthController::class, 'registro']);
-// Route::view('/loginU', 'login');
-// Route::post('/login_usuarioU', [AuthController::class, 'login_usuario']);
-// Route::post('/logout', [AuthController::class, 'logout']);
-
-
 Route::post('loginU', [AuthController::class,'loginU']);
 Route::post('registerU', [AuthController::class,'registerU']);
 
+
 Route::group(['middleware' => 'auth:api'], function () {
-        Route::get('logoutU', [AuthController::class,'logoutU']);
-        Route::get('detailsU', [AuthController::class,'detailsU']);
-});
-
-
-Route::group(['middleware' => 'user'], function(){
-    
-});
-    Route::get('/profile/{id}', [UsuarioController::class, 'show']);
+    Route::get('/profile/show/{id}', [UsuarioController::class, 'show']);
     Route::put('/profile/update/{id}', [UsuarioController::class, 'update']);
+    Route::delete('/profile/delete/{id}', [UsuarioController::class, 'destroy']);
+    Route::get('logoutU', [AuthController::class,'logoutU']);
+    Route::get('detailsU', [AuthController::class,'detailsU']);
+});
+    // Route::get('/profile/{id}', [UsuarioController::class, 'show']);
+    // Route::put('/profile/update/{id}', [UsuarioController::class, 'update']);
     // Route::get('/indexUser', [UsuarioController::class, 'index']);
 
 
