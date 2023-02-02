@@ -40,16 +40,17 @@ class BdController extends Controller
         left join usuarios on usuarios.id=usuarios_comunidades.id_user
         left join instalaciones on instalaciones.id_user=usuarios.id
         left join maquinas on maquinas.id_instalation=instalaciones.id
+      --   where usuarios.id=8
         group by comunidades.id';
         $comunidades=DB::select($sql);
      return $comunidades;
     }
     public function misusuarios(){
       
-   //    $sql="SELECT usuarios.name as members, sum(maquinas.energy_produced)as energy_produced, sum(maquinas.carbono_ahorrado)as carbono_ahorrado FROM `usuarios` inner join instalaciones on instalaciones.id_user=usuarios.id inner join maquinas on maquinas.id_instalation=instalaciones.id inner join usuarios_comunidades on usuarios_comunidades.id_user=usuarios.id where usuarios_comunidades.id_comunity=$num group by usuarios.name";
-   //    $comunidades=DB::select($sql);
-   //    return $comunidades;
-   // //   SELECT usuarios.name as members, sum(maquinas.energy_produced)as energy_produced, sum(maquinas.carbono_ahorrado)as carbono_ahorrado FROM `usuarios` inner join instalaciones on instalaciones.id_user=usuarios.id inner join maquinas on maquinas.id_instalation=instalaciones.id group by maquinas.id_instalation;
+      $sql="SELECT usuarios.name as members, sum(maquinas.energy_produced)as energy_produced, sum(maquinas.carbono_ahorrado)as carbono_ahorrado FROM `usuarios` inner join instalaciones on instalaciones.id_user=usuarios.id inner join maquinas on maquinas.id_instalation=instalaciones.id inner join usuarios_comunidades on usuarios_comunidades.id_user=usuarios.id where usuarios_comunidades.id_comunity=10 group by usuarios.name";
+      $comunidades=DB::select($sql);
+      return $comunidades;
+   //   SELECT usuarios.name as members, sum(maquinas.energy_produced)as energy_produced, sum(maquinas.carbono_ahorrado)as carbono_ahorrado FROM `usuarios` inner join instalaciones on instalaciones.id_user=usuarios.id inner join maquinas on maquinas.id_instalation=instalaciones.id group by maquinas.id_instalation;
      }
      public function totalPro(){
       
@@ -57,7 +58,8 @@ class BdController extends Controller
          inner join instalaciones on usuarios.id=instalaciones.id_user
          inner join maquinas on instalaciones.id=maquinas.id_instalation
          group by id
-         order by sum(maquinas.energy_produced) desc, sum(maquinas.carbono_ahorrado) desc';
+         order by sum(maquinas.energy_produced) desc, sum(maquinas.carbono_ahorrado) desc
+         limit 10';
          $comunidades=DB::select($sql);
          return $comunidades;
       
