@@ -31,7 +31,7 @@ class UsuarioController extends Controller
         $task->cumn = $request->cumn;
         $task->phone_number = $request->phone_number;
         $task->rol = $request->role;
-        if($request->has('news')){
+        if($request->has('newsletter')){
             $task->newsletter = 1;
         }else{
             $task->newsletter = 0;
@@ -69,7 +69,7 @@ class UsuarioController extends Controller
         $task->cumn = $request->cumn;
         $task->phone_number = $request->phone_number;
         $task->rol = $request->role;
-        if($request->has('news')){
+        if($request->has('newsletter')){
             $task->newsletter = 1;
         }else{
             $task->newsletter = 0;
@@ -115,7 +115,7 @@ class UsuarioController extends Controller
         $task->cumn = $request->cumn;
         $task->phone_number = $request->phone_number;
         // $task->rol = $request->role;
-        // if($request->has('news')){
+        // if($request->has('newsletter')){
         //     $task->newsletter = 1;
         // }else{
         //     $task->newsletter = 0;

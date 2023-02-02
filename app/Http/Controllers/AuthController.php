@@ -30,7 +30,7 @@ class AuthController extends Controller
         $task->cumn = $request->cumn;
         $task->phone_number = $request->phone_number;
         $task->rol = "admin";
-        if($request->has('news')){
+        if($request->has('newsletter')){
             $task->newsletter = 1;
         }else{
             $task->newsletter = 0;
@@ -123,10 +123,10 @@ class AuthController extends Controller
         $success['rol'] =  "user";
         $success['newsletter'] =  $user->newsletter;
 
-        // if($user->has('news')){
-        //     $input['news'] = 1;
+        // if($user->has('newsletter')){
+        //     $input['newsletter'] = 1;
         // }else{
-        //     $input['news'] = 0;
+        //     $input['newsletter'] = 0;
         // };
         return response()->json(['success' => $success], $this->successStatus);
     }

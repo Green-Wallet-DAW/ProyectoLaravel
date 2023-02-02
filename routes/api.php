@@ -29,16 +29,15 @@ Route::post('loginU', [AuthController::class,'loginU']);
 Route::post('registerU', [AuthController::class,'registerU']);
 
 
+Route::get('/profile/show/{id}', [UsuarioController::class, 'show']);
+Route::put('/profile/update/{id}', [UsuarioController::class, 'update']);
+Route::delete('/profile/delete/{id}', [UsuarioController::class, 'destroy']);
+Route::get('logoutU', [AuthController::class,'logoutU']);
+Route::get('detailsU', [AuthController::class,'detailsU']);
+
 Route::group(['middleware' => 'auth:api'], function () {
-    Route::get('/profile/show/{id}', [UsuarioController::class, 'show']);
-    Route::put('/profile/update/{id}', [UsuarioController::class, 'update']);
-    Route::delete('/profile/delete/{id}', [UsuarioController::class, 'destroy']);
-    Route::get('logoutU', [AuthController::class,'logoutU']);
-    Route::get('detailsU', [AuthController::class,'detailsU']);
+    
 });
-    // Route::get('/profile/{id}', [UsuarioController::class, 'show']);
-    // Route::put('/profile/update/{id}', [UsuarioController::class, 'update']);
-    // Route::get('/indexUser', [UsuarioController::class, 'index']);
 
 
 

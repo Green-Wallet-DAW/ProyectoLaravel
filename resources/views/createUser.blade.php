@@ -42,7 +42,7 @@
             </div>
             
             <div class="eUser">
-                <label for="cumn"><strong>C.U.M.N: </strong></label>
+                <label for="cumn"><strong>Credit Union Member Number: </strong></label>
                 <input type="text" name="cumn" value="{{old('cumn')}}"/>
                 {!! $errors->first('cumn', '<small>:message</small><br>' )!!} 
             </div>
