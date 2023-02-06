@@ -17,21 +17,31 @@
     <div class="container ">
         <div class="row ">
 
+            <div class="col-6">
+                <p>Name: {{ $machine->Nombre }}</p>
+                <p>Description: {{ $machine->Descripcion }}</p>
+                <textarea class="form-control" name="Descripcion" id="floatingTextarea"  value="{{old('Descripcion')}}"></textarea>
+            </div>
 
-<form method="get" action="{{ route('updateMachine', $machine) }}">
+            <div class="col-6">
+                <form method="get" action="{{ route('updateMachine', $machine) }}">
 
-    <div >
-        @csrf
-        <label for="name">nombre:</label>
-        <input type="text"  name="Nombre" value="{{ $machine->Nombre }}"/>
+                    <div >
+                        @csrf
+                        <label for="name">nombre:</label>
+                        <input type="text"  name="Nombre" value="{{ $machine->Nombre }}"/>
+                    </div>
+                    <div >
+                        <label for="descripcion">descripcion</label>
+                        <input type="text"  name="Descripcion" value="{{ $machine->Descripcion }}"/>
+                    </div>
+
+                    <button type="submit" >Actualizar</button>
+                </form>
+            </div>
+
+        </div>
     </div>
-    <div >
-        <label for="descripcion">descripcion</label>
-        <input type="text"  name="Descripcion" value="{{ $machine->Descripcion }}"/>
-    </div>
-
-    <button type="submit" >Actualizar</button>
-</form>
 @endsection()
 </body>
 </html>

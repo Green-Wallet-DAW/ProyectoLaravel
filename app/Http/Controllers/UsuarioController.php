@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Usuario;
 
+
 class UsuarioController extends Controller
 {
     public function indexUsers(Request $request)
@@ -49,10 +50,10 @@ class UsuarioController extends Controller
         $task->newsletter = $request->newsletter;
 
         $task->save();
-       
+
         return $task;
         //Esta función actualizará la tarea que hayamos seleccionado
-       
+
     }
 
      public function destroy(Request $request)
@@ -63,5 +64,7 @@ class UsuarioController extends Controller
             "message" => "Tarea con id =" . $task . " ha sido borrado con éxito"
         ], 201);
         //Esta función obtendra el id de la tarea que hayamos seleccionado y la borrará de nuestra BD
-}
+    }
+
+
 }

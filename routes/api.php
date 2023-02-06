@@ -22,6 +22,7 @@ use App\Http\Controllers\MaquinaController;
 //     return $request->user();
 // });
 
+
 Route::get('/usuarios', [UsuarioController::class, 'index']);
 Route::put('/usuario/actualizar/{id}', [UsuarioController::class, 'update']);
 Route::post('/usuario/guardar', [UsuarioController::class, 'store']);
@@ -55,3 +56,6 @@ Route::put('/maquina/actualizar/{id}', [MaquinaController::class, 'update']);
 Route::post('/maquina/guardar', [MaquinaController::class, 'store']);
 Route::delete('/maquina/borrar/{id}', [MaquinaController::class, 'destroy']);
 Route::get('/maquina/buscar/{id}', [MaquinaController::class, 'show']);
+
+
+Route::get('/generalview', [InstalacionController::class, 'globalHomeOverview']);

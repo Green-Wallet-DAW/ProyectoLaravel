@@ -54,7 +54,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="Descripcion">Descripcion</label>
-                    <input type="text" name="Descripcion"  class="form-control"  value="{{old('Descripcion')}}"/>
+                    <textarea class="form-control" name="Descripcion" id="floatingTextarea"  value="{{old('Descripcion')}}"></textarea>
                 {!! $errors->first('descripcion', '<small>:message</small><br>' )!!}
                 </div>
 
