@@ -39,21 +39,22 @@ Route::patch('/addMachines', [MachinesController::class, 'addMachines'])->name('
 Route::get('/editMachines{id}', [MachinesController::class,'editMachines'])->name('editMachines');
 Route::get('/updateMachine/{id}', [MachinesController::class,'updateMachine'])->name('updateMachine');
 Route::delete('/deleteMachines/{id}', [MachinesController::class, 'deleteMachines'])->name('deleteMachines');
+
+// Rutas de las vistas de los servicios
+Route::view('/serviceList', 'serviceList');
 Route::get('/serviceList', [serviceListController::class, 'showservices'])->name('serviceList');
 
 Route::view('/createService', 'createService');
-// Route::post('/createService', [serviceListController::class, 'addService'])->name('createService');
 Route::patch('/addService', [serviceListController:: class, 'addService'])->name('addService');
 
 Route::get('/editServices{id}', [serviceListController::class, 'editServices'])->name('editServices');
 Route::get('/updateService{id}', [serviceListController::class, 'updateService'])->name('updateService');
 Route::get('/deleteServices{id}', [serviceListController::class, 'deleteService'])->name('deleteService');
 
-
 Route::view('/plantilla', 'plantilla');
 Route::view('/plantillaUser', 'plantillaUser');
 
-
+// Fin de las rutas
 
 
 Route::view('/registrar', 'registrar');
