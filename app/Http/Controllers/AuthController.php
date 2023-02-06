@@ -86,6 +86,15 @@ class AuthController extends Controller
         if (Auth::attempt(['email' => request('email'), 'password' => request('password')])) {
             $user = Auth::user();
             $success['token'] =  $user->createToken('MyApp')->accessToken;
+            $success['name'] =  $user->name;
+            $success['email'] =  $user->email;
+            $success['password'] =  $user->password;
+            $success['phone_number'] =  $user->phone_number;
+            $success['cumn'] =  $user->cumn;
+            $success['rol'] =  "user";
+            $success['newsletter'] = $user->newsletter;
+
+            // dd($success);
             return response()->json(['success' => $success], $this->successStatus);
         } else {
             return response()->json(['error' => 'Unauthorised'], 401);
@@ -121,13 +130,15 @@ class AuthController extends Controller
         $success['phone_number'] =  $user->phone_number;
         $success['cumn'] =  $user->cumn;
         $success['rol'] =  "user";
-        $success['newsletter'] =  $user->newsletter;
 
-        // if($user->has('newsletter')){
-        //     $input['newsletter'] = 1;
-        // }else{
-        //     $input['newsletter'] = 0;
-        // };
+        if ($user->newsletter == true) {
+            $success['newsletter'] = 1;
+        } else {
+            $success['newsletter'] = 0;
+        }
+        
+        // $success['newsletter'] = $user->newsletter;
+
         return response()->json(['success' => $success], $this->successStatus);
     }
     /** 

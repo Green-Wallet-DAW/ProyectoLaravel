@@ -32,10 +32,10 @@ Route::post('registerU', [AuthController::class,'registerU']);
 Route::get('/profile/show/{id}', [UsuarioController::class, 'show']);
 Route::put('/profile/update/{id}', [UsuarioController::class, 'update']);
 Route::delete('/profile/delete/{id}', [UsuarioController::class, 'destroy']);
-Route::get('logoutU', [AuthController::class,'logoutU']);
-Route::get('detailsU', [AuthController::class,'detailsU']);
 
-Route::group(['middleware' => 'auth:api'], function () {
+Route::group(['middleware' => 'user'], function () {
+    Route::get('logoutU', [AuthController::class,'logoutU']);
+    Route::get('detailsU', [AuthController::class,'detailsU']);
     
 });
 
