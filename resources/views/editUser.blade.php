@@ -42,12 +42,12 @@
                 <input type="email"  name="email" value="{{ $task->email }}"/>
             </div>
             <div class="eUser">
-                <label for="cumn"><strong>C.U.M.N: </strong></label>
+                <label for="cumn"><strong>Credit Union Member Number: </strong></label>
                 <input type="text"  name="cumn" value="{{ $task->cumn }}"/>
             </div>
             <div class="eUser">
                 <label for="phone_number"><strong>Phone number: </strong></label>
-                <input type="number"  name="phone_number" value="{{ $task->phone_number }}"/>
+                <input type="text"  name="phone_number" value="{{ $task->phone_number }}"/>
             </div>
             <div class="eUser">
                 <label for="role"><strong>Role: </strong></label>
@@ -57,8 +57,8 @@
                 </select>
             </div>
             <div class="eUser">
-                <input class="checkUser" type="checkbox" name="news" id="news">
-                <label for="news"><strong>I want to receive news and updates about Green Wallet.</strong></label>
+                <input class="checkUser" type="checkbox" name="newsletter" id="newsletter">
+                <label for="newsletter"><strong>I want to receive news and updates about Green Wallet.</strong></label>
             </div>
         </form>
     </div>

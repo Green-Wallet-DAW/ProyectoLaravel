@@ -10,6 +10,9 @@ use App\Http\Controllers\MaquinaController;
 use App\Http\Controllers\BdController;
 use App\Http\Controllers\Service_UserController;
 
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\AuthController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -24,22 +27,22 @@ use App\Http\Controllers\Service_UserController;
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
+Route::post('loginU', [AuthController::class,'loginU']);
+Route::post('registerU', [AuthController::class,'registerU']);
 
-Route::view('/registrarU', 'registrar');
-Route::patch('/registroU', [AuthController::class, 'registro']);
-Route::view('/loginU', 'login');
-Route::post('/login_usuarioU', [AuthController::class, 'login_usuario']);
-Route::post('/logout', [AuthController::class, 'logout']);
 
-Route::group(['middleware' => 'user'], function(){
+Route::get('/profile/show/{id}', [UsuarioController::class, 'show']);
+Route::put('/profile/update/{id}', [UsuarioController::class, 'update']);
+Route::delete('/profile/delete/{id}', [UsuarioController::class, 'destroy']);
+
+Route::group(['middleware' => 'user'], function () {
+    Route::get('logoutU', [AuthController::class,'logoutU']);
+    Route::get('detailsU', [AuthController::class,'detailsU']);
     
 
 
     
 });
-    Route::get('/profile/{id}', [UsuarioController::class, 'showUser']);
-    Route::get('/profile/edit/{id}', [UsuarioController::class, 'editUser']); //Formulario
-    Route::patch('/profile/update/{id}', [UsuarioController::class, 'updateUser']);
 
 
 

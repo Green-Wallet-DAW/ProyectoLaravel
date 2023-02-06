@@ -101,6 +101,10 @@ final class ExecutableLinesFindingVisitor extends NodeVisitorAbstract
             $node instanceof Node\Stmt\TryCatch ||
             $node instanceof Node\Stmt\Use_ ||
             $node instanceof Node\Stmt\UseUse ||
+<<<<<<< HEAD
+=======
+            $node instanceof Node\Expr\ConstFetch ||
+>>>>>>> refs/remotes/origin/master
             $node instanceof Node\Expr\Match_ ||
             $node instanceof Node\Expr\Variable ||
             $node instanceof Node\ComplexType ||

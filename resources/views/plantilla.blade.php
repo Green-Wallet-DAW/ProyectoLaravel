@@ -84,7 +84,7 @@
           </ul>
         </div>
       </div>
-      <div class="col-9">
+      <div id="contenido" class="col-9">
         @yield('contenidoPagina')
       </div>
     </div>
