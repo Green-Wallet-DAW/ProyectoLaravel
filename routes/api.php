@@ -5,9 +5,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\ComunidadController;
 use App\Http\Controllers\InstalacionController;
-use App\Http\Controllers\ServicioController;
+use App\Http\Controllers\serviceListController;
 use App\Http\Controllers\MaquinaController;
 use App\Http\Controllers\BdController;
+use App\Http\Controllers\Service_UserController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -31,6 +33,9 @@ Route::post('/logout', [AuthController::class, 'logout']);
 
 Route::group(['middleware' => 'user'], function(){
     
+
+
+    
 });
     Route::get('/profile/{id}', [UsuarioController::class, 'showUser']);
     Route::get('/profile/edit/{id}', [UsuarioController::class, 'editUser']); //Formulario
@@ -51,6 +56,8 @@ Route::get('/serviceList', [serviceListController::class, 'showAllServices']);
 Route::get('/serviceList/user', [serviceListController::class, 'showUserServices']);
 Route::get('/serviceList/community', [serviceListController::class, 'showCommunityServices']);
 Route::get('/serviceList/search/{id}', [serviceListController::class, 'showServicesById']);
+Route::post('/serviceList/hire/{id}', [Service_UserController::class, 'hireService']);
+
 
 
 Route::get('/instalaciones', [InstalacionController::class, 'index']);

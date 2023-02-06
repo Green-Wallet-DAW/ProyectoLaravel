@@ -18,6 +18,9 @@ return new class extends Migration
             $table->integer('number_machine');
             $table->integer('id_user')->unsigned();
             $table->foreign('id_user')->references('id')->on('usuarios')->onUpdate('cascade')->onDelete('cascade');
+            $table->string("facility_name", 10);
+            $table->string('street_name', 50);
+            $table->integer('contractNumber');
             $table->timestamps();
         });
     }

@@ -13,17 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('maquinas', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('modelo',25);
+        Schema::create('test_table', function (Blueprint $table) {
+            $table->integer('machine_id');
             $table->integer('energy_produced')->default(0);
             $table->integer('carbono_ahorrado')->default(0);
-            $table->string('type',25);
-            $table->string('components',100);
-            $table->string('fabricante',25);
-            $table->integer('id_instalation')->unsigned();
-            // $table->string('modelo');
-            $table->foreign('id_instalation')->references('id')->on('instalaciones')->onDelete('cascade')->onUpdate('cascade');
+            $table->integer('hours')->default(0);
             $table->timestamps();
         });
     }
@@ -35,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('maquinas');
+        Schema::dropIfExists('TestTable');
     }
 };

@@ -2,11 +2,11 @@
 
 namespace App\Http\Middleware;
 
+use Illuminate\Support\Facades\Auth;
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class AdminMiddleware
+class UserMiddleware
 {
     /**
      * Handle an incoming request.
@@ -17,12 +17,12 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::check()) {    //si está autentificado
-            if (auth()->user()->rol == "admin") {   //si es role es admin
+        if (Auth::check()) {
+            if (auth()->user()->rol == "user") {   //si es rol es "user"
 
-                return $next($request);    //significa continua
+                return $next($request);    //significa que continua continua
             }
         }
-        return redirect()->route('login');  //en caso contrario va al login
+        return redirect()->route('login');
     }
 }
