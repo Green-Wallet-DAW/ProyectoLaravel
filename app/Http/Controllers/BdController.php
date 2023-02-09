@@ -42,10 +42,10 @@ class BdController extends Controller
         $task->content = $request->content;
 
         $task->save();
-       
+
         return $task;
         //Esta función actualizará la tarea que hayamos seleccionado
-       
+
     }
 
      public function destroy(Request $request)

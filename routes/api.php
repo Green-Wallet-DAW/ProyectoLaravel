@@ -58,4 +58,16 @@ Route::delete('/maquina/borrar/{id}', [MaquinaController::class, 'destroy']);
 Route::get('/maquina/buscar/{id}', [MaquinaController::class, 'show']);
 
 
+
+//Rutas generalView
 Route::get('/generalview', [InstalacionController::class, 'globalHomeOverview']);
+Route::get('/generalviewdaily', [InstalacionController::class, 'dailyHomeOverview']);
+Route::get('/generalviewmonth', [InstalacionController::class, 'monthHomeOverview']);
+Route::get('/generalviewyear', [InstalacionController::class, 'yearHomeOverview']);
+
+//Rutas mydevices
+
+
+
+
+

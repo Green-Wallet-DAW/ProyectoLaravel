@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Instalacion;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Carbon;
 class InstalacionController extends Controller
 {
     public function index(Request $request)
@@ -59,6 +60,7 @@ class InstalacionController extends Controller
     }
    //Funcion para la api
    public function globalHomeOverview(Request $request){
+     //Esta funcion muestra la produccion global
     $id = 3;//Este valor sera $requiest->id, con la id del usuario logeado
 
     // //Esto funciona para 1
@@ -67,20 +69,20 @@ class InstalacionController extends Controller
     // $id_users = DB::table('instalaciones')->pluck('id_user');
     // foreach ($id_users as $instalacion_id) {
     //     if($instalacion_id == $id){
-    //         array_push($caja,$instalacion_id );
+    //         array_push($valores,$instalacion_id );
     //     }
     // }
     //Esto funciona para 1
     // DB::table('maquinas')->orderBy('id_instalation')->lazy()->each(function ($maquinas) {
-    //     $caja = [];
+    //     $valores = [];
     //     if(($maquinas->id_instalation)==3){
     //         $modelo =  $maquinas->modelo;
-    //         array_push($caja, $modelo);
+    //         array_push($valores, $modelo);
     //     }
     // });
 
     //Funciona para varias
-        $caja = [];
+
 
     // $instalaciones = DB::table('instalaciones')
     //     ->where('id_user', '=', $id)
@@ -90,24 +92,181 @@ class InstalacionController extends Controller
     //     ->where('id_instalation', '=', $id)
     //     ->get();
 
-    //Esto funciona
+    // //Esto funciona
     // $maquinas = DB::table('maquinas')
     //     ->select('carbono_ahorrado','energy_produced')
     //     ->whereExists(function ($query) {
     //         $query->select()
     //             ->from('instalaciones')
-    //             ->whereColumn('instalaciones.id', 'maquinas.id_instalation');
+    //             ->where('instalaciones.id', '3');
     //     })
-
     // ->get();
 
-        $valores = DB::table('maquinas')
-        ->sum('energy_produced')
-        ->where('id_instalation',3)
-        ->get();
 
+        $valores = [];
 
-        dd($valores);
+        $instalaciones = DB::table('instalaciones')
+            ->select('id','facility_name','contractNumber','street_name')
+            ->where('id_user', '=', $id)
+            ->get();
+
+            for ($i = 0; $i < count($instalaciones); $i++){
+
+                $maquinas = DB::table('maquinas')
+                    ->select('id_instalation','energy_produced','carbono_ahorrado','tokens')
+                    ->where('id_instalation', '=', $instalaciones[$i]->id)
+                    ->get();
+                $energia_producida = 0;
+                $carbono_ahorrado = 0;
+                $tokens = 0;
+
+                for($y = 0 ; $y < count($maquinas); $y++){//Esto se puede hacer con un SUM en la base de datos  son 2700 valores
+
+                    $energia_producida += $maquinas[$y]->energy_produced;
+                    $carbono_ahorrado += $maquinas[$y]->carbono_ahorrado;
+                    $tokens += $maquinas[$y]->tokens;
+                }
+                array_push($valores, array(//Se añade el array, para generarlo con ngFor en la vista
+                    'faciliy_name'=>$instalaciones[$i]->facility_name,
+                    'energia_producida'=>$energia_producida,
+                    'carbono_ahorrado'=>$carbono_ahorrado,
+                    'contractNumber'=>$instalaciones[$i]->contractNumber,
+                    'street_name'=>$instalaciones[$i]->street_name,
+                    'tokens'=>$tokens,
+            ));
+
+        }
         return $valores;
+    }
+
+    public function dailyHomeOverview(){
+        //Esta funcion muestra la produccion del ultimo dia
+        $valores = [];
+        $id = 3;
+
+        $fecha = Carbon::now()->format('Y-m-d');//Fecha a actual año/mes/dia
+        
+        $instalaciones = DB::table('instalaciones')//Se almacenan las id de las instalaciones del usuario
+            ->select('id','facility_name','contractNumber','street_name')
+            ->where('id_user', '=', $id)
+            ->get();
+
+            for ($i = 0; $i < count($instalaciones); $i++){//Se recorre la id/s y se llama a las maquinas de la id
+
+                $maquinas = DB::table('maquinas')
+                ->select('id','id_instalation','energy_produced','carbono_ahorrado','tokens','date',)
+                    ->where('id_instalation', '=', $instalaciones[$i]->id)
+                    ->where('date','=', $fecha)
+                    ->get();
+
+                $energia_producida = 0;
+                $carbono_ahorrado = 0;
+                $tokens = 0;
+
+                for($y = 0 ; $y < count($maquinas); $y++){//Esto se puede hacer con un SUM en la base de datos  son 2700 valores
+                    $energia_producida += $maquinas[$y]->energy_produced;
+                    $carbono_ahorrado += $maquinas[$y]->carbono_ahorrado;
+                    $tokens += $maquinas[$y]->tokens;
+                }
+
+                array_push($valores, array(//Se añade el array, para generarlo con ngFor en la vista
+                    'faciliy_name'=>$instalaciones[$i]->facility_name,
+                    'energia_producida'=>$energia_producida,
+                    'carbono_ahorrado'=>$carbono_ahorrado,
+                    'contractNumber'=>$instalaciones[$i]->contractNumber,
+                    'street_name'=>$instalaciones[$i]->street_name,
+                    'tokens'=>$tokens,
+                ));
+        }
+        return $valores;
+    }
+    public function monthHomeOverview(){
+         //Esta funcion muestra la produccion del ultimo mes
+        $valores = [];
+        $id = 3;
+        $fecha = Carbon::now();//Se extrae el año y mes actual
+        $año = $fecha->format('Y');
+        $mes = $fecha->format('m');
+
+        $instalaciones = DB::table('instalaciones')//Se almacenan las id de las instalaciones del usuario
+            ->select('id','facility_name','contractNumber','street_name')
+            ->where('id_user', '=', $id)
+            ->get();
+
+            for ($i = 0; $i < count($instalaciones); $i++){//Se recorre la id/s y se llama a las maquinas de la id
+
+                $maquinas = DB::table('maquinas')
+                ->select('id','id_instalation','energy_produced','carbono_ahorrado','tokens','date',)
+                    ->where('id_instalation', '=', $instalaciones[$i]->id)
+                    ->whereMonth('date', $mes)
+                    ->whereYear('date', $año)
+                    ->get();
+
+
+                $energia_producida = 0;
+                $carbono_ahorrado = 0;
+                $tokens = 0;
+
+                for($y = 0 ; $y < count($maquinas); $y++){//Esto se puede hacer con un SUM en la base de datos  son 2700 valores
+                $energia_producida += $maquinas[$y]->energy_produced;
+                $carbono_ahorrado += $maquinas[$y]->carbono_ahorrado;
+                $tokens += $maquinas[$y]->tokens;
+                }
+
+
+                array_push($valores, array(//Se añade el array, para generarlo con ngFor en la vista
+                    'faciliy_name'=>$instalaciones[$i]->facility_name,
+                    'energia_producida'=>$energia_producida,
+                    'carbono_ahorrado'=>$carbono_ahorrado,
+                    'contractNumber'=>$instalaciones[$i]->contractNumber,
+                    'street_name'=>$instalaciones[$i]->street_name,
+                    'tokens'=>$tokens,
+                ));
+        }
+        return $valores;
+    }
+
+    public function yearHomeOverview(){
+          //Esta funcion muestra la produccion del ultimo año
+          $valores = [];
+          $id = 3;
+          $fecha = Carbon::now();
+          $año = $fecha->format('Y');//Se extrae el año actual
+
+          $instalaciones = DB::table('instalaciones')//Se almacenan las id de las instalaciones del usuario
+              ->select('id','facility_name','contractNumber','street_name')
+              ->where('id_user', '=', $id)
+              ->get();
+
+              for ($i = 0; $i < count($instalaciones); $i++){//Se recorre la id/s y se llama a las maquinas de la id
+
+                  $maquinas = DB::table('maquinas')
+                  ->select('id','id_instalation','energy_produced','carbono_ahorrado','tokens','date',)
+                      ->where('id_instalation', '=', $instalaciones[$i]->id)
+                      ->whereYear('date', $año)
+                      ->get();
+
+
+                  $energia_producida = 0;
+                  $carbono_ahorrado = 0;
+                  $tokens = 0;
+
+                  for($y = 0 ; $y < count($maquinas); $y++){//Esto se puede hacer con un SUM en la base de datos  son 2700 valores
+                  $energia_producida += $maquinas[$y]->energy_produced;
+                  $carbono_ahorrado += $maquinas[$y]->carbono_ahorrado;
+                  $tokens += $maquinas[$y]->tokens;
+                  }
+
+
+                  array_push($valores, array(//Se añade el array, para generarlo con ngFor en la vista
+                      'faciliy_name'=>$instalaciones[$i]->facility_name,
+                      'energia_producida'=>$energia_producida,
+                      'carbono_ahorrado'=>$carbono_ahorrado,
+                      'contractNumber'=>$instalaciones[$i]->contractNumber,
+                      'street_name'=>$instalaciones[$i]->street_name,
+                      'tokens'=>$tokens,
+                  ));
+          }
+          return $valores;
     }
 }
