@@ -49,11 +49,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class Shell extends Application
 {
-<<<<<<< HEAD
-    const VERSION = 'v0.11.10';
-=======
     const VERSION = 'v0.11.12';
->>>>>>> refs/remotes/origin/master
 
     /** @deprecated */
     const PROMPT = '>>> ';
@@ -1219,11 +1215,6 @@ class Shell extends Application
      * @todo extract this to somewhere it makes more sense
      *
      * @param \Throwable $e
-<<<<<<< HEAD
-     *
-     * @return string
-=======
->>>>>>> refs/remotes/origin/master
      */
     public function formatException(\Throwable $e): string
     {
@@ -1298,11 +1289,6 @@ class Shell extends Application
      * Helper for getting an output style for the given ErrorException's level.
      *
      * @param \Throwable $e
-<<<<<<< HEAD
-     *
-     * @return string
-=======
->>>>>>> refs/remotes/origin/master
      */
     protected function getMessageLabel(\Throwable $e): string
     {

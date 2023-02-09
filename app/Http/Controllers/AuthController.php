@@ -112,6 +112,7 @@ class AuthController extends Controller
             'password'=>'required|max:255|min:10',
             'email'=>'required|max:100|unique:usuarios,email',
             'phone_number'=>'required|unique:usuarios,phone_number',
+            'cumn'=>'nullable',
             // 'terms'=>'accepted'
         ]);
         if ($validator->fails()) {

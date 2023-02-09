@@ -12,6 +12,7 @@ use App\Http\Controllers\Service_UserController;
 
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Community_ServicesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,8 +60,8 @@ Route::get('/serviceList', [serviceListController::class, 'showAllServices']);
 Route::get('/serviceList/user', [serviceListController::class, 'showUserServices']);
 Route::get('/serviceList/community', [serviceListController::class, 'showCommunityServices']);
 Route::get('/serviceList/search/{id}', [serviceListController::class, 'showServicesById']);
-Route::post('/serviceList/hire/{id}', [Service_UserController::class, 'hireService']);
-
+Route::get('/serviceList/hire/{user_id}/{serv_id}', [Service_UserController::class, 'hireService']);
+Route::get('/serviceList/hireComm/{comm_id}/{serv_id}' , [Community_ServicesController::class, 'hireCommunityService']);
 
 
 Route::get('/instalaciones', [InstalacionController::class, 'index']);

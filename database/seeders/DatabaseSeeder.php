@@ -2,6 +2,9 @@
 
 namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\available_machines;
+use App\Models\TestTable;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -24,7 +27,8 @@ class DatabaseSeeder extends Seeder
             ComunidadesCrear::class,
             ServiciosCrear::class,
             InstalacionesCrear::class,
-            MaquinasCrear::class
+            MaquinasCrear::class,
+            available_machinesSeeder::class,
         ]);
     }
 }

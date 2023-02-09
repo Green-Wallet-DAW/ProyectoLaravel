@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string("facility_name", 10);
             $table->string('street_name', 50);
             $table->integer('contractNumber');
+            $table->integer('tokens')->default(0);
             $table->timestamps();
         });
     }

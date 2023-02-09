@@ -21,8 +21,8 @@ class available_machinesSeeder extends Seeder
     {
         for ($i = 0; $i < 10; $i++) {
             DB::table('available_machines')->insert([
-           'name' => Str::random(200),
-           'description' => Str::random(69),
+           'name' => Str::random(20),
+           'description' => Str::random(10),
            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
            //'master' => mt_rand(1, 100)

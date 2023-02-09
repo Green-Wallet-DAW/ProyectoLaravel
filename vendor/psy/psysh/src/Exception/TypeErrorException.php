@@ -46,11 +46,6 @@ class TypeErrorException extends \Exception implements Exception
      * Create a TypeErrorException from a TypeError.
      *
      * @deprecated psySH no longer wraps TypeErrors
-<<<<<<< HEAD
-     *
-     * @param \TypeError $e
-=======
->>>>>>> refs/remotes/origin/master
      *
      * @param \TypeError $e
      */

@@ -37,11 +37,6 @@ class ThrowUpException extends \Exception implements Exception
      * Create a ThrowUpException from a Throwable.
      *
      * @deprecated psySH no longer wraps Throwables
-<<<<<<< HEAD
-     *
-     * @param \Throwable $throwable
-=======
->>>>>>> refs/remotes/origin/master
      *
      * @param \Throwable $throwable
      */

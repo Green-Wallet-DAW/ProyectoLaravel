@@ -21,8 +21,9 @@ return new class extends Migration
             $table->string('type',25);
             $table->string('components',100);
             $table->string('fabricante',25);
+            $table->date('date');
             $table->integer('id_instalation')->unsigned();
-            // $table->string('modelo');
+            $table->integer('tokens')->default(0);
             $table->foreign('id_instalation')->references('id')->on('instalaciones')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });

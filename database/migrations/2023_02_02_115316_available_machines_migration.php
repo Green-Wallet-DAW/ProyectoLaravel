@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('available_machines', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name',10);
+            $table->string('name',50);
             $table->string('description',10);
             $table->timestamp('updated_at')->nullable();
             $table->timestamp('created_at')->nullable();
