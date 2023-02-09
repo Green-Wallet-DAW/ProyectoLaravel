@@ -18,7 +18,8 @@
 
 
 
-
+<div class="contenedor">
+  
   <a href="/createService" class="btn btn-success boton-Agregar" title="Add a Service">Add a new Service</a>  
 
   <form action="" method="GET">
@@ -64,5 +65,6 @@
 
 @endforelse
 </form>
+</div>
 
 @endsection()

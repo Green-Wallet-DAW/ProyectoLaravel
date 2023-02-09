@@ -47,13 +47,8 @@ namespace Illuminate\Support\Facades;
  * @method static string getName()
  * @method static void setName(string $name)
  * @method static string getId()
-<<<<<<< HEAD
- * @method static void setId(string $id)
- * @method static bool isValidId(string $id)
-=======
  * @method static void setId(string|null $id)
  * @method static bool isValidId(string|null $id)
->>>>>>> refs/remotes/origin/master
  * @method static void setExists(bool $value)
  * @method static string token()
  * @method static void regenerateToken()
@@ -61,11 +56,7 @@ namespace Illuminate\Support\Facades;
  * @method static void setPreviousUrl(string $url)
  * @method static void passwordConfirmed()
  * @method static \SessionHandlerInterface getHandler()
-<<<<<<< HEAD
- * @method static void setHandler(\SessionHandlerInterface $handler)
-=======
  * @method static \SessionHandlerInterface setHandler(\SessionHandlerInterface $handler)
->>>>>>> refs/remotes/origin/master
  * @method static bool handlerNeedsRequest()
  * @method static void setRequestOnHandler(\Illuminate\Http\Request $request)
  * @method static void macro(string $name, object|callable $macro)

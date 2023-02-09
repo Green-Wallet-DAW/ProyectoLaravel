@@ -175,39 +175,6 @@ class Response implements ArrayAccess
     }
 
     /**
-<<<<<<< HEAD
-     * Determine if the response was a 401 "Unauthorized" response.
-     *
-     * @return bool
-     */
-    public function unauthorized()
-    {
-        return $this->status() === 401;
-    }
-
-    /**
-     * Determine if the response was a 403 "Forbidden" response.
-     *
-     * @return bool
-     */
-    public function forbidden()
-    {
-        return $this->status() === 403;
-    }
-
-    /**
-     * Determine if the response was a 404 "Not Found" response.
-     *
-     * @return bool
-     */
-    public function notFound()
-    {
-        return $this->status() === 404;
-    }
-
-    /**
-=======
->>>>>>> refs/remotes/origin/master
      * Determine if the response indicates a client or server error occurred.
      *
      * @return bool
@@ -341,8 +308,6 @@ class Response implements ArrayAccess
     public function throwIf($condition)
     {
         return value($condition, $this) ? $this->throw(func_get_args()[1] ?? null) : $this;
-<<<<<<< HEAD
-=======
     }
 
     /**
@@ -403,7 +368,6 @@ class Response implements ArrayAccess
     public function throwIfServerError()
     {
         return $this->serverError() ? $this->throw() : $this;
->>>>>>> refs/remotes/origin/master
     }
 
     /**

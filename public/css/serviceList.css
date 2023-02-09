@@ -6,7 +6,7 @@
     border-radius: 30px;
     padding-bottom: 25px;
     padding-right: 30px;
-    margin-top: 2%;
+    margin-top: 5%;
     cursor: default;
 }
 .caja>span{
@@ -55,7 +55,7 @@
 }
 .boton-Agregar{
     /* height: 10%; */
-    width: 10%;
+    width: 20%;
 }
 .cajasFormulario{
     margin-top: 6%;
@@ -68,4 +68,7 @@
 .botonFormulario{
     margin-left: 5%;
     margin-top: 2%;
+}
+.contenedor{
+    margin-left: 30%;
 }
