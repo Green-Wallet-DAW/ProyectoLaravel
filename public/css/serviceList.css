@@ -57,9 +57,11 @@
 .boton-Agregar{
     /* height: 10%; */
     width: 20%;
+    margin-left: 30%;
 }
 .cajasFormulario{
     margin-top: 6%;
+    
 }
 .formularioCaja{
     margin-top: 2%;
@@ -70,6 +72,6 @@
     margin-left: 5%;
     margin-top: 2%;
 }
-.contenedor{
+/* .contenedor{
     margin-left: 30%;
-}
+} */
