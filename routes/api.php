@@ -34,16 +34,10 @@ Route::post('registerU', [AuthController::class,'registerU']);
 Route::put('updateU', [AuthController::class, 'updateU']);
 Route::group(['middleware' => 'cors'], function(){
     
-<<<<<<< HEAD
     Route::group(['middleware' => 'auth:api'], function () {
         Route::get('detailsU', [AuthController::class,'detailsU']);
         Route::get('logoutU', [AuthController::class,'logoutU']);
     });
-=======
-
-
-    
->>>>>>> refs/remotes/origin/master
 });
 
 
