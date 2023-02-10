@@ -138,3 +138,7 @@ a{
 .flecha{
     color: #049201;
 }
+
+.btn-success{
+    height: 50px !important;
+}

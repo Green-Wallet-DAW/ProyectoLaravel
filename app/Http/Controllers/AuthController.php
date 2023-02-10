@@ -50,7 +50,7 @@ class AuthController extends Controller
         ]);
 
         $credentials = $request->except(['_token']);  //no cogemos el token
-
+        var_dump($request);
          if (auth()->attempt($credentials)) {  //comprobación de autenticación 
             
             return redirect()->route('usuarios');
@@ -86,12 +86,13 @@ class AuthController extends Controller
         if (Auth::attempt(['email' => request('email'), 'password' => request('password')])) {
             $user = Auth::user();
             $success['token'] =  $user->createToken('MyApp')->accessToken;
+            $success['id'] =  $user->id;
             $success['name'] =  $user->name;
             $success['email'] =  $user->email;
             $success['password'] =  $user->password;
             $success['phone_number'] =  $user->phone_number;
             $success['cumn'] =  $user->cumn;
-            $success['rol'] =  "user";
+            $success['rol'] =  $user->rol;
             $success['newsletter'] = $user->newsletter;
 
             // dd($success);
@@ -124,6 +125,7 @@ class AuthController extends Controller
         // dd($input);
 
         $success['token'] =  $user->createToken('MyApp')->accessToken;
+        $success['id'] =  $user->id;
         $success['name'] =  $user->name;
         $success['email'] =  $user->email;
         $success['password'] =  $user->password;
@@ -149,7 +151,7 @@ class AuthController extends Controller
     public function detailsU()
     {
         $user = Auth::user();
-        return response()->json(['success' => $user], $this->successStatus);
+        return $user;
     }
 
 
@@ -167,5 +169,35 @@ class AuthController extends Controller
         }
             
         
+    }
+
+    public function updateU(Request $request)
+    {
+        $request->validate([
+            'name'=>'required|max:40|min:5',
+            'email'=>'required|max:100',
+            'phone_number'=>'required',
+        ]);
+        
+        $data = Auth::user();
+        $success = Usuario::findOrFail($request->id);
+        
+        $success['name'] =  $request->name;
+        $success['email'] =  $request->email;
+        $success['password'] =  $success->password;
+        $success['phone_number'] =  $request->phone_number;
+        $success['cumn'] =  $request->cumn;
+        $success['rol'] = "user";
+        
+        if ($request->newsletter == true) {
+            $success['newsletter'] = 1;
+        } else {
+            $success['newsletter'] = 0;
+        }
+        $success->update();
+       
+        return response()->json(['success' => $success], $this->successStatus);
+        //Esta función actualizará la tarea que hayamos seleccionado
+       
     }
 }

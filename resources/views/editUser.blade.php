@@ -51,7 +51,7 @@
             </div>
             <div class="eUser">
                 <label for="role"><strong>Role: </strong></label>
-                <select name="role" id="role">
+                <select class="custom-select" name="role" id="role">
                     <option value="user">User</option>
                     <option value="admin">Admin</option>
                 </select>
