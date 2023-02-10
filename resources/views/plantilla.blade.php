@@ -75,8 +75,7 @@
               </button>
               <div class="subelement collapse" id="orders-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                  <li><a href="/serviceList" class="link-light rounded fs-4">User Services</a></li>
-                  <li><a href="#" class="link-light rounded fs-4">Community Services</a></li>
+                  <li><a href="/serviceList" class="link-light rounded fs-4">Services</a></li>
                 </ul>
               </div>
             </li>

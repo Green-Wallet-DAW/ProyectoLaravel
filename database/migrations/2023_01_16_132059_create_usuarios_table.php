@@ -25,6 +25,8 @@ return new class extends Migration
             $table->boolean('newsletter')->default(false);
             $table->integer('number_comunity')->default(0);
             $table->unique(array('email','phone_number'));
+            // $table->integer("hired_services");
+            // $table->foreign("hired_services")->references('id')->on('servicios')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

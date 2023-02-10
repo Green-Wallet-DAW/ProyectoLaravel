@@ -5,11 +5,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\ComunidadController;
 use App\Http\Controllers\InstalacionController;
-use App\Http\Controllers\ServicioController;
+use App\Http\Controllers\serviceListController;
 use App\Http\Controllers\MaquinaController;
 use App\Http\Controllers\BdController;
+use App\Http\Controllers\Service_UserController;
+
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Community_ServicesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,10 +34,16 @@ Route::post('registerU', [AuthController::class,'registerU']);
 Route::put('updateU', [AuthController::class, 'updateU']);
 Route::group(['middleware' => 'cors'], function(){
     
+<<<<<<< HEAD
     Route::group(['middleware' => 'auth:api'], function () {
         Route::get('detailsU', [AuthController::class,'detailsU']);
         Route::get('logoutU', [AuthController::class,'logoutU']);
     });
+=======
+
+
+    
+>>>>>>> refs/remotes/origin/master
 });
 
 
@@ -52,6 +61,8 @@ Route::get('/serviceList', [serviceListController::class, 'showAllServices']);
 Route::get('/serviceList/user', [serviceListController::class, 'showUserServices']);
 Route::get('/serviceList/community', [serviceListController::class, 'showCommunityServices']);
 Route::get('/serviceList/search/{id}', [serviceListController::class, 'showServicesById']);
+Route::get('/serviceList/hire/{user_id}/{serv_id}', [Service_UserController::class, 'hireService']);
+Route::get('/serviceList/hireComm/{comm_id}/{serv_id}' , [Community_ServicesController::class, 'hireCommunityService']);
 
 
 Route::get('/instalaciones', [InstalacionController::class, 'index']);

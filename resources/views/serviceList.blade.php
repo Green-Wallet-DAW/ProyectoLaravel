@@ -18,15 +18,16 @@
 
 
 
-
+<div class="contenedor">
+  
   <a href="/createService" class="btn btn-success boton-Agregar" title="Add a Service">Add a new Service</a>  
 
-  
+  <form action="" method="GET">
 @forelse ($servicios as $servicio)
 
     
 
-<form action="" method="GET">
+
     <div id="caja">
       <div class="row">
         <div class="col">
@@ -52,19 +53,18 @@
       <div>{{$servicio->rol_service}}</div>
     </div>
       </div>
-      
-
       </div>
 
 
   
 
 
-</form>
+
 @empty
 <h2>No hay nada</h2>
 
 @endforelse
-
+</form>
+</div>
 
 @endsection()
