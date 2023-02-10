@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -24,7 +25,9 @@ for ($i = 0; $i < 10; $i++) {
    'name' => Str::random(10),
    'password' => password_hash(Str::random(10),PASSWORD_DEFAULT),
    'email' => Str::random(10).'@gmail.com',
-   'phone_number' => mt_rand(100000000, 999999999)
+   'phone_number' => mt_rand(100000000, 999999999),
+   'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+   'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
    ]);
 }
     }

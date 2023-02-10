@@ -7,6 +7,9 @@ use App\Http\Controllers\ComunidadController;
 use App\Http\Controllers\InstalacionController;
 use App\Http\Controllers\ServicioController;
 use App\Http\Controllers\MaquinaController;
+use App\Http\Controllers\MachinesController;
+use App\Http\Controllers\BdController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -57,8 +60,6 @@ Route::post('/maquina/guardar', [MaquinaController::class, 'store']);
 Route::delete('/maquina/borrar/{id}', [MaquinaController::class, 'destroy']);
 Route::get('/maquina/buscar/{id}', [MaquinaController::class, 'show']);
 
-
-
 //Rutas generalView
 Route::get('/generalview', [InstalacionController::class, 'globalHomeOverview']);
 Route::get('/generalviewdaily', [InstalacionController::class, 'dailyHomeOverview']);
@@ -66,8 +67,8 @@ Route::get('/generalviewmonth', [InstalacionController::class, 'monthHomeOvervie
 Route::get('/generalviewyear', [InstalacionController::class, 'yearHomeOverview']);
 
 //Rutas mydevices
+Route::get('/mydevices', [MachinesController::class, 'globalDevicesOverview']);
 
 
-
-
-
+Route::get('/unirseacomunidad', [BdController::class, 'unirseacomunidad']);
+Route::get('/miscomunidades', [BdController::class, 'miscomunidades']);

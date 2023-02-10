@@ -17,9 +17,14 @@ return new class extends Migration
             $table->integer('id_service')->unsigned();
             $table->integer('id_user')->unsigned();
             $table->primary(array('id_service','id_user'));
-            $table->foreign('id_service')->references('id')->on('servicios');
-            $table->foreign('id_user')->references('id')->on('usuarios');
+            $table->foreign('id_service')->references('id')->on('servicios')
+
+            ->onUpdate('cascade');
+            $table->foreign('id_user')->references('id')->on('usuarios')
+
+            ->onUpdate('cascade');
             $table->timestamps();
+
         });
     }
 
