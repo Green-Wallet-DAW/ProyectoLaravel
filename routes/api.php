@@ -29,12 +29,12 @@ use App\Http\Controllers\Community_ServicesController;
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
-Route::post('loginU', [AuthController::class,'loginU']);
-Route::post('registerU', [AuthController::class,'registerU']);
-Route::put('updateU', [AuthController::class, 'updateU']);
 Route::group(['middleware' => 'cors'], function(){
+    Route::post('loginU', [AuthController::class,'loginU']);
+    Route::post('registerU', [AuthController::class,'registerU']);
     
     Route::group(['middleware' => 'auth:api'], function () {
+        Route::put('updateU', [AuthController::class, 'updateU']);
         Route::get('detailsU', [AuthController::class,'detailsU']);
         Route::get('logoutU', [AuthController::class,'logoutU']);
     });
