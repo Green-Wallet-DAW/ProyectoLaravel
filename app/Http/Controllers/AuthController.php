@@ -151,7 +151,7 @@ class AuthController extends Controller
     public function detailsU()
     {
         $user = Auth::user();
-        return response()->json(['success' => $user], $this->successStatus);
+        return $user;
     }
 
 
