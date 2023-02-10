@@ -24,13 +24,25 @@ use App\Http\Controllers\BdController;
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
+Route::post('loginU', [AuthController::class,'loginU']);
+Route::post('registerU', [AuthController::class,'registerU']);
+Route::put('updateU', [AuthController::class, 'updateU']);
+Route::group(['middleware' => 'cors'], function(){
+
+<<<<<<< HEAD
+    Route::group(['middleware' => 'auth:api'], function () {
+        Route::get('detailsU', [AuthController::class,'detailsU']);
+        Route::get('logoutU', [AuthController::class,'logoutU']);
+    });
+=======
 
 
-Route::get('/usuarios', [UsuarioController::class, 'index']);
-Route::put('/usuario/actualizar/{id}', [UsuarioController::class, 'update']);
-Route::post('/usuario/guardar', [UsuarioController::class, 'store']);
-Route::delete('/usuario/borrar/{id}', [UsuarioController::class, 'destroy']);
-Route::get('/usuario/buscar/{id}', [UsuarioController::class, 'show']);
+
+>>>>>>> refs/remotes/origin/master
+});
+
+
+
 
 
 Route::get('/comunidades', [ComunidadController::class, 'index']);
