@@ -1,5 +1,9 @@
 <IfModule mod_rewrite.c>
-    Header set Access-Control-Allow-Origin "http://localhost"
+
+    <IfModule mod_headers.c>
+        Header set Access-Control-Allow-Origin "*"
+    </IfModule>
+
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes
     </IfModule>

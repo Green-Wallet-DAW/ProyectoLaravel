@@ -4,10 +4,18 @@
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
         'reference' => '1998efca8cab93e9bf0a133c0372b5e69e1b0efb',
 =======
         'reference' => '74b0537e34e74718819e4c241cceb2e8104cc000',
 >>>>>>> refs/remotes/origin/master
+=======
+        'reference' => '3f5e4e001085668e84d96d856f2640fac98b496b',
+>>>>>>> borja
+=======
+        'reference' => '73a870efa8eb3eef645f5bfdcb78491801a6cef3',
+>>>>>>> borja
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -162,9 +170,9 @@
             'dev_requirement' => true,
         ),
         'firebase/php-jwt' => array(
-            'pretty_version' => 'v6.3.2',
-            'version' => '6.3.2.0',
-            'reference' => 'ea7dda77098b96e666c5ef382452f94841e439cd',
+            'pretty_version' => 'v6.4.0',
+            'version' => '6.4.0.0',
+            'reference' => '4dd1e007f22a927ac77da5a3fbb067b42d3bc224',
             'type' => 'library',
             'install_path' => __DIR__ . '/../firebase/php-jwt',
             'aliases' => array(),
@@ -462,10 +470,18 @@
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
             'reference' => '1998efca8cab93e9bf0a133c0372b5e69e1b0efb',
 =======
             'reference' => '74b0537e34e74718819e4c241cceb2e8104cc000',
 >>>>>>> refs/remotes/origin/master
+=======
+            'reference' => '3f5e4e001085668e84d96d856f2640fac98b496b',
+>>>>>>> borja
+=======
+            'reference' => '73a870efa8eb3eef645f5bfdcb78491801a6cef3',
+>>>>>>> borja
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
