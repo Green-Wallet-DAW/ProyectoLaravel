@@ -5,9 +5,13 @@
 namespace Composer\Autoload;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 class ComposerStaticInit062af4ea7572b5558ffb82f77f7152e3
 =======
 class ComposerStaticInit7dc8f35e91e1feed8ca09f13f8e94c7e
+>>>>>>> borja
+=======
+class ComposerStaticInit4145b2654a16c8bf5ab29aba49aea300
 >>>>>>> borja
 {
     public static $files = array (
@@ -7075,6 +7079,7 @@ class ComposerStaticInit7dc8f35e91e1feed8ca09f13f8e94c7e
     {
         return \Closure::bind(function () use ($loader) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             $loader->prefixLengthsPsr4 = ComposerStaticInit062af4ea7572b5558ffb82f77f7152e3::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit062af4ea7572b5558ffb82f77f7152e3::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInit062af4ea7572b5558ffb82f77f7152e3::$prefixesPsr0;
@@ -7084,6 +7089,12 @@ class ComposerStaticInit7dc8f35e91e1feed8ca09f13f8e94c7e
             $loader->prefixDirsPsr4 = ComposerStaticInit7dc8f35e91e1feed8ca09f13f8e94c7e::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInit7dc8f35e91e1feed8ca09f13f8e94c7e::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit7dc8f35e91e1feed8ca09f13f8e94c7e::$classMap;
+>>>>>>> borja
+=======
+            $loader->prefixLengthsPsr4 = ComposerStaticInit4145b2654a16c8bf5ab29aba49aea300::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit4145b2654a16c8bf5ab29aba49aea300::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit4145b2654a16c8bf5ab29aba49aea300::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit4145b2654a16c8bf5ab29aba49aea300::$classMap;
 >>>>>>> borja
 
         }, null, ClassLoader::class);
