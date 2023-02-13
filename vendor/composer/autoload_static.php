@@ -4,15 +4,7 @@
 
 namespace Composer\Autoload;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-class ComposerStaticInit062af4ea7572b5558ffb82f77f7152e3
-=======
-class ComposerStaticInit7dc8f35e91e1feed8ca09f13f8e94c7e
->>>>>>> borja
-=======
-class ComposerStaticInit4145b2654a16c8bf5ab29aba49aea300
->>>>>>> borja
+class ComposerStaticInit49bae0ffb5791acab3447f37f2ccc2a1
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -401,8 +393,8 @@ class ComposerStaticInit4145b2654a16c8bf5ab29aba49aea300
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -450,8 +442,8 @@ class ComposerStaticInit4145b2654a16c8bf5ab29aba49aea300
         ),
         'League\\Uri\\' => 
         array (
-            0 => __DIR__ . '/..' . '/league/uri/src',
-            1 => __DIR__ . '/..' . '/league/uri-interfaces/src',
+            0 => __DIR__ . '/..' . '/league/uri-interfaces/src',
+            1 => __DIR__ . '/..' . '/league/uri/src',
         ),
         'League\\OAuth2\\Server\\' => 
         array (
@@ -557,8 +549,8 @@ class ComposerStaticInit4145b2654a16c8bf5ab29aba49aea300
         ),
         'Fruitcake\\Cors\\' => 
         array (
-            0 => __DIR__ . '/..' . '/fruitcake/laravel-cors/src',
-            1 => __DIR__ . '/..' . '/fruitcake/php-cors/src',
+            0 => __DIR__ . '/..' . '/fruitcake/php-cors/src',
+            1 => __DIR__ . '/..' . '/fruitcake/laravel-cors/src',
         ),
         'Firebase\\JWT\\' => 
         array (
@@ -704,11 +696,7 @@ class ComposerStaticInit4145b2654a16c8bf5ab29aba49aea300
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustHosts' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustHosts.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
-<<<<<<< HEAD
         'App\\Http\\Middleware\\UserMasterMiddleware' => __DIR__ . '/../..' . '/app/Http/Middleware/UserMasterMiddleware.php',
-=======
->>>>>>> borja
-        'App\\Http\\Middleware\\UserMiddleware' => __DIR__ . '/../..' . '/app/Http/Middleware/UserMiddleware.php',
         'App\\Http\\Middleware\\ValidateSignature' => __DIR__ . '/../..' . '/app/Http/Middleware/ValidateSignature.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Models\\Comunidad' => __DIR__ . '/../..' . '/app/Models/Comunidad.php',
@@ -7078,24 +7066,10 @@ class ComposerStaticInit4145b2654a16c8bf5ab29aba49aea300
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-            $loader->prefixLengthsPsr4 = ComposerStaticInit062af4ea7572b5558ffb82f77f7152e3::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit062af4ea7572b5558ffb82f77f7152e3::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit062af4ea7572b5558ffb82f77f7152e3::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit062af4ea7572b5558ffb82f77f7152e3::$classMap;
-=======
-            $loader->prefixLengthsPsr4 = ComposerStaticInit7dc8f35e91e1feed8ca09f13f8e94c7e::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit7dc8f35e91e1feed8ca09f13f8e94c7e::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit7dc8f35e91e1feed8ca09f13f8e94c7e::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit7dc8f35e91e1feed8ca09f13f8e94c7e::$classMap;
->>>>>>> borja
-=======
-            $loader->prefixLengthsPsr4 = ComposerStaticInit4145b2654a16c8bf5ab29aba49aea300::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit4145b2654a16c8bf5ab29aba49aea300::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit4145b2654a16c8bf5ab29aba49aea300::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit4145b2654a16c8bf5ab29aba49aea300::$classMap;
->>>>>>> borja
+            $loader->prefixLengthsPsr4 = ComposerStaticInit49bae0ffb5791acab3447f37f2ccc2a1::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit49bae0ffb5791acab3447f37f2ccc2a1::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit49bae0ffb5791acab3447f37f2ccc2a1::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit49bae0ffb5791acab3447f37f2ccc2a1::$classMap;
 
         }, null, ClassLoader::class);
     }
