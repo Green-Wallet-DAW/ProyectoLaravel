@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/consultaUser.css">
     <title>User Details</title>
 </head>
+<body>
     {{-- <h1>USUARIOS</h1> --}}
     @extends('plantillaUser');
     @section('contenidoPagina')

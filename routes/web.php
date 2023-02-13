@@ -65,6 +65,8 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::group(['middleware' => 'admin'], function(){
     Route::get('/usuarios', [UsuarioController::class, 'indexUsers'])->name('usuarios');
+    // Route::get('/usuarios', [UsuarioController::class, 'indexUsers'])->name('usuarios');
+    // Route::get('/usuarios/list', [UsuarioController::class, 'getUsers'])->name('users.list');
     Route::get('/showUser/{id}', [UsuarioController::class, 'showUser'])->name('showUser');
     Route::get('/editUser/{id}', [UsuarioController::class, 'editUser'])->name('editUser'); //Formu
     Route::patch('/updateUser/{id}', [UsuarioController::class, 'updateUser'])->name('updateUser');

@@ -10,6 +10,7 @@
 
     <title>User List</title>
 </head>
+<body>
     {{-- <h1>USUARIOS</h1> --}}
   @extends('plantillaUser');
   @section('contenidoPagina')
