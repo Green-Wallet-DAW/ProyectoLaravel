@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/consultaUser.css">
     <title>User Details</title>
 </head>
+<body>
     {{-- <h1>USUARIOS</h1> --}}
     @extends('plantillaUser');
     @section('contenidoPagina')
@@ -19,6 +20,16 @@
             </div>
             <div class="uCon">
                 <strong>Name: </strong>{{$task->name}}
+            </div>
+            <div class="uCon">
+                <strong>Tokens: </strong>{{$task->token}}
+            </div>
+            <div class="uCon">
+                <strong>Subscribed to newsletter: </strong>@if ($task->newsletter == 1)
+                    YES
+                @else
+                    NO
+                @endif
             </div>
             <div class="uCon">
                 <strong>Email: </strong>{{$task->email}}
@@ -38,13 +49,6 @@
                 {{$task->number_comunity}}
                 @else
                     No number registered
-                @endif
-            </div>
-            <div class="uCon">
-                <strong>Subscribed to newsletter: </strong>@if ($task->newsletter == 1)
-                    YES
-                @else
-                    NO
                 @endif
             </div>
             <div class="uCon">

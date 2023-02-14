@@ -10,6 +10,7 @@
 
     <title>User List</title>
 </head>
+<body>
     {{-- <h1>USUARIOS</h1> --}}
   @extends('plantillaUser');
   @section('contenidoPagina')
@@ -52,12 +53,22 @@
             <div class="eUser">
                 <label for="role"><strong>Role: </strong></label>
                 <select class="custom-select" name="role" id="role">
-                    <option value="user">User</option>
-                    <option value="admin">Admin</option>
+                    @if ($task->rol == "user")
+                        <option value="user">User</option>
+                        <option value="admin">Admin</option>
+                    @else
+                        <option value="admin">Admin</option>
+                        <option value="user">User</option>
+                    @endif
+                    
                 </select>
             </div>
             <div class="eUser">
-                <input class="checkUser" type="checkbox" name="newsletter" id="newsletter">
+                @if ($task->newsletter == 1)
+                    <input class="checkUser" type="checkbox" name="newsletter" id="newsletter" checked>
+                @else
+                    <input class="checkUser" type="checkbox" name="newsletter" id="newsletter">
+                @endif
                 <label for="newsletter"><strong>I want to receive news and updates about Green Wallet.</strong></label>
             </div>
         </form>
