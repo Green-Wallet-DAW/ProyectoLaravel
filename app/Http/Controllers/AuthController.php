@@ -94,6 +94,7 @@ class AuthController extends Controller
             $success['cumn'] =  $user->cumn;
             $success['rol'] =  $user->rol;
             $success['newsletter'] = $user->newsletter;
+            $success['tokens'] = $user->token;
 
             // dd($success);
             return response()->json(['success' => $success], $this->successStatus);

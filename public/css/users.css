@@ -60,6 +60,13 @@ th{
     display: flex;
     justify-content: end;
 }
+#tabla_filter>label{
+    display: flex;
+    flex-direction: row;
+}
+#tabla_filter>label>input{
+    margin-left: 10px;
+}
 #tabla_length>label{
     display: flex;
     flex-direction: row;
@@ -69,7 +76,16 @@ th{
     margin-left: 10px;
     margin-right: 10px;
 }
+.row:first-of-type{
+    margin-bottom: 10px;
+}
 .row:first-of-type, .row:last-of-type{
     display: flex;
     align-items: center;
+}
+th:hover{
+    cursor: pointer;
+}
+select:hover{
+    cursor: pointer;
 }

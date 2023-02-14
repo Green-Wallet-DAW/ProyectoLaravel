@@ -22,6 +22,16 @@
                 <strong>Name: </strong>{{$task->name}}
             </div>
             <div class="uCon">
+                <strong>Tokens: </strong>{{$task->token}}
+            </div>
+            <div class="uCon">
+                <strong>Subscribed to newsletter: </strong>@if ($task->newsletter == 1)
+                    YES
+                @else
+                    NO
+                @endif
+            </div>
+            <div class="uCon">
                 <strong>Email: </strong>{{$task->email}}
             </div>
             <div class="uCon">
@@ -39,13 +49,6 @@
                 {{$task->number_comunity}}
                 @else
                     No number registered
-                @endif
-            </div>
-            <div class="uCon">
-                <strong>Subscribed to newsletter: </strong>@if ($task->newsletter == 1)
-                    YES
-                @else
-                    NO
                 @endif
             </div>
             <div class="uCon">
