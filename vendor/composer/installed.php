@@ -3,19 +3,7 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        'reference' => '1998efca8cab93e9bf0a133c0372b5e69e1b0efb',
-=======
-        'reference' => '74b0537e34e74718819e4c241cceb2e8104cc000',
->>>>>>> refs/remotes/origin/master
-=======
-        'reference' => '3f5e4e001085668e84d96d856f2640fac98b496b',
->>>>>>> borja
-=======
-        'reference' => '73a870efa8eb3eef645f5bfdcb78491801a6cef3',
->>>>>>> borja
+        'reference' => 'ab5302720437c933cea743d5eca44a660c8ddd0e',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -469,19 +457,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            'reference' => '1998efca8cab93e9bf0a133c0372b5e69e1b0efb',
-=======
-            'reference' => '74b0537e34e74718819e4c241cceb2e8104cc000',
->>>>>>> refs/remotes/origin/master
-=======
-            'reference' => '3f5e4e001085668e84d96d856f2640fac98b496b',
->>>>>>> borja
-=======
-            'reference' => '73a870efa8eb3eef645f5bfdcb78491801a6cef3',
->>>>>>> borja
+            'reference' => 'ab5302720437c933cea743d5eca44a660c8ddd0e',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -994,8 +970,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0|3.0',
-                1 => '1.0.0 || 2.0.0 || 3.0.0',
+                0 => '1.0.0 || 2.0.0 || 3.0.0',
+                1 => '1.0|2.0|3.0',
             ),
         ),
         'psr/simple-cache' => array(
