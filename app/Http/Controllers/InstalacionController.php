@@ -145,7 +145,7 @@ class InstalacionController extends Controller
         $id = 3;
 
         $fecha = Carbon::now()->format('Y-m-d');//Fecha a actual año/mes/dia
-        
+
         $instalaciones = DB::table('instalaciones')//Se almacenan las id de las instalaciones del usuario
             ->select('id','facility_name','contractNumber','street_name')
             ->where('id_user', '=', $id)

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Machines;
 use Illuminate\Support\Facades\DB;
@@ -47,16 +48,96 @@ class MachinesController extends Controller
     public function globalDevicesOverview(Request $request){
         //Esta funcion lista los dispositivos de una instalacion y sus valores generales
         $id = 3;
-
+        $valores = [];
         $instalaciones = DB::table('instalaciones')
+        ->select('id','facility_name','contractNumber','street_name')
         ->where('id_user', '=', $id)
         ->get();
 
-        for($i = 0 ; $i < count($instalaciones) ; $i++){
+        for($i = 0 ; $i < count($instalaciones) ; $i++){//Esto llama a las maquinas de las instalaciones
             $maquinas = DB::table('maquinas')
+            ->select('id','energy_produced','carbono_ahorrado','tokens')
+            ->where('id_instalation', '=', $instalaciones[$i]->id)
             ->get();
+
+
+        array_push($valores, array(//Se añade el array, para generarlo con ngFor en la vista
+            'faciliy_name'=>$instalaciones[$i]->facility_name,
+            'contractNumber'=>$instalaciones[$i]->contractNumber,
+            'street_name'=>$instalaciones[$i]->street_name,
+            'maquinas'=>$maquinas,//Doble ngFor -_-
+        ));
+
         }
+        return $valores;
+    }
+    public function dailyDevicesOverview(Request $request){
+        //Esta funcion lista los dispositivos de una instalacion y sus valores DIARIOS
+        $id = 3;
+        $valores = [];
+
+        $fecha = Carbon::now()->format('Y-m-d');//Fecha a actual año/mes/dia
+
+        $instalaciones = DB::table('instalaciones')
+        ->select('id','facility_name','contractNumber','street_name')
+        ->where('id_user', '=', $id)
+        ->get();
+
+        for($i = 0 ; $i < count($instalaciones) ; $i++){//Esto llama a las maquinas de las instalaciones
+            $maquinas = DB::table('maquinas')
+            ->select('id','energy_produced','carbono_ahorrado','tokens')
+            ->where('id_instalation', '=', $instalaciones[$i]->id)
+            ->where('date','=', $fecha)
+            ->get();
+
+
+        array_push($valores, array(//Se añade el array, para generarlo con ngFor en la vista
+            'faciliy_name'=>$instalaciones[$i]->facility_name,
+            'contractNumber'=>$instalaciones[$i]->contractNumber,
+            'street_name'=>$instalaciones[$i]->street_name,
+            'maquinas'=>$maquinas,//Doble ngFor -_-
+        ));
+
+        }
+        return $valores;
+    }
+    public function weeklyDevicesOverview(Request $request){
 
     }
+    public function monthlyDevicesOverview(Request $request){
+    //Esta funcion lista los dispositivos de una instalacion y sus valores DIARIOS
+    $id = 3;
+    $valores = [];
 
+    $fecha = Carbon::now();//Se extrae el año y mes actual
+    $año = $fecha->format('Y');
+    $mes = $fecha->format('m');
+
+    $instalaciones = DB::table('instalaciones')
+    ->select('id','facility_name','contractNumber','street_name')
+    ->where('id_user', '=', $id)
+    ->get();
+
+    for($i = 0 ; $i < count($instalaciones) ; $i++){//Esto llama a las maquinas de las instalaciones
+    $maquinas = DB::table('maquinas')
+    ->select('id','energy_produced','carbono_ahorrado','tokens')
+    ->where('id_instalation', '=', $instalaciones[$i]->id)
+    ->whereMonth('date', $mes)
+    ->whereYear('date', $año)
+    ->get();
+
+
+    array_push($valores, array(//Se añade el array, para generarlo con ngFor en la vista
+    'faciliy_name'=>$instalaciones[$i]->facility_name,
+    'contractNumber'=>$instalaciones[$i]->contractNumber,
+    'street_name'=>$instalaciones[$i]->street_name,
+    'maquinas'=>$maquinas,//Doble ngFor -_-
+    ));
+
+    }
+    return $valores;
+    }
+    public function yearlyDevicesOverview(Request $request){
+
+    }
 }
