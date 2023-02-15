@@ -8,6 +8,7 @@ use App\Models\Maquina;
 use App\Models\Instalacion;
 use App\Models\Comunidad;
 use App\Models\Servicio;
+use App\Models\UsuarioComunidad;
 
 class BdController extends Controller
 {
@@ -65,7 +66,25 @@ class BdController extends Controller
       
         }
 
-
+      public function insertarTablaIntermedia(){
+          $user=Usuario::find(1);
+          $comunity = Comunidad::find(2); 
+          // $comunity = Comunidad::orderBy('id_comunity', 'desc')->first();
+          $comunity->usuarios()->attach($user);
+          // https://es.stackoverflow.com/questions/197051/como-insertar-una-tabla-intermedia-en-laravel
+         }
+      public function insertarTablaIntermedia2(Request $request)
+         {
+             $task = new UsuarioComunidad();
+             $task->id_comunity = $request->id_comunity;
+             $task->id_user = $request->id_user;
+     
+             $task->save();
+             //Esta función guardará las tareas que enviaremos
+             return response()->json([
+                 "message" => "Tarea almacenada con éxito"
+             ], 201);
+         }
 
 
 

@@ -80,3 +80,5 @@ Route::get('/unirseacomunidad', [BdController::class, 'unirseacomunidad']);
 Route::get('/miscomunidades', [BdController::class, 'miscomunidades']);
 Route::get('/misusuarios', [BdController::class, 'misusuarios']);
 Route::get('/globalcoms', [BdController::class, 'totalPro']);
+
+Route::get('/intermedio', [BdController::class, 'insertarTablaIntermedia']);
