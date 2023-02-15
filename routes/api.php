@@ -5,9 +5,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\ComunidadController;
 use App\Http\Controllers\InstalacionController;
-use App\Http\Controllers\ServicioController;
+use App\Http\Controllers\serviceListController;
 use App\Http\Controllers\MaquinaController;
 use App\Http\Controllers\BdController;
+use App\Http\Controllers\Service_UserController;
+
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Community_ServicesController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,15 +25,26 @@ use App\Http\Controllers\BdController;
 |
 */
 
+
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
+Route::group(['middleware' => 'cors'], function(){
+    Route::post('loginU', [AuthController::class,'loginU']);
+    Route::post('registerU', [AuthController::class,'registerU']);
+    
+    Route::group(['middleware' => 'auth:api'], function () {
+        Route::put('updateU', [AuthController::class, 'updateU']);
+        Route::get('detailsU', [AuthController::class,'detailsU']);
+        Route::get('logoutU', [AuthController::class,'logoutU']);
+    });
 
-Route::get('/usuarios', [UsuarioController::class, 'index']);
-Route::put('/usuario/actualizar/{id}', [UsuarioController::class, 'update']);
-Route::post('/usuario/guardar', [UsuarioController::class, 'store']);
-Route::delete('/usuario/borrar/{id}', [UsuarioController::class, 'destroy']);
-Route::get('/usuario/buscar/{id}', [UsuarioController::class, 'show']);
+
+    
+});
+
+
+
 
 
 Route::get('/comunidades', [ComunidadController::class, 'index']);
@@ -36,12 +53,13 @@ Route::post('/comunidad/guardar', [ComunidadController::class, 'store']);
 Route::delete('/comunidad/borrar/{id}', [ComunidadController::class, 'destroy']);
 Route::get('/comunidad/buscar/{id}', [ComunidadController::class, 'show']);
 
-
-Route::get('/servicios', [ServicioController::class, 'index']);
-Route::put('/servicio/actualizar/{id}', [ServicioController::class, 'update']);
-Route::post('/servicio/guardar', [ServicioController::class, 'store']);
-Route::delete('/servicio/borrar/{id}', [ServicioController::class, 'destroy']);
-Route::get('/servicio/buscar/{id}', [ServicioController::class, 'show']);
+// Rutas de las API para que muestre los servicios
+Route::get('/serviceList', [serviceListController::class, 'showAllServices']);
+Route::get('/serviceList/user', [serviceListController::class, 'showUserServices']);
+Route::get('/serviceList/community', [serviceListController::class, 'showCommunityServices']);
+Route::get('/serviceList/search/{id}', [serviceListController::class, 'showServicesById']);
+Route::get('/serviceList/hire/{user_id}/{serv_id}', [Service_UserController::class, 'hireService']);
+Route::get('/serviceList/hireComm/{comm_id}/{serv_id}' , [Community_ServicesController::class, 'hireCommunityService']);
 
 
 Route::get('/instalaciones', [InstalacionController::class, 'index']);

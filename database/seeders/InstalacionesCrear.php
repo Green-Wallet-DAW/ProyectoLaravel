@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Seeders;
-
+use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -21,6 +21,11 @@ class InstalacionesCrear extends Seeder
             DB::table('instalaciones')->insert([
            'number_machine' => mt_rand(1, 99999999),
            'id_user' => mt_rand(1, 10),
+           'facility_name' => Str::random(10),
+           'street_name' => Str::random(50),
+           'contractNumber'=> mt_rand(1, 20),
+           'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
            //'master' => mt_rand(1, 100)
            ]);
         }

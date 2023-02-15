@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<<<<<<< HEAD
 <<<<<<< HEAD:resources/views/plantillaUser.blade.php
+=======
+>>>>>>> master
     <link rel="stylesheet" href="/css/plantillaUser.css">
     <title>Document</title> 
 </head>
@@ -19,6 +22,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="lista navbar-nav ms-auto">
               <li class="nav-item me-xl-2">
+<<<<<<< HEAD
                 <a id="home" class="nav-link active" aria-current="page" href="#">HOME</a>
               </li>
               <li class="nav-item mx-xl-2">
@@ -41,6 +45,29 @@
                   <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
                   <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
                 </svg>
+=======
+                <a id="home" class="nav-link active" aria-current="page" href="{{route ('usuarios')}}">HOME</a>
+              </li>
+              <li class="nav-item mx-xl-2">
+                <a class="nav-link active" href="https://wallets.green/what-we-do">WHAT WE DO</a>
+              </li>
+              <li class="nav-item mx-xl-2">
+                <a class="nav-link active" href="https://wallets.green/financial-institutions">FINANCIAL INSTITUTIONS</a>
+              </li>
+              <li class="nav-item mx-xl-2">
+                <a class="nav-link active" href="https://wallets.green/companies">COMPANIES</a>
+              </li>
+              <li class="nav-item mx-xl-2">
+                <a class="nav-link active" href="https://wallets.green/individuals">INDIVIDUALS</a>
+              </li>
+              <li class="nav-item ms-xl-2 d-flex align-items-center">
+                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="bi bi-box-arrow-right flecha"></i></a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  {{ csrf_field() }}
+                </form>
+            
+>>>>>>> master
               </li>
             </ul>
           </div>
@@ -53,7 +80,11 @@
     <div class="row mt-5">
       <div class="col-3">
         <div class="aside flex-shrink-0" >
+<<<<<<< HEAD
           <a href="/" class="d-flex align-items-center justify-content-center py-2 mb-3 text-decoration-none border-bottom">
+=======
+          <a href="{{route('usuarios')}}" class="d-flex align-items-center justify-content-center py-2 mb-3 text-decoration-none border-bottom">
+>>>>>>> master
             <span class="fs-1 text-light  fw-semibold">DASHBOARD</span>
           </a>
           <ul class="list-unstyled ps-0">
@@ -64,9 +95,15 @@
               <div class="subelement collapse show" id="home-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                   <li><a href="{{route('usuarios')}}" class="link-light rounded fs-4">Users</a></li>
+<<<<<<< HEAD
                   <li><a href="#" class="link-light rounded fs-4">Communities</a></li>
                   <li><a href="#" class="link-light rounded fs-4">Facilities</a></li>
                   <li><a href="#" class="link-light rounded fs-4">Machines</a></li>
+=======
+                  <li><a href="{{route('comunidadIndex')}}" class="link-light rounded fs-4">Communities</a></li>
+                  <li><a href="/facilities" class="link-light rounded fs-4">Facilities</a></li>
+                  <li><a href="{{route('machines')}}" class="link-light rounded fs-4">Machines</a></li>
+>>>>>>> master
                 </ul>
               </div>
             </li>
@@ -76,8 +113,12 @@
               </button>
               <div class="subelement collapse" id="orders-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+<<<<<<< HEAD
                   <li><a href="#" class="link-light rounded fs-4">User Services</a></li>
                   <li><a href="#" class="link-light rounded fs-4">Community Services</a></li>
+=======
+                  <li><a href="serviceList" class="link-light rounded fs-4">Services</a></li>
+>>>>>>> master
                 </ul>
               </div>
             </li>
@@ -95,6 +136,7 @@
         <a class="privacy" href="https://wallets.green/privacy-policy">PRIVACY POLICY</a>
         <p>Powered by<a class="linkFooter" href="https://www.godaddy.com/websites/website-builder?isc=pwugc&utm_source=wsb&utm_medium=applications&utm_campaign=en-ie_corp_applications_base"> GoDaddy</a></p>
     </div> --}}
+<<<<<<< HEAD
 =======
     <link rel="stylesheet" href="/css/plantilla.css">
     <link rel="stylesheet" href="/css/users.css">
@@ -205,3 +247,9 @@
     </script>
 </body>
 </html>
+=======
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>
+>>>>>>> master

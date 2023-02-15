@@ -32,7 +32,11 @@ html, body{
     margin-top: -3vh;
     padding-top: 1vh;
     background-color: white;
+<<<<<<< HEAD
     position: fixed;
+=======
+    position: absolute;
+>>>>>>> master
 
 }
 .navbar-brand{
@@ -135,3 +139,13 @@ a{
     background-color: #049201;
     border-radius: 10px;
 }
+<<<<<<< HEAD
+=======
+.flecha{
+    color: #049201;
+}
+
+.btn-success{
+    height: 50px !important;
+}
+>>>>>>> master

@@ -10,6 +10,7 @@
 
     <title>User List</title>
 </head>
+<body>
     {{-- <h1>USUARIOS</h1> --}}
   @extends('plantillaUser');
   @section('contenidoPagina')
@@ -30,7 +31,7 @@
             @csrf
             <div class="cajaUE fs-1">
                 <strong>Edit form for {{$task->name}}</strong>
-                <button type="submit" class="btn btn-success fs-4">Update</button>
+                <button type="submit" class="btn btn-success btn-block enter-btn fs-4">Update</button>
             </div>
             <div class="eUser"> 
                 
@@ -42,12 +43,12 @@
                 <input type="email"  name="email" value="{{ $task->email }}"/>
             </div>
             <div class="eUser">
-                <label for="cumn"><strong>C.U.M.N: </strong></label>
+                <label for="cumn"><strong>Credit Union Member Number: </strong></label>
                 <input type="text"  name="cumn" value="{{ $task->cumn }}"/>
             </div>
             <div class="eUser">
                 <label for="phone_number"><strong>Phone number: </strong></label>
-                <input type="number"  name="phone_number" value="{{ $task->phone_number }}"/>
+                <!-- <input type="number"  name="phone_number" value="{{ $task->phone_number }}"/>
             </div>
             <div class="eUser">
                 <label for="role"><strong>Role: </strong></label>
@@ -58,7 +59,29 @@
             </div>
             <div class="eUser">
                 <input class="checkUser" type="checkbox" name="news" id="news">
-                <label for="news"><strong>I want to receive news and updates about Green Wallet.</strong></label>
+                <label for="news"><strong>I want to receive news and updates about Green Wallet.</strong></label> -->
+                <input type="text"  name="phone_number" value="{{ $task->phone_number }}"/>
+            </div>
+            <div class="eUser">
+                <label for="role"><strong>Role: </strong></label>
+                <select class="custom-select" name="role" id="role">
+                    @if ($task->rol == "user")
+                        <option value="user">User</option>
+                        <option value="admin">Admin</option>
+                    @else
+                        <option value="admin">Admin</option>
+                        <option value="user">User</option>
+                    @endif
+                    
+                </select>
+            </div>
+            <div class="eUser">
+                @if ($task->newsletter == 1)
+                    <input class="checkUser" type="checkbox" name="newsletter" id="newsletter" checked>
+                @else
+                    <input class="checkUser" type="checkbox" name="newsletter" id="newsletter">
+                @endif
+                <label for="newsletter"><strong>I want to receive news and updates about Green Wallet.</strong></label>
             </div>
         </form>
     </div>

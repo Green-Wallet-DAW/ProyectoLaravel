@@ -15,18 +15,19 @@ return new class extends Migration
     {
         Schema::create('usuarios', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name',20);
+            $table->string('name',40);
             $table->string('password',255);
             $table->string('email',100);
-            $table->integer('token')->default(0);
+            $table->float('token', 8, 2)->default(0);
             $table->enum('rol',['user','admin'])->default('user');
-            $table->integer('cumn')->nullable();
-            $table->integer('phone_number');
+            $table->string('cumn', 50)->nullable();
+            $table->string('phone_number');
             $table->boolean('newsletter')->default(false);
             $table->integer('number_comunity')->default(0);
             $table->unique(array('email','phone_number'));
+            // $table->integer("hired_services");
+            // $table->foreign("hired_services")->references('id')->on('servicios')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
-
         });
     }
 
