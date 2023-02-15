@@ -100,7 +100,7 @@
             <div class="textB">
                 Already have a Green Wallet account?
                 <br>
-                <a id="enlace" href="/login"><strong>Click here to log in and start !</strong></a>
+                <a id="enlace" href="{{ route('login') }}"><strong>Click here to log in and start !</strong></a>
             </div>
         </div>
     </div>

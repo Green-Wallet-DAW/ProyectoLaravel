@@ -59,7 +59,7 @@ Route::view('/plantillaUser', 'plantillaUser');
 
 Route::view('/registrar', 'registrar');
 Route::patch('/registro', [AuthController::class, 'registro'])->name('registro');
-Route::view('/login', 'login')->name('login');
+Route::view('/loginA', 'login')->name('login');
 Route::post('/login_usuario', [AuthController::class, 'login_usuario'])->name('login_usuario');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 

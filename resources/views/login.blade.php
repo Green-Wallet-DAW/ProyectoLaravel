@@ -59,7 +59,7 @@
                         <input type="checkbox" name="data" id="data">
                         <label for="data" style="font-size: 25px"><strong>Remember my data</strong></label>
                     </div>
-                    <div class="text-center cajaUE fs-1 mt-4">
+                    <div class="text-center cajaUE fs-1 mt-2">
                         <button id="logB" type="submit" class="btn btn-success btn-block enter-btn fs-3">LOG IN</button>
                         <button id="forgot" type="button" class="btn btn-success btn-block fs-3">FORGOT PASSWORD</button>
                     </div>
