@@ -9,6 +9,8 @@ use App\Models\Instalacion;
 use App\Models\Comunidad;
 use App\Models\Servicio;
 use App\Models\UsuarioComunidad;
+use Faker\Core\Number;
+use Ramsey\Uuid\Type\Integer;
 
 class BdController extends Controller
 {
@@ -46,11 +48,42 @@ class BdController extends Controller
         $comunidades=DB::select($sql);
      return $comunidades;
     }
-    public function misusuarios(){
-      
-      $sql="SELECT usuarios.name as members, sum(maquinas.energy_produced)as energy_produced, sum(maquinas.carbono_ahorrado)as carbono_ahorrado FROM `usuarios` inner join instalaciones on instalaciones.id_user=usuarios.id inner join maquinas on maquinas.id_instalation=instalaciones.id inner join usuarios_comunidades on usuarios_comunidades.id_user=usuarios.id where usuarios_comunidades.id_comunity=10 group by usuarios.name";
+    public function misusuarios($request){
+     
+      $sql="SELECT usuarios.name as members, IFNULL(concat(sum(maquinas.energy_produced),'KWh' ),concat(0, 'KWh'))as energy_produced, IFNULL(concat(sum(maquinas.carbono_ahorrado), 'KWh' ),concat(0, 'KWh'))as carbono_ahorrado FROM `usuarios` 
+      inner join instalaciones on instalaciones.id_user=usuarios.id 
+      inner join maquinas on maquinas.id_instalation=instalaciones.id 
+      inner join usuarios_comunidades on usuarios_comunidades.id_user=usuarios.id
+      where usuarios_comunidades.id_comunity= $request group by usuarios.id";
       $comunidades=DB::select($sql);
       return $comunidades;
+
+      // $comunidades2= Usuario::join('usuarios_comunidades','usuarios.id','=','usuarios_comunidades.id_user')
+      // ->join('instalaciones','usuarios.id','=','instalaciones.id_user')
+      // ->join('maquinas','instalaciones.id','=','maquinas.id_instalation')
+      // ->select(DB::raw('usuarios.name as members,sum(maquinas.energy_produced)as energy_produced, sum(maquinas.carbono_ahorrado)as carbono_ahorrado'))
+      // ->groupBy('usuarios.name')
+      // ->get();
+
+//       $comunidades2= Usuario::select('usuarios.name as members', DB::raw('sum(maquinas.energy_produced) as energy_produced,sum(maquinas.carbono_ahorrado) as carbono_ahorrado'))
+// ->join('instalaciones','instalaciones.id_user','=','usuarios.id')
+// ->join('maquinas','maquinas.id_instalation','=','instalaciones.id')
+// ->join('usuarios_comunidades','usuarios_comunidades.id_user','=','usuarios.id')
+// ->where('usuarios_comunidades.id_comunity','=',"DB::raw($request)")
+// ->groupBy('usuarios.name')
+// ->get();
+
+// $comunidades2= Usuario::select('usuarios.name as members', DB::raw('sum(maquinas.energy_produced) as energy_produced,sum(maquinas.carbono_ahorrado) as carbono_ahorrado'))
+// ->join('instalaciones','instalaciones.id_user','=','usuarios.id')
+// ->join('maquinas','maquinas.id_instalation','=','instalaciones.id')
+// ->join('usuarios_comunidades','usuarios_comunidades.id_user','=','usuarios.id')
+// ->where('usuarios_comunidades.id_comunity','=', $request)
+// ->groupBy('usuarios_comunidades.id_user')
+// ->get();
+//       return $comunidades2;
+
+
+
    //   SELECT usuarios.name as members, sum(maquinas.energy_produced)as energy_produced, sum(maquinas.carbono_ahorrado)as carbono_ahorrado FROM `usuarios` inner join instalaciones on instalaciones.id_user=usuarios.id inner join maquinas on maquinas.id_instalation=instalaciones.id group by maquinas.id_instalation;
      }
      public function totalPro(){
@@ -89,3 +122,4 @@ class BdController extends Controller
 
 
 }
+// https://sql2builder.github.io/
