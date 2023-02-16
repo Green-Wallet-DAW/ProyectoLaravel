@@ -99,7 +99,8 @@ class AuthController extends Controller
             // dd($success);
             return response()->json(['success' => $success], $this->successStatus);
         } else {
-            return response()->json(['error' => 'Unauthorised'], 401);
+            // return response()->json(['error' => 'Unauthorised'], 401);
+            return response()->json(['error' => ''], 401);
         }
     }
     /** 
