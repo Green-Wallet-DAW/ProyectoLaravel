@@ -60,7 +60,9 @@ Route::get('/serviceList/community', [serviceListController::class, 'showCommuni
 Route::get('/serviceList/search/{id}', [serviceListController::class, 'showServicesById']);
 Route::get('/serviceList/hire/{user_id}/{serv_id}', [Service_UserController::class, 'hireService']);
 Route::get('/serviceList/hireComm/{comm_id}/{serv_id}' , [Community_ServicesController::class, 'hireCommunityService']);
-
+Route::get('/serviceList/checkServices/{user_id}', [Service_UserController::class, 'checkHiredServices']);
+Route::get('/serviceList/checkCommunityServices/{comm_id}', [Community_ServicesController::class, 'checkCommunityHIredServices']);
+// Fin Rutas Servicios
 
 Route::get('/instalaciones', [InstalacionController::class, 'index']);
 Route::put('/instalacion/actualizar/{id}', [InstalacionController::class, 'update']);

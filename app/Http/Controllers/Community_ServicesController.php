@@ -57,4 +57,10 @@ class Community_ServicesController extends Controller
         }
         
      }
+
+    public function checkCommunityHiredServices($comm_id){
+      $checkHiring = ComunidadServicio::where("id_comunity", '=', $comm_id)->get();
+
+      return $checkHiring;
+    }
 }
