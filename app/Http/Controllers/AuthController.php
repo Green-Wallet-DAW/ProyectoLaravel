@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Session;
 use App\Http\Controllers\Controller;
 use Validator;
+use DB;
 
 class AuthController extends Controller
 {
@@ -202,5 +203,36 @@ class AuthController extends Controller
         return response()->json(['success' => $success], $this->successStatus);
         //Esta función actualizará la tarea que hayamos seleccionado
        
+    }
+
+    public function forgotPass(Request $request)
+    {
+        // dd($request->email);
+
+        $user = Usuario::whereEmail($request->email)->get();
+        // return $user[0]->password;
+        // dd($user2);
+        // dd($user2->name);
+        if(isset($user[0])){
+            $user2 = Usuario::findOrFail(intval($user[0]->id));
+            // dd($user2->name);
+            $newpass = $this->generateRandomString();
+            $user2->password = password_hash($newpass,PASSWORD_DEFAULT);
+            $user2->update();
+
+            return "La nueva contraseña es ".$newpass;
+        }else{
+            return "No se ha podido encontrar el usuario";
+        }
+    }
+
+    function generateRandomString() {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < 14; $i++) {
+            $randomString .= $characters[random_int(0, $charactersLength - 1)];
+        }
+        return $randomString;
     }
 }
