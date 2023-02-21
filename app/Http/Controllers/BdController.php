@@ -37,23 +37,23 @@ class BdController extends Controller
       //https://www.w3schools.com/sql/func_mysql_if.asp
       // return $unirse2;
     }
-    public function miscomunidades(){
-     $sql='SELECT comunidades.id, comunidades.name, comunidades.token, comunidades.description, IFNULL(concat(sum(maquinas.carbono_ahorrado)," KWh" ),concat(0," KWh"))as carbono_ahorrado, IFNULL(concat(sum(maquinas.energy_produced)," KWh" ),concat(0," KWh"))as energy_produced FROM `usuarios_comunidades`
+    public function miscomunidades($request){
+     $sql="SELECT comunidades.id, comunidades.name, comunidades.token, comunidades.description, IFNULL(concat(sum(maquinas.carbono_ahorrado),' KWh' ),concat(0,' KWh'))as carbono_ahorrado, IFNULL(concat(sum(maquinas.energy_produced),' KWh' ),concat(0,'KWh'))as energy_produced FROM `usuarios_comunidades`
         right join comunidades on usuarios_comunidades.id_comunity=comunidades.id
         left join usuarios on usuarios.id=usuarios_comunidades.id_user
         left join instalaciones on instalaciones.id_user=usuarios.id
         left join maquinas on maquinas.id_instalation=instalaciones.id
-      --   where usuarios.id=8
-        group by comunidades.id';
+      where usuarios.id=$request
+        group by comunidades.id";
         $comunidades=DB::select($sql);
      return $comunidades;
     }
     public function misusuarios($request){
      
       $sql="SELECT usuarios.name as members, IFNULL(concat(sum(maquinas.energy_produced),'KWh' ),concat(0, 'KWh'))as energy_produced, IFNULL(concat(sum(maquinas.carbono_ahorrado), 'KWh' ),concat(0, 'KWh'))as carbono_ahorrado FROM `usuarios` 
-      inner join instalaciones on instalaciones.id_user=usuarios.id 
-      inner join maquinas on maquinas.id_instalation=instalaciones.id 
-      inner join usuarios_comunidades on usuarios_comunidades.id_user=usuarios.id
+      left join instalaciones on instalaciones.id_user=usuarios.id 
+      left join maquinas on maquinas.id_instalation=instalaciones.id 
+      right join usuarios_comunidades on usuarios_comunidades.id_user=usuarios.id
       where usuarios_comunidades.id_comunity= $request group by usuarios.id";
       $comunidades=DB::select($sql);
       return $comunidades;
@@ -99,26 +99,39 @@ class BdController extends Controller
       
         }
 
-      public function insertarTablaIntermedia(){
-          $user=Usuario::find(1);
-          $comunity = Comunidad::find(2); 
-          // $comunity = Comunidad::orderBy('id_comunity', 'desc')->first();
-          $comunity->usuarios()->attach($user);
-          // https://es.stackoverflow.com/questions/197051/como-insertar-una-tabla-intermedia-en-laravel
-         }
-      public function insertarTablaIntermedia2(Request $request)
+
+         public function abandonarCom($comunidad,$usuario)
          {
-             $task = new UsuarioComunidad();
-             $task->id_comunity = $request->id_comunity;
-             $task->id_user = $request->id_user;
+            //  $task = UsuarioComunidad::where('id_comunity','=', $comunidad)->where('id_user','=', $usuario)->delete();  //task tienen el id que se ha borrado
      
+            //  return response()->json([
+            //      "message" => "Tarea con id =" . $task . " ha sido borrado con éxito"
+            //  ], 201);
+
+
+            $sql="DELETE from usuarios_comunidades where id_comunity=$comunidad and id_user=$usuario";
+            DB::select($sql);
+
+             //Esta función obtendra el id de la tarea que hayamos seleccionado y la borrará de nuestra BD
+         }
+         public function store(Request $request)
+         {
+             $task = new Comunidad();
+             $task->name = $request->name;
+             $task->description = $request->description;
+             $task->master = $request->master;
              $task->save();
+             $otro= new UsuarioComunidad();
+             
+             $otro->id_comunity= $task->id;
+             $otro->id_user=$request->id_user;
+             
+             $otro->save();
              //Esta función guardará las tareas que enviaremos
              return response()->json([
                  "message" => "Tarea almacenada con éxito"
              ], 201);
          }
-
 
 
 }
