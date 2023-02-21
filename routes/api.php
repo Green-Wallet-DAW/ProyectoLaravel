@@ -36,6 +36,7 @@ Route::group(['middleware' => 'cors'], function(){
     
     Route::group(['middleware' => 'auth:api'], function () {
         Route::put('updateU', [AuthController::class, 'updateU']);
+        Route::put('updatePass', [AuthController::class, 'updatePass']);
         Route::get('detailsU', [AuthController::class,'detailsU']);
         Route::get('logoutU', [AuthController::class,'logoutU']);
     });

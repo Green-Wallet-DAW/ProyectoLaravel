@@ -228,6 +228,27 @@ class AuthController extends Controller
         }
     }
 
+    public function updatePass(Request $request)
+    {
+        $success = Usuario::findOrFail($request->id);
+
+        $success['name'] =  $success->name;
+        $success['email'] =  $success->email;
+        $success['password'] = password_hash($request->password,PASSWORD_DEFAULT);
+        $success['phone_number'] =  $success->phone_number;
+        $success['cumn'] =  $success->cumn;
+        $success['rol'] = "user";
+        
+        if ($success->newsletter == 1) {
+            $success['newsletter'] = 1;
+        } else {
+            $success['newsletter'] = 0;
+        }
+        $success->update();
+
+        return response()->json(['success' => $success], $this->successStatus);
+    }
+
     function generateRandomString() {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
