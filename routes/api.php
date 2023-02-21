@@ -29,8 +29,8 @@ use App\Http\Controllers\Community_ServicesController;
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
-Route::get('/forgotPass/{email}', [AuthController::class, 'forgotPass']);
 Route::group(['middleware' => 'cors'], function(){
+    Route::get('/forgotPass/{email}', [AuthController::class, 'forgotPass']);
     Route::post('loginU', [AuthController::class,'loginU']);
     Route::post('registerU', [AuthController::class,'registerU']);
     

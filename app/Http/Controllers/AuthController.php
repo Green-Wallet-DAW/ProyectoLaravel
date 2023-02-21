@@ -216,13 +216,15 @@ class AuthController extends Controller
         if(isset($user[0])){
             $user2 = Usuario::findOrFail(intval($user[0]->id));
             // dd($user2->name);
+            $newpass = '';
             $newpass = $this->generateRandomString();
             $user2->password = password_hash($newpass,PASSWORD_DEFAULT);
             $user2->update();
-
-            return "La nueva contraseña es ".$newpass;
+            // dd($newpass);
+            // return $newpass;
+            return response()->json($newpass, 200);
         }else{
-            return "No se ha podido encontrar el usuario";
+            return response()->json("The email typed doesn't not exist in our database.", 404);
         }
     }
 
