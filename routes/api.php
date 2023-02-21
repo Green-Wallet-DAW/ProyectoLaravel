@@ -32,7 +32,7 @@ use App\Http\Controllers\Community_ServicesController;
 Route::group(['middleware' => 'cors'], function(){
     Route::post('loginU', [AuthController::class,'loginU']);
     Route::post('registerU', [AuthController::class,'registerU']);
-    
+
     Route::group(['middleware' => 'auth:api'], function () {
         Route::put('updateU', [AuthController::class, 'updateU']);
         Route::get('detailsU', [AuthController::class,'detailsU']);
@@ -40,7 +40,7 @@ Route::group(['middleware' => 'cors'], function(){
     });
 
 
-    
+
 });
 
 
@@ -77,6 +77,18 @@ Route::post('/maquina/guardar', [MaquinaController::class, 'store']);
 Route::delete('/maquina/borrar/{id}', [MaquinaController::class, 'destroy']);
 Route::get('/maquina/buscar/{id}', [MaquinaController::class, 'show']);
 
+//Rutas generalView
+Route::get('/generalview', [InstalacionController::class, 'globalHomeOverview']);
+Route::get('/generalviewdaily', [InstalacionController::class, 'dailyHomeOverview']);
+Route::get('/generalviewweekly', [InstalacionController::class, 'weeklyHomeOverview']);
+Route::get('/generalviewmonth', [InstalacionController::class, 'monthHomeOverview']);
+Route::get('/generalviewyear', [InstalacionController::class, 'yearHomeOverview']);
 
+//Rutas mydevices
+Route::get('/mydevices', [MachinesController::class, 'globalDevicesOverview']);
+Route::get('/mydevicesdaily', [MachinesController::class, 'dailyDevicesOverview']);
+Route::get('/mydevicesweekly', [MachinesController::class, 'weeklyDevicesOverview']);
+Route::get('/mydevicesmontly', [MachinesController::class, 'monthlyDevicesOverview']);
+Route::get('/mydevicesyearly', [MachinesController::class, 'yearlyDevicesOverview']);
 Route::get('/unirseacomunidad', [BdController::class, 'unirseacomunidad']);
 Route::get('/miscomunidades', [BdController::class, 'miscomunidades']);
