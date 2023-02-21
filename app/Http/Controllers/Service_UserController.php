@@ -29,6 +29,10 @@ class Service_UserController extends Controller
         // Se comprueba si el usuario tiene mas de 0 Tokens
         // We check that the user has more than 0 tokens
 
+      // if($this->checkHiring($user_id, $serv_id)== true){
+         
+      // }
+      
          if ($userTokens > 0) {
 
            // Se comprueba que los tokens del usuario sean igual o mayor que el precio de los tokens del servicio
@@ -50,12 +54,31 @@ class Service_UserController extends Controller
         $newHiring->id_user = $user_id;
         $newHiring->save();
            }else{
-                echo "You don't have enough tokens";
+                return false;
              }
 
          }else{
-             echo "You don't have enough tokens";
+             return false;
         }
         
+     }
+
+
+     
+     public function checkHiring($user_id, $serv_id){
+      $checkHiring = UsuarioServicio::where("id_service", "=", $serv_id)->get();
+
+      if($checkHiring->id_user != $user_id){
+         // $this->hireService($user_id, $serv_id);
+         return true;
+      }else{
+         return false;
+      }
+
+     }
+     public function checkHiredServices($user_id){
+      $checkHired = UsuarioServicio::where("id_user", '=', $user_id)->get();
+      return $checkHired;
+
      }
 }

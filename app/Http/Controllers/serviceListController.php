@@ -109,7 +109,7 @@ public function showCommunityServices(){
 
     public function showServicesById(Request $request){
         $service = Servicio::findOrFail($request->id);
-        return $service;
+        return $service->precio;
     }
     
 }
