@@ -30,11 +30,13 @@ use App\Http\Controllers\Community_ServicesController;
 //     return $request->user();
 // });
 Route::group(['middleware' => 'cors'], function(){
+    Route::get('/forgotPass/{email}', [AuthController::class, 'forgotPass']);
     Route::post('loginU', [AuthController::class,'loginU']);
     Route::post('registerU', [AuthController::class,'registerU']);
     
     Route::group(['middleware' => 'auth:api'], function () {
         Route::put('updateU', [AuthController::class, 'updateU']);
+        Route::put('updatePass', [AuthController::class, 'updatePass']);
         Route::get('detailsU', [AuthController::class,'detailsU']);
         Route::get('logoutU', [AuthController::class,'logoutU']);
     });

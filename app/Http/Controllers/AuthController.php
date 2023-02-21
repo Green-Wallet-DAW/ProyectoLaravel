@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Session;
 use App\Http\Controllers\Controller;
 use Validator;
+use DB;
 
 class AuthController extends Controller
 {
@@ -202,5 +203,59 @@ class AuthController extends Controller
         return response()->json(['success' => $success], $this->successStatus);
         //Esta función actualizará la tarea que hayamos seleccionado
        
+    }
+
+    public function forgotPass(Request $request)
+    {
+        // dd($request->email);
+
+        $user = Usuario::whereEmail($request->email)->get();
+        // return $user[0]->password;
+        // dd($user2);
+        // dd($user2->name);
+        if(isset($user[0])){
+            $user2 = Usuario::findOrFail(intval($user[0]->id));
+            // dd($user2->name);
+            $newpass = '';
+            $newpass = $this->generateRandomString();
+            $user2->password = password_hash($newpass,PASSWORD_DEFAULT);
+            $user2->update();
+            // dd($newpass);
+            // return $newpass;
+            return response()->json($newpass, 200);
+        }else{
+            return response()->json("The email typed doesn't not exist in our database.", 404);
+        }
+    }
+
+    public function updatePass(Request $request)
+    {
+        $success = Usuario::findOrFail($request->id);
+
+        $success['name'] =  $success->name;
+        $success['email'] =  $success->email;
+        $success['password'] = password_hash($request->password,PASSWORD_DEFAULT);
+        $success['phone_number'] =  $success->phone_number;
+        $success['cumn'] =  $success->cumn;
+        $success['rol'] = "user";
+        
+        if ($success->newsletter == 1) {
+            $success['newsletter'] = 1;
+        } else {
+            $success['newsletter'] = 0;
+        }
+        $success->update();
+
+        return response()->json(['success' => $success], $this->successStatus);
+    }
+
+    function generateRandomString() {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < 14; $i++) {
+            $randomString .= $characters[random_int(0, $charactersLength - 1)];
+        }
+        return $randomString;
     }
 }
