@@ -33,8 +33,8 @@
                 <strong>Edit form for {{$task->name}}</strong>
                 <button type="submit" class="btn btn-success btn-block enter-btn fs-4">Update</button>
             </div>
-            <div class="eUser"> 
-                
+            <div class="eUser">
+
                 <label for="name"><strong>Name: </strong></label>
                 <input type="text"  name="name" value="{{ $task->name }}"/>
             </div>
@@ -60,7 +60,7 @@
                         <option value="admin">Admin</option>
                         <option value="user">User</option>
                     @endif
-                    
+
                 </select>
             </div>
             <div class="eUser">
@@ -75,6 +75,6 @@
     </div>
     <a href="{{route('usuarios')}}"><button type="button" class="btn btn-success fs-5">Back</button></a>
   @endsection
-    
+
 </body>
 </html>

@@ -7,6 +7,7 @@ use App\Http\Controllers\ComunidadController;
 use App\Http\Controllers\InstalacionController;
 use App\Http\Controllers\serviceListController;
 use App\Http\Controllers\MaquinaController;
+use App\Http\Controllers\MachinesController;
 use App\Http\Controllers\BdController;
 use App\Http\Controllers\Service_UserController;
 
@@ -78,17 +79,19 @@ Route::delete('/maquina/borrar/{id}', [MaquinaController::class, 'destroy']);
 Route::get('/maquina/buscar/{id}', [MaquinaController::class, 'show']);
 
 //Rutas generalView
-Route::get('/generalview', [InstalacionController::class, 'globalHomeOverview']);
-Route::get('/generalviewdaily', [InstalacionController::class, 'dailyHomeOverview']);
-Route::get('/generalviewweekly', [InstalacionController::class, 'weeklyHomeOverview']);
-Route::get('/generalviewmonth', [InstalacionController::class, 'monthHomeOverview']);
-Route::get('/generalviewyear', [InstalacionController::class, 'yearHomeOverview']);
+Route::get('/generalview/{id}', [InstalacionController::class, 'globalHomeOverview']);
+Route::get('/generalviewdaily/{id}', [InstalacionController::class, 'dailyHomeOverview']);
+Route::get('/generalviewweekly/{id}', [InstalacionController::class, 'weeklyHomeOverview']);
+Route::get('/generalviewmonth/{id}', [InstalacionController::class, 'monthHomeOverview']);
+Route::get('/generalviewyear/{id}', [InstalacionController::class, 'yearHomeOverview']);
 
 //Rutas mydevices
-Route::get('/mydevices', [MachinesController::class, 'globalDevicesOverview']);
-Route::get('/mydevicesdaily', [MachinesController::class, 'dailyDevicesOverview']);
-Route::get('/mydevicesweekly', [MachinesController::class, 'weeklyDevicesOverview']);
-Route::get('/mydevicesmontly', [MachinesController::class, 'monthlyDevicesOverview']);
-Route::get('/mydevicesyearly', [MachinesController::class, 'yearlyDevicesOverview']);
+Route::get('/mydevices/{id}', [MachinesController::class, 'globalDevicesOverview']);
+Route::get('/mydevicesdaily/{id}', [MachinesController::class, 'dailyDevicesOverview']);
+Route::get('/mydevicesweekly/{id}', [MachinesController::class, 'weeklyDevicesOverview']);
+Route::get('/mydevicesmontly/{id}', [MachinesController::class, 'monthlyDevicesOverview']);
+Route::get('/mydevicesyearly/{id}', [MachinesController::class, 'yearlyDevicesOverview']);
+
+
 Route::get('/unirseacomunidad', [BdController::class, 'unirseacomunidad']);
 Route::get('/miscomunidades', [BdController::class, 'miscomunidades']);

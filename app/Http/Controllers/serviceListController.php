@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class serviceListController extends Controller{
 
 
-// Muestra los servicios usando toda la información 
+// Muestra los servicios usando toda la información
 
     public function showAllServices(){
         $servicios = Servicio::all();
@@ -28,11 +28,11 @@ public function showCommunityServices(){
     return $communityServices;
 }
 
-// Muestra los servicios usando toda la información 
+// Muestra los servicios usando toda la información
 
 
     public function showServices(){
-        
+
         $servicios = Servicio::all();
 
         return view('serviceList', ['servicios'=> $servicios]);
@@ -47,19 +47,16 @@ public function showCommunityServices(){
         return view('editServices', compact('item'));
     }
 
-    // Permite guardar los cambios de la edición
+    public function updateService(Request $request, $id)
+    {
 
-    public function updateService(Request $request)
-    {   
-        
         $validation = $request->validate([
             'name' => 'required|min:1',
             'description' => 'required',
             'link' => 'required',
             'precio' => 'required|min:1|max:999',
-            'rol_service'=> 'required'
         ]);
-        
+
 
          $item = Servicio::findOrFail($request->id);
          $item->name = $validation['name'];
@@ -111,5 +108,5 @@ public function showCommunityServices(){
         $service = Servicio::findOrFail($request->id);
         return $service->precio;
     }
-    
+
 }

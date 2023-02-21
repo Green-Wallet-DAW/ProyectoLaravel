@@ -7,6 +7,7 @@ use App\Models\Instalacion;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
+
 class InstalacionController extends Controller
 {
     public function index(Request $request)
@@ -59,9 +60,10 @@ class InstalacionController extends Controller
         //Esta función obtendra el id de la tarea que hayamos seleccionado y la borrará de nuestra BD
     }
    //Funcion para la api
-   public function globalHomeOverview(Request $request){
+   public function globalHomeOverview(Request $request, $id){
     //Esta funcion muestra la produccion global
-    $id = 3;//Este valor sera $requiest->id, con la id del usuario logeado
+    //Este valor sera $requiest->id, con la id del usuario logeado
+    // $id = 3;
     $valores = [];
 
         $instalaciones = DB::table('instalaciones')
@@ -96,13 +98,14 @@ class InstalacionController extends Controller
             ));
 
         }
+
         return $valores;
     }
 
-    public function dailyHomeOverview(){
+    public function dailyHomeOverview(Request $request, $id){
         //Esta funcion muestra la produccion del ultimo dia
         $valores = [];
-        $id = 3;
+        // $id = 3;
 
         $fecha = Carbon::now()->format('Y-m-d');//Fecha a actual año/mes/dia
 
@@ -141,10 +144,10 @@ class InstalacionController extends Controller
         return $valores;
     }
 
-    public function weeklyHomeOverview(){
+    public function weeklyHomeOverview(Request $request, $id){
         //Esta funcion muestra la produccion del ultimo mes
        $valores = [];
-       $id = 3;
+        // $id = 3;
 
        $start = Carbon::now();
        $end = Carbon::now();
@@ -190,10 +193,10 @@ class InstalacionController extends Controller
        return $valores;
    }
 
-    public function monthHomeOverview(){
+    public function monthHomeOverview(Request $request, $id){
          //Esta funcion muestra la produccion del ultimo mes
         $valores = [];
-        $id = 3;
+         // $id = 3;
         $fecha = Carbon::now();//Se extrae el año y mes actual
         $año = $fecha->format('Y');
         $mes = $fecha->format('m');
@@ -236,10 +239,10 @@ class InstalacionController extends Controller
         return $valores;
     }
 
-    public function yearHomeOverview(){
+    public function yearHomeOverview(Request $request, $id){
           //Esta funcion muestra la produccion del ultimo año
           $valores = [];
-          $id = 3;
+           // $id = 3;
           $fecha = Carbon::now();
           $año = $fecha->format('Y');//Se extrae el año actual
 

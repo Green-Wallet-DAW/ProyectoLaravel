@@ -23,13 +23,8 @@ return new class extends Migration
             $table->integer('tokens')->default(0);
             $table->foreign('id_user')->references('id')->on('usuarios')->onUpdate('cascade')->onDelete('cascade');
         });
-    }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+    }
     public function down()
     {
         Schema::dropIfExists('instalaciones');

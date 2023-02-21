@@ -45,7 +45,7 @@ class MachinesController extends Controller
     }
 
     //Mydevices methods
-    public function globalDevicesOverview(Request $request){
+    public function globalDevicesOverview(Request $request, $id){
         //Esta funcion lista los dispositivos de una instalacion y sus valores generales
         $id = 3;
         $valores = [];
@@ -71,7 +71,7 @@ class MachinesController extends Controller
         }
         return $valores;
     }
-    public function dailyDevicesOverview(Request $request){
+    public function dailyDevicesOverview(Request $request, $id){
         //Esta funcion lista los dispositivos de una instalacion y sus valores DIARIOS
         $id = 3;
         $valores = [];
@@ -101,7 +101,7 @@ class MachinesController extends Controller
         }
         return $valores;
     }
-    public function weeklyDevicesOverview(Request $request){
+    public function weeklyDevicesOverview(Request $request, $id){
          //Esta funcion lista los dispositivos de una instalacion y sus valores SEMANALMENTE
         $id = 3;
         $valores = [];
@@ -136,7 +136,7 @@ class MachinesController extends Controller
         }
     return $valores;
     }
-    public function monthlyDevicesOverview(Request $request){
+    public function monthlyDevicesOverview(Request $request, $id){
     //Esta funcion lista los dispositivos de una instalacion y sus valores MENSUALES
     $id = 3;
     $valores = [];
@@ -169,7 +169,7 @@ class MachinesController extends Controller
         }
     return $valores;
     }
-    public function yearlyDevicesOverview(Request $request){
+    public function yearlyDevicesOverview(Request $request, $id){
         //Esta funcion lista los dispositivos de una instalacion y sus valores ANUALES
     $id = 3;
     $valores = [];
