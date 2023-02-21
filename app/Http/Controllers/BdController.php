@@ -132,6 +132,20 @@ class BdController extends Controller
                  "message" => "Tarea almacenada con éxito"
              ], 201);
          }
+         public function intermedio(Request $request)
+         {
+            
+             $otro= new UsuarioComunidad();
+             
+             $otro->id_comunity= $request->id_comunity;
+             $otro->id_user=$request->id_user;
+             
+             $otro->save();
+             //Esta función guardará las tareas que enviaremos
+             return response()->json([
+                 "message" => "Tarea almacenada con éxito"
+             ], 201);
+         }
 
 
 }

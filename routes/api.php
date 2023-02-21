@@ -82,4 +82,5 @@ Route::get('/misusuarios/{id}', [BdController::class, 'misusuarios']);
 Route::get('/globalcoms', [BdController::class, 'totalPro']);
 Route::delete('/eliminarusucom/{com}/{usu}', [BdController::class, 'abandonarCom']);
 Route::post('/comunidad/guardar', [BdController::class, 'store']);
-Route::get('/intermedio', [BdController::class, 'insertarTablaIntermedia']);
+Route::post('/joincom/{com}/{usu}', [BdController::class, 'intermedio']);
+// Route::get('/intermedio', [BdController::class, 'insertarTablaIntermedia']);
