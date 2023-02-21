@@ -49,7 +49,7 @@ Route::group(['middleware' => 'cors'], function(){
 
 Route::get('/comunidades', [ComunidadController::class, 'index']);
 Route::put('/comunidad/actualizar/{id}', [ComunidadController::class, 'update']);
-Route::post('/comunidad/guardar', [ComunidadController::class, 'store']);
+// Route::post('/comunidad/guardar', [ComunidadController::class, 'store']);
 Route::delete('/comunidad/borrar/{id}', [ComunidadController::class, 'destroy']);
 Route::get('/comunidad/buscar/{id}', [ComunidadController::class, 'show']);
 
@@ -79,4 +79,9 @@ Route::get('/maquina/buscar/{id}', [MaquinaController::class, 'show']);
 
 
 Route::get('/unirseacomunidad', [BdController::class, 'unirseacomunidad']);
-Route::get('/miscomunidades', [BdController::class, 'miscomunidades']);
+Route::get('/miscomunidades/{id}', [BdController::class, 'miscomunidades']);
+Route::get('/misusuarios/{id}', [BdController::class, 'misusuarios']);
+Route::get('/globalcoms', [BdController::class, 'totalPro']);
+Route::delete('/eliminarusucom/{com}/{usu}', [BdController::class, 'abandonarCom']);
+Route::post('/comunidad/guardar', [BdController::class, 'store']);
+Route::get('/intermedio', [BdController::class, 'insertarTablaIntermedia']);

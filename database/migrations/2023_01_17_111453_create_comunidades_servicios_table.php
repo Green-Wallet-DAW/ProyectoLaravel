@@ -18,9 +18,11 @@ return new class extends Migration
             $table->integer('id_service')->unsigned();
             $table->primary(array('id_comunity','id_service'));
             $table->foreign('id_comunity')->references('id')->on('comunidades')
-            ->onUpdate('cascade')->onDelete('cascade');
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
             $table->foreign('id_service')->references('id')->on('servicios')
-            ->onUpdate('cascade')->onDelete('cascade');
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
             $table->timestamps();
         });
     }

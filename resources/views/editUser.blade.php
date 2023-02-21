@@ -48,6 +48,18 @@
             </div>
             <div class="eUser">
                 <label for="phone_number"><strong>Phone number: </strong></label>
+                <!-- <input type="number"  name="phone_number" value="{{ $task->phone_number }}"/>
+            </div>
+            <div class="eUser">
+                <label for="role"><strong>Role: </strong></label>
+                <select name="role" id="role">
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>
+            <div class="eUser">
+                <input class="checkUser" type="checkbox" name="news" id="news">
+                <label for="news"><strong>I want to receive news and updates about Green Wallet.</strong></label> -->
                 <input type="text"  name="phone_number" value="{{ $task->phone_number }}"/>
             </div>
             <div class="eUser">
