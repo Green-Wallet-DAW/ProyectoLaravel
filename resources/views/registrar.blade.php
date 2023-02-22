@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/plantillaUser.css">
+    <link rel="stylesheet" href="{{asset('/css/plantillaUser.css')}}">
     <link rel="stylesheet" href="{{asset('/css/users.css')}}">
-    <link rel="stylesheet" href="/css/registrar.css">
-    <title>Document</title> 
+    <link rel="stylesheet" href="{{asset('/css/registrar.css')}}">
+    <title>Document</title>
 </head>
 <body>
     <nav id="nav" class="navbar navbar-expand-xl navbar-light d-none d-xl-block" style="margin-top: 0px">
@@ -52,7 +52,7 @@
                         <div class="form-group col">
                             {{-- <label>Username</label> --}}
                             <input type="text" name="name" class="form-control p_input" placeholder="Username*">
-                            {!! $errors->first('name', '<small>:message</small><br>' )!!} 
+                            {!! $errors->first('name', '<small>:message</small><br>' )!!}
                         </div>
                         <div class="form-group col">
                             {{-- <label>Password</label> --}}
@@ -61,30 +61,30 @@
                         </div>
                         <div class="form-group col">
                             {{-- <label>Confirm Password</label> --}}
-                            <input id="password_confirmation" type="password" name="password_confirmation" class="form-control p_input" placeholder="Confirm password*"> 
+                            <input id="password_confirmation" type="password" name="password_confirmation" class="form-control p_input" placeholder="Confirm password*">
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-8">
                             {{-- <label>Email</label> --}}
                             <input type="email" name="email" class="form-control p_input" placeholder="Email*">
-                            {!! $errors->first('email', '<small>:message</small><br>' )!!} 
+                            {!! $errors->first('email', '<small>:message</small><br>' )!!}
                         </div>
                         <div class="form-group col-4">
                             {{-- <label>Phone Number</label> --}}
                             <input type="text" name="phone_number" class="form-control p_input" placeholder="Phone number*">
-                            {!! $errors->first('phone_number', '<small>:message</small><br>' )!!} 
+                            {!! $errors->first('phone_number', '<small>:message</small><br>' )!!}
                         </div>
                     </div>
                     <div class="form-group">
                         {{-- <label>Credit Union Member Number</label> --}}
                         <input type="text" name="cumn" class="form-control p_input" placeholder="Credit Union Member Number">
-                        {!! $errors->first('cumn', '<small>:message</small><br>' )!!} 
+                        {!! $errors->first('cumn', '<small>:message</small><br>' )!!}
                     </div>
                     <div class="form-group pb-0">
                         <input class="checkUser data" type="checkbox" name="terms" id="terms">
                         <label for="terms"><a id="privacy" href="https://wallets.green/privacy-policy" target="_blank"><strong>I accept Terms and Conditions of Use*</strong></a></label>
-                        {!! $errors->first('terms', '<small>The Terms and Conditions of Use must be accepted</small><br>' )!!} 
+                        {!! $errors->first('terms', '<small>The Terms and Conditions of Use must be accepted</small><br>' )!!}
                     </div>
                     <div class="row">
                         <div class="form-group col-9 pb-0">

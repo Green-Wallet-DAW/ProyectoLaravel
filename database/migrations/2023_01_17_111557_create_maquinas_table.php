@@ -16,16 +16,11 @@ return new class extends Migration
         Schema::create('maquinas', function (Blueprint $table) {
             
             $table->string('modelo',25);
-            $table->integer('energy_produced')->default(0);
-            $table->integer('carbono_ahorrado')->default(0);
             $table->string('type',25);
             $table->string('components',100);
             $table->string('fabricante',25);
             $table->integer('id_instalation')->unsigned();
-            $table->primary('modelo');
-            $table->foreign('id_instalation')->references('id')->on('instalaciones')
-            ->onDelete('cascade')
-            ->onUpdate('cascade');
+            $table->foreign('id_instalation')->references('id')->on('instalaciones')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

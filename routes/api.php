@@ -7,6 +7,7 @@ use App\Http\Controllers\ComunidadController;
 use App\Http\Controllers\InstalacionController;
 use App\Http\Controllers\serviceListController;
 use App\Http\Controllers\MaquinaController;
+use App\Http\Controllers\MachinesController;
 use App\Http\Controllers\BdController;
 use App\Http\Controllers\Service_UserController;
 
@@ -33,20 +34,12 @@ Route::group(['middleware' => 'cors'], function(){
     Route::get('/forgotPass/{email}', [AuthController::class, 'forgotPass']);
     Route::post('loginU', [AuthController::class,'loginU']);
     Route::post('registerU', [AuthController::class,'registerU']);
-    
+
     Route::group(['middleware' => 'auth:api'], function () {
         Route::put('updateU', [AuthController::class, 'updateU']);
         Route::put('updatePass', [AuthController::class, 'updatePass']);
         Route::get('detailsU', [AuthController::class,'detailsU']);
         Route::get('logoutU', [AuthController::class,'logoutU']);
-    });
-
-
-    
-});
-
-
-
 
 
 Route::get('/comunidades', [ComunidadController::class, 'index']);
@@ -79,6 +72,21 @@ Route::post('/maquina/guardar', [MaquinaController::class, 'store']);
 Route::delete('/maquina/borrar/{id}', [MaquinaController::class, 'destroy']);
 Route::get('/maquina/buscar/{id}', [MaquinaController::class, 'show']);
 
+//Rutas generalView
+Route::get('/generalview/{id}', [InstalacionController::class, 'globalHomeOverview']);
+Route::get('/generalviewdaily/{id}', [InstalacionController::class, 'dailyHomeOverview']);
+Route::get('/generalviewweekly/{id}', [InstalacionController::class, 'weeklyHomeOverview']);
+Route::get('/generalviewmonth/{id}', [InstalacionController::class, 'monthHomeOverview']);
+Route::get('/generalviewyear/{id}', [InstalacionController::class, 'yearHomeOverview']);
+Route::get('/addfacility{id}', [InstalacionController::class, 'addfacility']);
+
+//Rutas mydevices
+Route::get('/mydevices/{id}', [MachinesController::class, 'globalDevicesOverview']);
+Route::get('/mydevicesdaily/{id}', [MachinesController::class, 'dailyDevicesOverview']);
+Route::get('/mydevicesweekly/{id}', [MachinesController::class, 'weeklyDevicesOverview']);
+Route::get('/mydevicesmontly/{id}', [MachinesController::class, 'monthlyDevicesOverview']);
+Route::get('/mydevicesyearly/{id}', [MachinesController::class, 'yearlyDevicesOverview']);
+
 
 //Rutas generalView
 Route::get('/generalview', [InstalacionController::class, 'globalHomeOverview']);
@@ -101,3 +109,10 @@ Route::get('/globalcoms', [BdController::class, 'totalPro']);
 Route::delete('/eliminarusucom/{com}/{usu}', [BdController::class, 'abandonarCom']);
 Route::post('/comunidad/guardar', [BdController::class, 'store']);
 Route::get('/intermedio', [BdController::class, 'insertarTablaIntermedia']);
+
+
+    });
+});
+
+
+

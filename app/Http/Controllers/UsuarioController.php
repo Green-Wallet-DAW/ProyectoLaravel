@@ -29,7 +29,7 @@ class UsuarioController extends Controller
     //         return Datatables::of($data)
     //             ->addIndexColumn()
     //             ->addColumn('action', function($row){
-    //                 $actionBtn = "<a href='' class='btn btn-info' data-bs-toggle='tooltip' title='User  details'><i class='bi bi-eye'></i></a> 
+    //                 $actionBtn = "<a href='' class='btn btn-info' data-bs-toggle='tooltip' title='User  details'><i class='bi bi-eye'></i></a>
     //                 <a href='' class='btn btn-warning mx-1' data-bs-toggle='tooltip' title='Edit user '><i class='bi bi-pencil'></i></a>
     //                 <form id='ppp' action='' method='post'>
     //                     @csrf
@@ -107,16 +107,16 @@ class UsuarioController extends Controller
             $task->newsletter = 0;
         };
         $task->update();
-       
+
         return redirect()->route('usuarios');
         //Esta función actualizará la tarea que hayamos seleccionado
-       
+
     }
 
      public function deleteUser(Request $request)
     {
         $task = Usuario::findOrFail($request->id);
-        $task->delete(); 
+        $task->delete();
 
         return redirect()->route('usuarios');
     }
@@ -154,10 +154,10 @@ class UsuarioController extends Controller
         // };
 
         $task->save();
-       
+
         return $task;
         //Esta función actualizará la tarea que hayamos seleccionado
-       
+
     }
 
     public function destroy(Request $request)

@@ -9,20 +9,20 @@
     <script src="https://cdn.datatables.net/1.13.2/js/dataTables.bootstrap5.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('/css/users.css')}}">
-
+    <link rel="stylesheet" href="{{asset('/css/plantillaUser.css')}}">
     <title>User List</title>
 </head>
 <body>
-    {{-- <h1>USUARIOS</h1> --}}
+
   @guest
     <a href="{{route('login')}}">Login</a>
   @else
   @extends('plantillaUser');
   @section('contenidoPagina')
   <div class="col-8 mt-5 mb-3">
-    
+
         <div id="cUser">
-          <a href="/createUser"><button type="button" class="btn btn-success fs-5">Create User</button></a>
+          <a href="{{route('createUser')}}"><button type="button" class="btn btn-success fs-5">Create User</button></a>
         </div>
         <br>
         <table class="table table-hover" id="tabla" style="width:100%">
@@ -50,7 +50,7 @@
                             <i class="bi bi-trash"></i>
                           </button>
                         </form>
-                        
+
                     </td>
                   </tr>
               @empty
@@ -58,18 +58,14 @@
               @endforelse
             </tbody>
         </table>
-
-
         @endguest
   </div>
   @endsection
   <script>
     $(document).ready(function(){
-    
-      $('#tabla').DataTable();
+    $('#tabla').DataTable();
     });
   </script>
-    
 
 </body>
 </html>

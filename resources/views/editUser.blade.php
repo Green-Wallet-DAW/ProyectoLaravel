@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('/css/users.css')}}">
     <link rel="stylesheet" href="{{asset('/css/editUser.css')}}">
-
+    <link rel="stylesheet" href="{{asset('/css/plantillaUser.css')}}">
     <title>User List</title>
 </head>
 <body>
@@ -33,8 +33,8 @@
                 <strong>Edit form for {{$task->name}}</strong>
                 <button type="submit" class="btn btn-success btn-block enter-btn fs-4">Update</button>
             </div>
-            <div class="eUser"> 
-                
+            <div class="eUser">
+
                 <label for="name"><strong>Name: </strong></label>
                 <input type="text"  name="name" value="{{ $task->name }}"/>
             </div>
@@ -72,7 +72,7 @@
                         <option value="admin">Admin</option>
                         <option value="user">User</option>
                     @endif
-                    
+
                 </select>
             </div>
             <div class="eUser">
@@ -87,6 +87,6 @@
     </div>
     <a href="{{route('usuarios')}}"><button type="button" class="btn btn-success fs-5">Back</button></a>
   @endsection
-    
+
 </body>
 </html>

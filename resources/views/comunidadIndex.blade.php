@@ -1,5 +1,5 @@
 
-@extends('plantilla')
+@extends('plantillaUser')
 
 
 @section('contenidoPagina')

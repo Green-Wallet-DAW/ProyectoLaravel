@@ -23,11 +23,11 @@
     <div >
         @csrf
         <label for="name">nombre:</label>
-        <input type="text"  name="Nombre" value="{{ $machine->Nombre }}"/>
+        <input type="text"  name="name" value="{{ $machine->name }}"/>
     </div>
     <div >
         <label for="descripcion">descripcion</label>
-        <input type="text"  name="Descripcion" value="{{ $machine->Descripcion }}"/>
+        <input type="text"  name="description" value="{{ $machine->description }}"/>
     </div>
 
     <button type="submit" >Actualizar</button>

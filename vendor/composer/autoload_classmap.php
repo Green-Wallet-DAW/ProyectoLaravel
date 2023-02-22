@@ -233,6 +233,7 @@ return array(
     'Database\\Seeders\\ServiciosCrear' => $baseDir . '/database/seeders/ServiciosCrear.php',
     'Database\\Seeders\\UsuariosCrear' => $baseDir . '/database/seeders/UsuariosCrear.php',
     'Database\\Seeders\\available_machinesSeeder' => $baseDir . '/database/seeders/available_machinesSeeder.php',
+    'Database\\Seeders\\datos_maquinas_seeder' => $baseDir . '/database/seeders/datos_maquinas_seeder.php',
     'DebugBar\\Bridge\\CacheCacheCollector' => $vendorDir . '/maximebf/debugbar/src/DebugBar/Bridge/CacheCacheCollector.php',
     'DebugBar\\Bridge\\DoctrineCollector' => $vendorDir . '/maximebf/debugbar/src/DebugBar/Bridge/DoctrineCollector.php',
     'DebugBar\\Bridge\\MonologCollector' => $vendorDir . '/maximebf/debugbar/src/DebugBar/Bridge/MonologCollector.php',

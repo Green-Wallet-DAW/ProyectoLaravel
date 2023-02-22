@@ -5,10 +5,14 @@
 namespace Composer\Autoload;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 class ComposerStaticInitd79d8ab16276b20372ab2bcb225e76df
 =======
 class ComposerStaticInitfc7ad02e44bb46d573721723215d4c4f
 >>>>>>> 559c263b041618e39a3fa201bfa15b2afb430297
+=======
+class ComposerStaticInitc96d8233630afdfa7fea942e45367d14
+>>>>>>> 14dfc58dcdd8f85e2a16fab146862c022ea8ac51
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -900,6 +904,7 @@ class ComposerStaticInitfc7ad02e44bb46d573721723215d4c4f
         'Database\\Seeders\\ServiciosCrear' => __DIR__ . '/../..' . '/database/seeders/ServiciosCrear.php',
         'Database\\Seeders\\UsuariosCrear' => __DIR__ . '/../..' . '/database/seeders/UsuariosCrear.php',
         'Database\\Seeders\\available_machinesSeeder' => __DIR__ . '/../..' . '/database/seeders/available_machinesSeeder.php',
+        'Database\\Seeders\\datos_maquinas_seeder' => __DIR__ . '/../..' . '/database/seeders/datos_maquinas_seeder.php',
         'DebugBar\\Bridge\\CacheCacheCollector' => __DIR__ . '/..' . '/maximebf/debugbar/src/DebugBar/Bridge/CacheCacheCollector.php',
         'DebugBar\\Bridge\\DoctrineCollector' => __DIR__ . '/..' . '/maximebf/debugbar/src/DebugBar/Bridge/DoctrineCollector.php',
         'DebugBar\\Bridge\\MonologCollector' => __DIR__ . '/..' . '/maximebf/debugbar/src/DebugBar/Bridge/MonologCollector.php',
@@ -7103,6 +7108,7 @@ class ComposerStaticInitfc7ad02e44bb46d573721723215d4c4f
     {
         return \Closure::bind(function () use ($loader) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             $loader->prefixLengthsPsr4 = ComposerStaticInitd79d8ab16276b20372ab2bcb225e76df::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitd79d8ab16276b20372ab2bcb225e76df::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInitd79d8ab16276b20372ab2bcb225e76df::$prefixesPsr0;
@@ -7113,6 +7119,12 @@ class ComposerStaticInitfc7ad02e44bb46d573721723215d4c4f
             $loader->prefixesPsr0 = ComposerStaticInitfc7ad02e44bb46d573721723215d4c4f::$prefixesPsr0;
             $loader->classMap = ComposerStaticInitfc7ad02e44bb46d573721723215d4c4f::$classMap;
 >>>>>>> 559c263b041618e39a3fa201bfa15b2afb430297
+=======
+            $loader->prefixLengthsPsr4 = ComposerStaticInitc96d8233630afdfa7fea942e45367d14::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitc96d8233630afdfa7fea942e45367d14::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitc96d8233630afdfa7fea942e45367d14::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitc96d8233630afdfa7fea942e45367d14::$classMap;
+>>>>>>> 14dfc58dcdd8f85e2a16fab146862c022ea8ac51
 
         }, null, ClassLoader::class);
     }

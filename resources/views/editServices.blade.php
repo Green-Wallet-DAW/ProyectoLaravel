@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/css/serviceList.css">
+    <link rel="stylesheet" href="{{asset('/css/serviceList.css')}}">
     <title>Document</title>
 </head>
 <body>
-    
+
 </body>
 </html>
 
@@ -32,10 +32,10 @@
 
 <div id="caja" class="caja">
     <form method="get" action="{{ route('updateService', $item) }}">
-        <div class="form-group formularioCaja"> 
+        <div class="form-group formularioCaja">
 
               @csrf
-              
+
               <label for="name">Name:</label>
               <input class="form-control" type="text"  name="name" value="{{ $item->name }}"/>
           </div>
