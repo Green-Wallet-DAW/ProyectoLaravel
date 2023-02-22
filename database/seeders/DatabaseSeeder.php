@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
             ServiciosCrear::class,
             InstalacionesCrear::class,
             MaquinasCrear::class,
-            available_machinesSeeder::class,
+            // available_machinesSeeder::class,
         ]);
     }
 }

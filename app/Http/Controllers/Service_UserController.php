@@ -77,8 +77,18 @@ class Service_UserController extends Controller
 
      }
      public function checkHiredServices($user_id){
-      $checkHired = UsuarioServicio::where("id_user", '=', $user_id)->get();
-      return $checkHired;
+      $checkHired = UsuarioServicio::where("id_user", '=', $user_id)->get('id_service');
+      // dd($checkHired)->toArray();
+      
+
+         $id_serv = $checkHired[0]->id_service;
+         // dd($id_serv);
+         $findServices = Servicio::all()->where('id', '=', $id_serv);
+         return $findServices;
+      
+
+
+      
 
      }
 }

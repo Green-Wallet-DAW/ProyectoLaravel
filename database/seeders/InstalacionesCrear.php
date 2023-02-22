@@ -23,7 +23,7 @@ class InstalacionesCrear extends Seeder
            'id_user' => mt_rand(1, 10),
            'facility_name' => Str::random(10),
            'street_name' => Str::random(50),
-           'contractNumber'=> mt_rand(1, 20),
+           'contractNumber' => mt_rand(),
            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
            //'master' => mt_rand(1, 100)

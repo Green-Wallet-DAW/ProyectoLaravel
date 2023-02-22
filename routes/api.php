@@ -78,5 +78,19 @@ Route::delete('/maquina/borrar/{id}', [MaquinaController::class, 'destroy']);
 Route::get('/maquina/buscar/{id}', [MaquinaController::class, 'show']);
 
 
+//Rutas generalView
+Route::get('/generalview', [InstalacionController::class, 'globalHomeOverview']);
+Route::get('/generalviewdaily', [InstalacionController::class, 'dailyHomeOverview']);
+Route::get('/generalviewweekly', [InstalacionController::class, 'weeklyHomeOverview']);
+Route::get('/generalviewmonth', [InstalacionController::class, 'monthHomeOverview']);
+Route::get('/generalviewyear', [InstalacionController::class, 'yearHomeOverview']);
+
+//Rutas mydevices
+Route::get('/mydevices', [MachinesController::class, 'globalDevicesOverview']);
+Route::get('/mydevicesdaily', [MachinesController::class, 'dailyDevicesOverview']);
+Route::get('/mydevicesweekly', [MachinesController::class, 'weeklyDevicesOverview']);
+Route::get('/mydevicesmontly', [MachinesController::class, 'monthlyDevicesOverview']);
+Route::get('/mydevicesyearly', [MachinesController::class, 'yearlyDevicesOverview']);
+
 Route::get('/unirseacomunidad', [BdController::class, 'unirseacomunidad']);
 Route::get('/miscomunidades', [BdController::class, 'miscomunidades']);

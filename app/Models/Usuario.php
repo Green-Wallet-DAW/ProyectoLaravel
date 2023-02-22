@@ -22,7 +22,7 @@ class Usuario extends Model implements Authenticatable
        }
        public function servicios()
        {
-           return $this->belongsToMany('App\Models\Servicio');
+           return $this->hasToMany('App\Models\Servicio');
        }
        public function instalacion()
        {
