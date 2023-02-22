@@ -12,13 +12,15 @@ class MachinesController extends Controller
 {
     public function machineIndex(Request $request){
         $machines = Machines::all();
+
         return view('machines',['machines'=>$machines]);
 
     }
     public function addMachines(Request $request){
         $datos=request()->validate([
-            'Nombre'=>'required|max:25',
-            'Descripcion'=>'required']
+            'name'=>'required|max:25',
+            'description'=>'required|max:100',
+            ]
         );
 
         Machines::create($datos);
@@ -37,8 +39,8 @@ class MachinesController extends Controller
     public function updateMachine(Request $request)
     {
         $validacion = $request->validate([
-            'Nombre' => 'required|min:1',
-            'Descripcion' => 'required',
+            'name' => 'required|min:1',
+            'description' => 'required',
         ]);
         Machines::whereId($request->id)->update($validacion);
         return redirect()->route('machines');

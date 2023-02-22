@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="/css/serviceList.css">
+  <link rel="stylesheet" href="{{asset('/css/serviceList.css')}}">
   <title>Document</title>
 </head>
 <body>
@@ -21,7 +21,7 @@
 
 <div class="contenedor">
 
-  <a href="/createService" class="btn btn-success boton-Agregar" title="Add a Service">Add a new Service</a>
+  <a  href="{{route('createService')}}" class="btn btn-success boton-Agregar" title="Add a Service">Add a new Service</a>
 
   <form action="" method="GET">
 @forelse ($servicios as $servicio)

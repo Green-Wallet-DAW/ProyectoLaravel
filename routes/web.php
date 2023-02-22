@@ -28,10 +28,25 @@ Route::get('/', function () {
 
 Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Fin de las rutas
+
+
+Route::view('/registrar', 'registrar')->name('registrar');
+Route::patch('/registro', [AuthController::class, 'registro'])->name('registro');
+Route::view('/login', 'login')->name('login');
+Route::post('/login_usuario', [AuthController::class, 'login_usuario'])->name('login_usuario');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+
+
+
+Route::group(['middleware' => 'admin'], function(){
+
+    // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::view('/prueba','prueba');
-Route::view('/serviceList', 'serviceList');
+Route::view('/serviceList', 'serviceList')->name('serviceList');;
 
 //Ruta de las mquinas disponibles
 Route::get('/machines', [MachinesController::class, 'machineIndex'])->name('machines');
@@ -44,7 +59,7 @@ Route::delete('/deleteMachines/{id}', [MachinesController::class, 'deleteMachine
 Route::view('/serviceList', 'serviceList');
 Route::get('/serviceList', [serviceListController::class, 'showservices'])->name('serviceList');
 
-Route::view('/createService', 'createService');
+Route::view('/createService', 'createService')->name('createService');;
 Route::patch('/addService', [serviceListController:: class, 'addService'])->name('addService');
 
 Route::get('/editServices{id}', [serviceListController::class, 'editServices'])->name('editServices');
@@ -54,16 +69,7 @@ Route::get('/deleteServices{id}', [serviceListController::class, 'deleteService'
 Route::view('/plantilla', 'plantilla');
 Route::view('/plantillaUser', 'plantillaUser');
 
-// Fin de las rutas
 
-
-Route::view('/registrar', 'registrar');
-Route::patch('/registro', [AuthController::class, 'registro'])->name('registro');
-Route::view('/loginA', 'login')->name('login');
-Route::post('/login_usuario', [AuthController::class, 'login_usuario'])->name('login_usuario');
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
-Route::group(['middleware' => 'admin'], function(){
     Route::get('/usuarios', [UsuarioController::class, 'indexUsers'])->name('usuarios');
     // Route::get('/usuarios', [UsuarioController::class, 'indexUsers'])->name('usuarios');
     // Route::get('/usuarios/list', [UsuarioController::class, 'getUsers'])->name('users.list');
@@ -71,13 +77,10 @@ Route::group(['middleware' => 'admin'], function(){
     Route::get('/editUser/{id}', [UsuarioController::class, 'editUser'])->name('editUser'); //Formu
     Route::patch('/updateUser/{id}', [UsuarioController::class, 'updateUser'])->name('updateUser');
     Route::delete('/deleteUser/{id}', [UsuarioController::class,'deleteUser'])->name('deleteUser');
-    Route::view('/createUser', 'createUser');
+    Route::view('/createUser', 'createUser')->name('createUser');
     Route::patch('/addUser', [UsuarioController::class, 'addUser'])->name('addUser');
-});
 
-
-
-Route::view('/facilities', 'facilities');
+    Route::view('/facilities', 'facilities');
 
 
 
@@ -87,4 +90,9 @@ Route::get('/comunidadEditar/{id}', [ComunidadController::class,'editarAdmin'])-
 Route::patch('/comunidadActualizar/{id}', [ComunidadController::class,'actualizarAdmin'])->name('comunidadActualizar');
 Route::delete('/comunidadBorrar/{id}', [ComunidadController::class,'borrarAdmin'])->name('comunidadBorrar');
 Route::view('/comunidadInsertar','comunidadInsertar')->name('comunidadInsertar');
+
+});
+
+
+
 

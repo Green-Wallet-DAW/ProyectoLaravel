@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('/css/users.css')}}">
-    <link rel="stylesheet" href="/css/consultaUser.css">
+    <link rel="stylesheet" href="{{asset('/css/consultaUser.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/plantillaUser.css')}}">
     <title>User Details</title>
 </head>
 <body>
@@ -52,6 +53,13 @@
                 @endif
             </div>
             <div class="uCon">
+                <!-- <strong>Subscribed to newsletter: </strong>@if ($task->newsletter == 1)
+                    YES
+                @else
+                    NO
+                @endif
+            </div>
+            <div class="uCon"> -->
                 <strong>Account role: </strong>{{$task->rol}}
             </div>
             <div class="uCon">

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Machines extends Model
 {
     use HasFactory;
-    protected $table = 'maquinas_disponibles';  //LLamada a la tabla maquinas_disponibles
-    protected $fillable = ['Nombre', 'Descripcion'];
+    protected $table = 'available_machines';  //LLamada a la tabla maquinas_disponibles
+    protected $fillable = ['name', 'description'];
 
 }

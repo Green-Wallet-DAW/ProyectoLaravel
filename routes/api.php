@@ -31,26 +31,20 @@ use App\Http\Controllers\Community_ServicesController;
 //     return $request->user();
 // });
 Route::group(['middleware' => 'cors'], function(){
+    Route::get('/forgotPass/{email}', [AuthController::class, 'forgotPass']);
     Route::post('loginU', [AuthController::class,'loginU']);
     Route::post('registerU', [AuthController::class,'registerU']);
 
     Route::group(['middleware' => 'auth:api'], function () {
         Route::put('updateU', [AuthController::class, 'updateU']);
+        Route::put('updatePass', [AuthController::class, 'updatePass']);
         Route::get('detailsU', [AuthController::class,'detailsU']);
         Route::get('logoutU', [AuthController::class,'logoutU']);
-    });
-
-
-
-});
-
-
-
 
 
 Route::get('/comunidades', [ComunidadController::class, 'index']);
 Route::put('/comunidad/actualizar/{id}', [ComunidadController::class, 'update']);
-Route::post('/comunidad/guardar', [ComunidadController::class, 'store']);
+// Route::post('/comunidad/guardar', [ComunidadController::class, 'store']);
 Route::delete('/comunidad/borrar/{id}', [ComunidadController::class, 'destroy']);
 Route::get('/comunidad/buscar/{id}', [ComunidadController::class, 'show']);
 
@@ -95,4 +89,16 @@ Route::get('/mydevicesyearly/{id}', [MachinesController::class, 'yearlyDevicesOv
 
 
 Route::get('/unirseacomunidad', [BdController::class, 'unirseacomunidad']);
-Route::get('/miscomunidades', [BdController::class, 'miscomunidades']);
+Route::get('/miscomunidades/{id}', [BdController::class, 'miscomunidades']);
+Route::get('/misusuarios/{id}', [BdController::class, 'misusuarios']);
+Route::get('/globalcoms', [BdController::class, 'totalPro']);
+Route::delete('/eliminarusucom/{com}/{usu}', [BdController::class, 'abandonarCom']);
+Route::post('/comunidad/guardar', [BdController::class, 'store']);
+Route::get('/intermedio', [BdController::class, 'insertarTablaIntermedia']);
+
+
+    });
+});
+
+
+

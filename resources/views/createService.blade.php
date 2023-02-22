@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/css/serviceList.css">
+    <link rel="stylesheet" href="{{asset('/css/serviceList.css')}}">
     <title>Document</title>
 </head>
 <body>
@@ -33,11 +33,11 @@
 
 <div class="caja" id="caja">
 <form method="POST" action="{{ route('addService') }}">
-        <div class="form-group formularioCaja"> 
+        <div class="form-group formularioCaja">
 
             @method('PATCH')
               @csrf
-              
+
               <label for="name">Name:</label>
               <input class="form-control" type="text"  name="name" value=""/>
           </div>

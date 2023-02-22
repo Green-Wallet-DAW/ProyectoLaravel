@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/plantillaUser.css">
+
+    <link rel="stylesheet" href="{{asset('/css/plantillaUser.css')}}">
     <title>Document</title>
 </head>
 <body>
@@ -39,6 +40,7 @@
                   {{ csrf_field() }}
                 </form>
 
+
               </li>
             </ul>
           </div>
@@ -63,7 +65,6 @@
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                   <li><a href="{{route('usuarios')}}" class="link-light rounded fs-4">Users</a></li>
                   <li><a href="{{route('comunidadIndex')}}" class="link-light rounded fs-4">Communities</a></li>
-                  <li><a href="/facilities" class="link-light rounded fs-4">Facilities</a></li>
                   <li><a href="{{route('machines')}}" class="link-light rounded fs-4">Machines</a></li>
                 </ul>
               </div>
@@ -72,7 +73,7 @@
               <button class="btn btn-toggle align-items-center rounded collapsed fs-3 text-light" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
                 TOKEN STORE
               </button>
-              <div class="subelement collapse" id="orders-collapse">
+              <div class="subelement collapse show" id="orders-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                   <li><a href="serviceList" class="link-light rounded fs-4">Services</a></li>
                 </ul>
@@ -92,7 +93,9 @@
         <a class="privacy" href="https://wallets.green/privacy-policy">PRIVACY POLICY</a>
         <p>Powered by<a class="linkFooter" href="https://www.godaddy.com/websites/website-builder?isc=pwugc&utm_source=wsb&utm_medium=applications&utm_campaign=en-ie_corp_applications_base"> GoDaddy</a></p>
     </div> --}}
+    {{-- <h1>USUARIOS</h1> --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
 </body>
 </html>
+
+
