@@ -15,11 +15,12 @@ use Ramsey\Uuid\Type\Integer;
 class BdController extends Controller
 {
     public function unirseacomunidad(){
-       $sql='SELECT comunidades.id, comunidades.name, comunidades.description as descripcion, IFNULL(concat(sum(maquinas.energy_produced)," KWh" ),concat(0," KWh"))as energy_produced,count(usuarios_comunidades.id_user) as members FROM `usuarios_comunidades`
+       $sql='SELECT comunidades.id, comunidades.name, comunidades.description as descripcion, IFNULL(concat(sum(datos_maquinas.energy_produced)," KWh" ),concat(0," KWh"))as energy_produced,count(usuarios_comunidades.id_user) as members FROM `usuarios_comunidades`
        right join comunidades on usuarios_comunidades.id_comunity=comunidades.id
        left join usuarios on usuarios.id=usuarios_comunidades.id_user
       left join instalaciones on instalaciones.id_user=usuarios.id
       left join maquinas on maquinas.id_instalation=instalaciones.id
+      left join datos_maquinas on maquinas.id=datos_maquinas.id_maquina
        group by comunidades.id;';
        $comunidades=DB::select($sql);
     return $comunidades;
@@ -38,21 +39,23 @@ class BdController extends Controller
       // return $unirse2;
     }
     public function miscomunidades($request){
-     $sql="SELECT comunidades.id, comunidades.name, comunidades.token, comunidades.description, IFNULL(concat(sum(maquinas.carbono_ahorrado),' KWh' ),concat(0,' KWh'))as carbono_ahorrado, IFNULL(concat(sum(maquinas.energy_produced),' KWh' ),concat(0,'KWh'))as energy_produced FROM `usuarios_comunidades`
+     $sql="SELECT comunidades.id, comunidades.name, comunidades.token, comunidades.description, IFNULL(concat(sum(datos_maquinas.carbono_ahorrado),' KWh' ),concat(0,' KWh'))as carbono_ahorrado, IFNULL(concat(sum(datos_maquinas.energy_produced),' KWh' ),concat(0,'KWh'))as energy_produced FROM `usuarios_comunidades`
         right join comunidades on usuarios_comunidades.id_comunity=comunidades.id
         left join usuarios on usuarios.id=usuarios_comunidades.id_user
         left join instalaciones on instalaciones.id_user=usuarios.id
         left join maquinas on maquinas.id_instalation=instalaciones.id
+        left join datos_maquinas on datos_maquinas.id_maquina=maquinas.id
       where usuarios.id=$request
         group by comunidades.id";
         $comunidades=DB::select($sql);
      return $comunidades;
     }
     public function misusuarios($request){
-     
-      $sql="SELECT usuarios.name as members, IFNULL(concat(sum(maquinas.energy_produced),'KWh' ),concat(0, 'KWh'))as energy_produced, IFNULL(concat(sum(maquinas.carbono_ahorrado), 'KWh' ),concat(0, 'KWh'))as carbono_ahorrado FROM `usuarios` 
-      left join instalaciones on instalaciones.id_user=usuarios.id 
-      left join maquinas on maquinas.id_instalation=instalaciones.id 
+
+      $sql="SELECT usuarios.name as members, IFNULL(concat(sum(datos_maquinas.energy_produced),'KWh' ),concat(0, 'KWh'))as energy_produced, IFNULL(concat(sum(datos_maquinas.carbono_ahorrado), 'KWh' ),concat(0, 'KWh'))as carbono_ahorrado FROM `usuarios`
+      left join instalaciones on instalaciones.id_user=usuarios.id
+      left join maquinas on maquinas.id_instalation=instalaciones.id
+      left join datos_maquinas on datos_maquinas.id_maquina=maquinas.id
       right join usuarios_comunidades on usuarios_comunidades.id_user=usuarios.id
       where usuarios_comunidades.id_comunity= $request group by usuarios.id";
       $comunidades=DB::select($sql);
@@ -87,23 +90,24 @@ class BdController extends Controller
    //   SELECT usuarios.name as members, sum(maquinas.energy_produced)as energy_produced, sum(maquinas.carbono_ahorrado)as carbono_ahorrado FROM `usuarios` inner join instalaciones on instalaciones.id_user=usuarios.id inner join maquinas on maquinas.id_instalation=instalaciones.id group by maquinas.id_instalation;
      }
      public function totalPro(){
-      
-         $sql='SELECT usuarios.id, usuarios.name as member, IFNULL(concat(sum(maquinas.energy_produced)," KWh" ),concat(0," KWh")) as Total_Production, IFNULL(concat(sum(maquinas.carbono_ahorrado)," KWh" ),concat(0," KWh"))as Total_carbon_saved FROM `usuarios`
+
+         $sql='SELECT usuarios.id, usuarios.name as member, IFNULL(concat(sum(datos_maquinas.energy_produced)," KWh" ),concat(0," KWh")) as Total_Production, IFNULL(concat(sum(datos_maquinas.carbono_ahorrado)," KWh" ),concat(0," KWh"))as Total_carbon_saved FROM `usuarios`
          inner join instalaciones on usuarios.id=instalaciones.id_user
          inner join maquinas on instalaciones.id=maquinas.id_instalation
+         inner join datos_maquinas on datos_maquinas.id_maquina=maquinas.id
          group by id
-         order by sum(maquinas.energy_produced) desc, sum(maquinas.carbono_ahorrado) desc
+         order by sum(datos_maquinas.energy_produced) desc, sum(datos_maquinas.carbono_ahorrado) desc
          limit 10';
          $comunidades=DB::select($sql);
          return $comunidades;
-      
+
         }
 
 
          public function abandonarCom($comunidad,$usuario)
          {
             //  $task = UsuarioComunidad::where('id_comunity','=', $comunidad)->where('id_user','=', $usuario)->delete();  //task tienen el id que se ha borrado
-     
+
             //  return response()->json([
             //      "message" => "Tarea con id =" . $task . " ha sido borrado con éxito"
             //  ], 201);
@@ -122,10 +126,10 @@ class BdController extends Controller
              $task->master = $request->master;
              $task->save();
              $otro= new UsuarioComunidad();
-             
+
              $otro->id_comunity= $task->id;
              $otro->id_user=$request->id_user;
-             
+
              $otro->save();
              //Esta función guardará las tareas que enviaremos
              return response()->json([

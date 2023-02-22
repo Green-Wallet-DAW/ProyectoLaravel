@@ -57,6 +57,7 @@ Route::get('/serviceList/hire/{user_id}/{serv_id}', [Service_UserController::cla
 Route::get('/serviceList/hireComm/{comm_id}/{serv_id}' , [Community_ServicesController::class, 'hireCommunityService']);
 Route::get('/serviceList/checkServices/{user_id}', [Service_UserController::class, 'checkHiredServices']);
 Route::get('/serviceList/checkCommunityServices/{comm_id}', [Community_ServicesController::class, 'checkCommunityHIredServices']);
+
 // Fin Rutas Servicios
 
 Route::get('/instalaciones', [InstalacionController::class, 'index']);
@@ -73,6 +74,7 @@ Route::delete('/maquina/borrar/{id}', [MaquinaController::class, 'destroy']);
 Route::get('/maquina/buscar/{id}', [MaquinaController::class, 'show']);
 
 //Rutas generalView
+Route::get('/instalaciontokens/{id}', [InstalacionController::class, 'instalaciontokens']);
 Route::get('/generalview/{id}', [InstalacionController::class, 'globalHomeOverview']);
 Route::get('/generalviewdaily/{id}', [InstalacionController::class, 'dailyHomeOverview']);
 Route::get('/generalviewweekly/{id}', [InstalacionController::class, 'weeklyHomeOverview']);
@@ -88,10 +90,10 @@ Route::get('/mydevicesmontly/{id}', [MachinesController::class, 'monthlyDevicesO
 Route::get('/mydevicesyearly/{id}', [MachinesController::class, 'yearlyDevicesOverview']);
 
 
-Route::get('/unirseacomunidad', [BdController::class, 'unirseacomunidad']);
-Route::get('/miscomunidades/{id}', [BdController::class, 'miscomunidades']);
-Route::get('/misusuarios/{id}', [BdController::class, 'misusuarios']);
-Route::get('/globalcoms', [BdController::class, 'totalPro']);
+
+
+
+
 Route::delete('/eliminarusucom/{com}/{usu}', [BdController::class, 'abandonarCom']);
 Route::post('/comunidad/guardar', [BdController::class, 'store']);
 Route::get('/intermedio', [BdController::class, 'insertarTablaIntermedia']);
@@ -100,5 +102,7 @@ Route::get('/intermedio', [BdController::class, 'insertarTablaIntermedia']);
     });
 });
 
-
-
+Route::get('/miscomunidades/{id}', [BdController::class, 'miscomunidades']);
+Route::get('/misusuarios/{id}', [BdController::class, 'misusuarios']);
+Route::get('/unirseacomunidad', [BdController::class, 'unirseacomunidad']);
+Route::get('/globalcoms', [BdController::class, 'totalPro']);

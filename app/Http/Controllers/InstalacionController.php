@@ -7,6 +7,7 @@ use App\Models\Instalacion;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
+use App\Models\Usuario;
 
 class InstalacionController extends Controller
 {
@@ -60,6 +61,27 @@ class InstalacionController extends Controller
         //Esta función obtendra el id de la tarea que hayamos seleccionado y la borrará de nuestra BD
     }
    //Funcion para la api
+   public function instalaciontokens($id){
+
+        $dinero = 0;
+        $tokens = DB::table('instalaciones')
+        ->select('tokens')
+        ->where('id_user', '=', $id)
+        ->get();
+
+        for($i=0;$i<count($tokens);$i++){
+            $dinero += $tokens[$i]->tokens;
+        }
+
+        $task = Usuario::findOrFail($id);
+
+
+        $task->token = $dinero;
+
+        $task->update();
+
+    return $dinero;
+   }
    public function globalHomeOverview(Request $request, $id){
     //Esta funcion muestra la produccion global
     //Este valor sera $requiest->id, con la id del usuario logeado
