@@ -12,7 +12,7 @@
 </body>
 </html>
 
-@extends('plantilla')
+@extends('plantillaUser')
 {{-- @extends('plantillaUser') Intenta en esta versión para que no se superpongan elementos --}}
 
 @section('contenidoPagina')

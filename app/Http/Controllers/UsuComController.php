@@ -55,4 +55,7 @@ class UsuComController extends Controller
         ], 201);
         //Esta función obtendra el id de la tarea que hayamos seleccionado y la borrará de nuestra BD
 }
+
+
+
 }

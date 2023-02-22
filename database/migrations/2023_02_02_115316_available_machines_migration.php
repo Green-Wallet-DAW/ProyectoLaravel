@@ -13,16 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('comunidades', function (Blueprint $table) {
+        Schema::create('available_machines', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name',50);
-            $table->integer('token')->default(0);
-            $table->string('description',255);
-            $table->integer('master')->unsigned()->default(0);
-            $table->foreign('master')->references('id')->on('usuarios')
-            ->onDelete('cascade')
-            ->onUpdate('cascade');
-            $table->timestamps();
+            $table->string('description',10);
+            $table->timestamp('updated_at')->nullable();
+            $table->timestamp('created_at')->nullable();
         });
     }
 
@@ -33,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comunidades');
+        Schema::dropIfExists('available_machines');
     }
 };

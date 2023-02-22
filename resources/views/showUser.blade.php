@@ -52,6 +52,13 @@
                 @endif
             </div>
             <div class="uCon">
+                <!-- <strong>Subscribed to newsletter: </strong>@if ($task->newsletter == 1)
+                    YES
+                @else
+                    NO
+                @endif
+            </div>
+            <div class="uCon"> -->
                 <strong>Account role: </strong>{{$task->rol}}
             </div>
             <div class="uCon">

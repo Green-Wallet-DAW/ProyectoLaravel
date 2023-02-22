@@ -9,13 +9,6 @@
     <script src="https://cdn.datatables.net/1.13.2/js/dataTables.bootstrap5.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('/css/users.css')}}">
-    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> --}}
-
-    {{-- <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
-    <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
-    <link href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" rel="stylesheet"> --}}
 
     <title>User List</title>
 </head>
@@ -66,58 +59,17 @@
             </tbody>
         </table>
 
-        {{-- <div class="container mt-5">
-          <h2 class="mb-4">Laravel 9 Yajra Datatables EJEMPLO</h2>
-          <table class="table table-bordered yajra-datatable">
-              <thead>
-                  <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">C.U.M.N</th>
-                    <th scope="col">Action</th>
-                  </tr>
-              </thead>
-              <tbody>
-              </tbody>
-          </table>
-        </div> --}}
 
         @endguest
   </div>
   @endsection
   <script>
     $(document).ready(function(){
+    
       $('#tabla').DataTable();
     });
   </script>
     
-    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
-    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-    <script type="text/javascript">
-      $(function () {
-        
-        var table = $('.yajra-datatable').DataTable({
-            processing: true,
-            serverSide: true,
-            ajax: "{{ route('users.list') }}",
-            columns: [
-                {data: 'name', name: 'name'},
-                {data: 'email', name: 'email'},
-                {data: 'cumn', name: 'cumn'},
-                {
-                    data: 'action', 
-                    name: 'action', 
-                    orderable: true, 
-                    searchable: true
-                },
-            ]
-        });
-        
-      });
-    </script> --}}
 
 </body>
 </html>
