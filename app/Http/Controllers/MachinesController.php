@@ -49,25 +49,51 @@ class MachinesController extends Controller
         //Esta funcion lista los dispositivos de una instalacion y sus valores generales
         $id = 3;
         $valores = [];
+
+
         $instalaciones = DB::table('instalaciones')
         ->select('id','facility_name','contractNumber','street_name')
         ->where('id_user', '=', $id)
         ->get();
 
-        for($i = 0 ; $i < count($instalaciones) ; $i++){//Esto llama a las maquinas de las instalaciones
+        for ($i = 0; $i < count($instalaciones); $i++){
+
             $maquinas = DB::table('maquinas')
-            ->select('id','energy_produced','carbono_ahorrado','tokens')
-            ->where('id_instalation', '=', $instalaciones[$i]->id)
-            ->get();
+                ->select('id_instalation','type','components','fabricante','id')
+                ->where('id_instalation', '=', $instalaciones[$i]->id)
+                ->get();
+            $energia_producida = 0;
+            $carbono_ahorrado = 0;
+            $tokens = 0;
+            $valores_maquinas = [];
 
 
-        array_push($valores, array(//Se añade el array, para generarlo con ngFor en la vista
-            'faciliy_name'=>$instalaciones[$i]->facility_name,
+            for($y = 0; $y < count($maquinas); $y++){
+                $datos = DB::table('datos_maquinas')
+                ->select('id_maquina','energy_produced','carbono_ahorrado','tokens')
+                ->where('id_maquina','=',$maquinas[$y]->id)
+                ->get();
+
+                for($z = 0; $z < count($datos); $z++){
+                    $energia_producida += $datos[$z]->energy_produced;
+                    $carbono_ahorrado += $datos[$z]->carbono_ahorrado;
+                    $tokens += $datos[$z]->tokens;
+                }
+
+                array_push($valores_maquinas, array(//Se añade el array, para generarlo con ngFor en la vista
+                    'id'=>$maquinas[$y]->id,//Doble ngFor -_-
+                    'energy_produced'=>$energia_producida,
+                    'carbono_ahorrado'=>$carbono_ahorrado,
+                    'tokens'=>$tokens,
+
+                ));
+            }
+            array_push($valores, array(//Se añade el array, para generarlo con ngFor en la vista
+                 'faciliy_name'=>$instalaciones[$i]->facility_name,
             'contractNumber'=>$instalaciones[$i]->contractNumber,
             'street_name'=>$instalaciones[$i]->street_name,
-            'maquinas'=>$maquinas,//Doble ngFor -_-
-        ));
-
+                'maquinas'=>$valores_maquinas,
+            ));
         }
         return $valores;
     }
@@ -83,20 +109,45 @@ class MachinesController extends Controller
         ->where('id_user', '=', $id)
         ->get();
 
-        for($i = 0 ; $i < count($instalaciones) ; $i++){//Esto llama a las maquinas de las instalaciones
+        for ($i = 0; $i < count($instalaciones); $i++){
+
             $maquinas = DB::table('maquinas')
-            ->select('id','energy_produced','carbono_ahorrado','tokens')
-            ->where('id_instalation', '=', $instalaciones[$i]->id)
-            ->where('date','=', $fecha)
-            ->get();
+                ->select('id_instalation','type','components','fabricante','id')
+                ->where('id_instalation', '=', $instalaciones[$i]->id)
+                ->get();
+            $energia_producida = 0;
+            $carbono_ahorrado = 0;
+            $tokens = 0;
+            $valores_maquinas = [];
 
 
-        array_push($valores, array(//Se añade el array, para generarlo con ngFor en la vista
-            'faciliy_name'=>$instalaciones[$i]->facility_name,
+            for($y = 0; $y < count($maquinas); $y++){
+                $datos = DB::table('datos_maquinas')
+                ->select('id_maquina','energy_produced','carbono_ahorrado','tokens')
+                ->where('id_maquina','=',$maquinas[$y]->id)
+                ->where('date','=', $fecha)
+                ->get();
+
+                for($z = 0; $z < count($datos); $z++){
+                    $energia_producida += $datos[$z]->energy_produced;
+                    $carbono_ahorrado += $datos[$z]->carbono_ahorrado;
+                    $tokens += $datos[$z]->tokens;
+                }
+
+                array_push($valores_maquinas, array(//Se añade el array, para generarlo con ngFor en la vista
+                    'id'=>$maquinas[$y]->id,//Doble ngFor -_-
+                    'energy_produced'=>$energia_producida,
+                    'carbono_ahorrado'=>$carbono_ahorrado,
+                    'tokens'=>$tokens,
+
+                ));
+            }
+            array_push($valores, array(//Se añade el array, para generarlo con ngFor en la vista
+                 'faciliy_name'=>$instalaciones[$i]->facility_name,
             'contractNumber'=>$instalaciones[$i]->contractNumber,
             'street_name'=>$instalaciones[$i]->street_name,
-            'maquinas'=>$maquinas,//Doble ngFor -_-
-        ));
+                'maquinas'=>$valores_maquinas,
+            ));
 
         }
         return $valores;
@@ -118,19 +169,44 @@ class MachinesController extends Controller
     ->where('id_user', '=', $id)
     ->get();
 
-    for($i = 0 ; $i < count($instalaciones) ; $i++){//Esto llama a las maquinas de las instalaciones
+    for ($i = 0; $i < count($instalaciones); $i++){
+
         $maquinas = DB::table('maquinas')
-        ->select('id','energy_produced','carbono_ahorrado','tokens','date')
-        ->where('id_instalation', '=', $instalaciones[$i]->id)
-        ->whereBetween('date', [$start, $end])
-        ->get();
+            ->select('id_instalation','type','components','fabricante','id')
+            ->where('id_instalation', '=', $instalaciones[$i]->id)
+            ->get();
+        $energia_producida = 0;
+        $carbono_ahorrado = 0;
+        $tokens = 0;
+        $valores_maquinas = [];
 
 
+        for($y = 0; $y < count($maquinas); $y++){
+            $datos = DB::table('datos_maquinas')
+            ->select('id_maquina','energy_produced','carbono_ahorrado','tokens')
+            ->where('id_maquina','=',$maquinas[$y]->id)
+            ->whereBetween('date', [$start, $end])
+            ->get();
+
+            for($z = 0; $z < count($datos); $z++){
+                $energia_producida += $datos[$z]->energy_produced;
+                $carbono_ahorrado += $datos[$z]->carbono_ahorrado;
+                $tokens += $datos[$z]->tokens;
+            }
+
+            array_push($valores_maquinas, array(//Se añade el array, para generarlo con ngFor en la vista
+                'id'=>$maquinas[$y]->id,//Doble ngFor -_-
+                'energy_produced'=>$energia_producida,
+                'carbono_ahorrado'=>$carbono_ahorrado,
+                'tokens'=>$tokens,
+
+            ));
+        }
         array_push($valores, array(//Se añade el array, para generarlo con ngFor en la vista
-        'faciliy_name'=>$instalaciones[$i]->facility_name,
+             'faciliy_name'=>$instalaciones[$i]->facility_name,
         'contractNumber'=>$instalaciones[$i]->contractNumber,
         'street_name'=>$instalaciones[$i]->street_name,
-        'maquinas'=>$maquinas,//Doble ngFor -_-
+            'maquinas'=>$valores_maquinas,
         ));
 
         }
@@ -150,20 +226,46 @@ class MachinesController extends Controller
     ->where('id_user', '=', $id)
     ->get();
 
-    for($i = 0 ; $i < count($instalaciones) ; $i++){//Esto llama a las maquinas de las instalaciones
+    for ($i = 0; $i < count($instalaciones); $i++){
+
         $maquinas = DB::table('maquinas')
-        ->select('id','energy_produced','carbono_ahorrado','tokens')
-        ->where('id_instalation', '=', $instalaciones[$i]->id)
-        ->whereMonth('date', $mes)
-        ->whereYear('date', $año)
-        ->get();
+            ->select('id_instalation','type','components','fabricante','id')
+            ->where('id_instalation', '=', $instalaciones[$i]->id)
+            ->get();
+
+        $energia_producida = 0;
+        $carbono_ahorrado = 0;
+        $tokens = 0;
+        $valores_maquinas = [];
 
 
+        for($y = 0; $y < count($maquinas); $y++){
+            $datos = DB::table('datos_maquinas')
+            ->select('id_maquina','energy_produced','carbono_ahorrado','tokens')
+            ->where('id_maquina','=',$maquinas[$y]->id)
+            ->whereMonth('date', $mes)
+            ->whereYear('date', $año)
+            ->get();
+
+            for($z = 0; $z < count($datos); $z++){
+                $energia_producida += $datos[$z]->energy_produced;
+                $carbono_ahorrado += $datos[$z]->carbono_ahorrado;
+                $tokens += $datos[$z]->tokens;
+            }
+
+            array_push($valores_maquinas, array(//Se añade el array, para generarlo con ngFor en la vista
+                'id'=>$maquinas[$y]->id,//Doble ngFor -_-
+                'energy_produced'=>$energia_producida,
+                'carbono_ahorrado'=>$carbono_ahorrado,
+                'tokens'=>$tokens,
+
+            ));
+        }
         array_push($valores, array(//Se añade el array, para generarlo con ngFor en la vista
-        'faciliy_name'=>$instalaciones[$i]->facility_name,
+             'faciliy_name'=>$instalaciones[$i]->facility_name,
         'contractNumber'=>$instalaciones[$i]->contractNumber,
         'street_name'=>$instalaciones[$i]->street_name,
-        'maquinas'=>$maquinas,//Doble ngFor -_-
+            'maquinas'=>$valores_maquinas,
         ));
 
         }
@@ -182,19 +284,45 @@ class MachinesController extends Controller
     ->where('id_user', '=', $id)
     ->get();
 
-    for($i = 0 ; $i < count($instalaciones) ; $i++){//Esto llama a las maquinas de las instalaciones
+    for ($i = 0; $i < count($instalaciones); $i++){
+
         $maquinas = DB::table('maquinas')
-        ->select('id','energy_produced','carbono_ahorrado','tokens','date')
-        ->where('id_instalation', '=', $instalaciones[$i]->id)
-        ->whereYear('date', $año)
-        ->get();
+            ->select('id_instalation','type','components','fabricante','id')
+            ->where('id_instalation', '=', $instalaciones[$i]->id)
+            ->get();
+
+        $energia_producida = 0;
+        $carbono_ahorrado = 0;
+        $tokens = 0;
+        $valores_maquinas = [];
 
 
+        for($y = 0; $y < count($maquinas); $y++){
+            $datos = DB::table('datos_maquinas')
+            ->select('id_maquina','energy_produced','carbono_ahorrado','tokens')
+            ->where('id_maquina','=',$maquinas[$y]->id)
+            ->whereYear('date', $año)
+            ->get();
+
+            for($z = 0; $z < count($datos); $z++){
+                $energia_producida += $datos[$z]->energy_produced;
+                $carbono_ahorrado += $datos[$z]->carbono_ahorrado;
+                $tokens += $datos[$z]->tokens;
+            }
+
+            array_push($valores_maquinas, array(//Se añade el array, para generarlo con ngFor en la vista
+                'id'=>$maquinas[$y]->id,//Doble ngFor -_-
+                'energy_produced'=>$energia_producida,
+                'carbono_ahorrado'=>$carbono_ahorrado,
+                'tokens'=>$tokens,
+
+            ));
+        }
         array_push($valores, array(//Se añade el array, para generarlo con ngFor en la vista
-        'faciliy_name'=>$instalaciones[$i]->facility_name,
+             'faciliy_name'=>$instalaciones[$i]->facility_name,
         'contractNumber'=>$instalaciones[$i]->contractNumber,
         'street_name'=>$instalaciones[$i]->street_name,
-        'maquinas'=>$maquinas,//Doble ngFor -_-
+            'maquinas'=>$valores_maquinas,
         ));
 
         }

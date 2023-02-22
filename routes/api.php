@@ -84,6 +84,7 @@ Route::get('/generalviewdaily/{id}', [InstalacionController::class, 'dailyHomeOv
 Route::get('/generalviewweekly/{id}', [InstalacionController::class, 'weeklyHomeOverview']);
 Route::get('/generalviewmonth/{id}', [InstalacionController::class, 'monthHomeOverview']);
 Route::get('/generalviewyear/{id}', [InstalacionController::class, 'yearHomeOverview']);
+Route::get('/addfacility{id}', [InstalacionController::class, 'addfacility']);
 
 //Rutas mydevices
 Route::get('/mydevices/{id}', [MachinesController::class, 'globalDevicesOverview']);

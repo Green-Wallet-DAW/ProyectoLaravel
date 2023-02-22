@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
             InstalacionesCrear::class,
             MaquinasCrear::class,
             available_machinesSeeder::class,
+            datos_maquinas_seeder::class,
         ]);
     }
 }
