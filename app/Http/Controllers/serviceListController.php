@@ -55,6 +55,7 @@ public function showCommunityServices(){
             'description' => 'required',
             'link' => 'required',
             'precio' => 'required|min:1|max:999',
+            'rol_service'=> 'required',
         ]);
 
 
@@ -89,12 +90,14 @@ public function showCommunityServices(){
             'description' => 'required',
             'link' => 'required',
             'precio' => 'required|min:1|max:999',
+            'rol_service'=> 'required'
         ]);
         $newItem = new Servicio();
         $newItem->name = $validation['name'];
         $newItem->description = $validation['description'];
         $newItem->link = $validation['link'];
         $newItem->precio = $validation['precio'];
+        $newItem->rol_service = $validation['rol_service'];
 
         $newItem->save();
         // $validation->save();

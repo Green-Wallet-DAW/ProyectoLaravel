@@ -7,7 +7,9 @@ use App\Models\Instalacion;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
+
 use App\Models\Usuario;
+
 
 class InstalacionController extends Controller
 {
@@ -190,7 +192,6 @@ class InstalacionController extends Controller
        $weekStart = $start->startOfWeek();
        $weekEnd = $end->endOfWeek();
 
-
        $instalaciones = DB::table('instalaciones')//Se almacenan las id de las instalaciones del usuario
            ->select('id','facility_name','contractNumber','street_name')
            ->where('id_user', '=', $id)
@@ -240,7 +241,6 @@ class InstalacionController extends Controller
         $fecha = Carbon::now();//Se extrae el año y mes actual
         $año = $fecha->format('Y');
         $mes = $fecha->format('m');
-
 
         $instalaciones = DB::table('instalaciones')//Se almacenan las id de las instalaciones del usuario
             ->select('id','facility_name','contractNumber','street_name')

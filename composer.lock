@@ -1728,6 +1728,18 @@
         },
         {
             "name": "laravel/passport",
+<<<<<<< HEAD
+            "version": "v11.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/passport.git",
+                "reference": "2008d86244297a9fa291faf63f59d0949bddf91e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/passport/zipball/2008d86244297a9fa291faf63f59d0949bddf91e",
+                "reference": "2008d86244297a9fa291faf63f59d0949bddf91e",
+=======
             "version": "v11.8.2",
             "source": {
                 "type": "git",
@@ -1738,6 +1750,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/passport/zipball/67c3e336af163f6eba5dbca8e5db46275ff0e433",
                 "reference": "67c3e336af163f6eba5dbca8e5db46275ff0e433",
+>>>>>>> 559c263b041618e39a3fa201bfa15b2afb430297
                 "shasum": ""
             },
             "require": {
@@ -1801,7 +1814,11 @@
                 "issues": "https://github.com/laravel/passport/issues",
                 "source": "https://github.com/laravel/passport"
             },
+<<<<<<< HEAD
+            "time": "2023-02-17T09:08:51+00:00"
+=======
             "time": "2023-02-20T13:43:07+00:00"
+>>>>>>> 559c263b041618e39a3fa201bfa15b2afb430297
         },
         {
             "name": "laravel/sanctum",
