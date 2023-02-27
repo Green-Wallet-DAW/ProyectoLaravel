@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('usuarios_comunidades', function (Blueprint $table) {
-            $table->integer('id_comunity')->unsigned();
-            $table->integer('id_user')->unsigned();
-            $table->primary(array('id_comunity','id_user'));
-            $table->foreign('id_comunity')->references('id')->on('comunidades')
+        Schema::create('comunidad_usuario', function (Blueprint $table) {
+            $table->integer('comunidad_id')->unsigned();
+            $table->integer('usuario_id')->unsigned();
+            $table->primary(array('comunidad_id','usuario_id'));
+            $table->foreign('comunidad_id')->references('id')->on('comunidades')
             ->onDelete('cascade')
             ->onUpdate('cascade');
-            $table->foreign('id_user')->references('id')->on('usuarios')
+            $table->foreign('usuario_id')->references('id')->on('usuarios')
             ->onDelete('cascade')
             ->onUpdate('cascade');
             $table->timestamps();
@@ -35,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('usuarios_comunidades');
+        Schema::dropIfExists('comunidad_usuario');
     }
 };
