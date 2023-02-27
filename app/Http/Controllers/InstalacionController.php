@@ -53,14 +53,14 @@ class InstalacionController extends Controller
 
     }
 
-     public function destroy(Request $request)
+     public function destroy($id)
     {
-        $task = Instalacion::destroy($request->id);  //task tienen el id que se ha borrado
+        $task = Instalacion::destroy($id);  //task tienen el id que se ha borrado
 
         return response()->json([
             "message" => "Tarea con id =" . $task . " ha sido borrado con éxito"
         ], 201);
-        //Esta función obtendra el id de la tarea que hayamos seleccionado y la borrará de nuestra BD
+
     }
    //Funcion para la api
    public function instalaciontokens($id){
@@ -120,6 +120,7 @@ class InstalacionController extends Controller
                 }
 
                 array_push($valores, array(//Se añade el array, para generarlo con ngFor en la vista
+                    'id_instalation'=>$instalaciones[$i]->id,
                     'faciliy_name'=>$instalaciones[$i]->facility_name,
                     'energia_producida'=>$energia_producida,
                     'carbono_ahorrado'=>$carbono_ahorrado,
@@ -170,6 +171,7 @@ class InstalacionController extends Controller
                 }
 
                 array_push($valores, array(//Se añade el array, para generarlo con ngFor en la vista
+                    'id_instalation'=>$instalaciones[$i]->id,
                     'faciliy_name'=>$instalaciones[$i]->facility_name,
                     'energia_producida'=>$energia_producida,
                     'carbono_ahorrado'=>$carbono_ahorrado,
@@ -222,7 +224,8 @@ class InstalacionController extends Controller
             }
 
             array_push($valores, array(//Se añade el array, para generarlo con ngFor en la vista
-                'faciliy_name'=>$instalaciones[$i]->facility_name,
+                'id_instalation'=>$instalaciones[$i]->id,
+                    'faciliy_name'=>$instalaciones[$i]->facility_name,
                 'energia_producida'=>$energia_producida,
                 'carbono_ahorrado'=>$carbono_ahorrado,
                 'contractNumber'=>$instalaciones[$i]->contractNumber,
@@ -273,6 +276,7 @@ class InstalacionController extends Controller
                 }
 
                 array_push($valores, array(//Se añade el array, para generarlo con ngFor en la vista
+                    'id_instalation'=>$instalaciones[$i]->id,
                     'faciliy_name'=>$instalaciones[$i]->facility_name,
                     'energia_producida'=>$energia_producida,
                     'carbono_ahorrado'=>$carbono_ahorrado,
@@ -322,6 +326,7 @@ class InstalacionController extends Controller
                 }
 
                 array_push($valores, array(//Se añade el array, para generarlo con ngFor en la vista
+                    'id_instalation'=>$instalaciones[$i]->id,
                     'faciliy_name'=>$instalaciones[$i]->facility_name,
                     'energia_producida'=>$energia_producida,
                     'carbono_ahorrado'=>$carbono_ahorrado,
@@ -336,16 +341,21 @@ class InstalacionController extends Controller
 
 
     public function addfacility(Request $request){
-        $id = 1;
+        //protected $fillable = ['number_machine', 'id_user','facility_name','street_name','contractNumber'];
 
-        $datos=request()->validate([
-            'id_user'=>$id,
-            'number_machine'=>'required|max:30',
-            'street_name'=>'required',
-            'contract_number'=>'required',
-            'facility_name'=>'required',
-            ]
-        );
-        Instalacion::create($datos);
+        $task = new Instalacion();
+        $task->number_machine = $request->number_machine;
+        $task->id_user = $request->user_id;
+        $task->facility_name = $request->facility_name;
+        $task->street_name = $request->street_name;
+        $task->contractNumber = $request->contract_number;
+
+        // $task->number_machine =1234;
+        // $task->id_user = 3;
+        // $task->facility_name = 'facility_prueba';
+        // $task->street_name = 'street_name_prueba';
+        // $task->contractNumber =4321;
+
+        $task->save();
     }
 }
