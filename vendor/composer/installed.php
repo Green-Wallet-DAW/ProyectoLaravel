@@ -3,7 +3,11 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
+<<<<<<< HEAD
         'reference' => 'b60f2375df32c7a2228d380a4ad12e2c1105e2d3',
+=======
+        'reference' => '1fffc6913e1af256c5602f220ab4ca43e275985e',
+>>>>>>> christian
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -185,9 +189,9 @@
             'dev_requirement' => false,
         ),
         'graham-campbell/result-type' => array(
-            'pretty_version' => 'v1.1.0',
-            'version' => '1.1.0.0',
-            'reference' => 'a878d45c1914464426dc94da61c9e1d36ae262a8',
+            'pretty_version' => 'v1.1.1',
+            'version' => '1.1.1.0',
+            'reference' => '672eff8cf1d6fe1ef09ca0f89c4b287d6a3eb831',
             'type' => 'library',
             'install_path' => __DIR__ . '/../graham-campbell/result-type',
             'aliases' => array(),
@@ -457,7 +461,11 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
+<<<<<<< HEAD
             'reference' => 'b60f2375df32c7a2228d380a4ad12e2c1105e2d3',
+=======
+            'reference' => '1fffc6913e1af256c5602f220ab4ca43e275985e',
+>>>>>>> christian
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -788,9 +796,9 @@
             'dev_requirement' => false,
         ),
         'phpoption/phpoption' => array(
-            'pretty_version' => '1.9.0',
-            'version' => '1.9.0.0',
-            'reference' => 'dc5ff11e274a90cc1c743f66c9ad700ce50db9ab',
+            'pretty_version' => '1.9.1',
+            'version' => '1.9.1.0',
+            'reference' => 'dd3a383e599f49777d8b628dadbb90cae435b87e',
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpoption/phpoption',
             'aliases' => array(),
@@ -806,9 +814,9 @@
             'dev_requirement' => false,
         ),
         'phpunit/php-code-coverage' => array(
-            'pretty_version' => '9.2.24',
-            'version' => '9.2.24.0',
-            'reference' => '2cf940ebc6355a9d430462811b5aaa308b174bed',
+            'pretty_version' => '9.2.25',
+            'version' => '9.2.25.0',
+            'reference' => '0e2b40518197a8c0d4b08bc34dfff1c99c508954',
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpunit/php-code-coverage',
             'aliases' => array(),
@@ -970,8 +978,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0.0 || 2.0.0 || 3.0.0',
-                1 => '1.0|2.0|3.0',
+                0 => '1.0|2.0|3.0',
+                1 => '1.0.0 || 2.0.0 || 3.0.0',
             ),
         ),
         'psr/simple-cache' => array(

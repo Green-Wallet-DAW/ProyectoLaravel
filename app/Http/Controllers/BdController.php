@@ -39,9 +39,10 @@ class BdController extends Controller
       // return $unirse2;
     }
     public function miscomunidades($request){
-     $sql="SELECT comunidades.id, comunidades.name, comunidades.token, comunidades.description, IFNULL(concat(sum(datos_maquinas.carbono_ahorrado),' KWh' ),concat(0,' KWh'))as carbono_ahorrado, IFNULL(concat(sum(datos_maquinas.energy_produced),' KWh' ),concat(0,'KWh'))as energy_produced FROM `usuarios_comunidades`
-        right join comunidades on usuarios_comunidades.id_comunity=comunidades.id
-        left join usuarios on usuarios.id=usuarios_comunidades.id_user
+     
+     $sql="SELECT comunidades.id, comunidades.name, comunidades.token, comunidades.description, IFNULL(concat(sum(maquinas.carbono_ahorrado),' KWh' ),concat(0,' KWh'))as carbono_ahorrado, IFNULL(concat(sum(maquinas.energy_produced),' KWh' ),concat(0,'KWh'))as energy_produced FROM `comunidad_usuario`
+        right join comunidades on comunidad_usuario.comunidad_id=comunidades.id
+        left join usuarios on usuarios.id=comunidad_usuario.usuario_id
         left join instalaciones on instalaciones.id_user=usuarios.id
         left join maquinas on maquinas.id_instalation=instalaciones.id
         left join datos_maquinas on datos_maquinas.id_maquina=maquinas.id
@@ -52,12 +53,14 @@ class BdController extends Controller
     }
     public function misusuarios($request){
 
-      $sql="SELECT usuarios.name as members, IFNULL(concat(sum(datos_maquinas.energy_produced),'KWh' ),concat(0, 'KWh'))as energy_produced, IFNULL(concat(sum(datos_maquinas.carbono_ahorrado), 'KWh' ),concat(0, 'KWh'))as carbono_ahorrado FROM `usuarios`
-      left join instalaciones on instalaciones.id_user=usuarios.id
-      left join maquinas on maquinas.id_instalation=instalaciones.id
+     
+     
+     $sql="SELECT usuarios.name as members, IFNULL(concat(sum(datos_maquinas.energy_produced),'KWh' ),concat(0, 'KWh'))as energy_produced, IFNULL(concat(sum(datos_maquinas.carbono_ahorrado), 'KWh' ),concat(0, 'KWh'))as carbono_ahorrado FROM `usuarios`
+      left join instalaciones on instalaciones.id_user=usuarios.id 
+      left join maquinas on maquinas.id_instalation=instalaciones.id 
       left join datos_maquinas on datos_maquinas.id_maquina=maquinas.id
-      right join usuarios_comunidades on usuarios_comunidades.id_user=usuarios.id
-      where usuarios_comunidades.id_comunity= $request group by usuarios.id";
+      right join comunidad_usuario on comunidad_usuario.usuario_id=usuarios.id
+      where comunidad_usuario.comunidad_id= $request group by usuarios.id";
       $comunidades=DB::select($sql);
       return $comunidades;
 
@@ -104,19 +107,17 @@ class BdController extends Controller
         }
 
 
-         public function abandonarCom($comunidad,$usuario)
+         public function abandonarCom($comunidades,$usuarios)
          {
-            //  $task = UsuarioComunidad::where('id_comunity','=', $comunidad)->where('id_user','=', $usuario)->delete();  //task tienen el id que se ha borrado
+            
+            //   $usuario=Usuario::find($usuarios);
+            //   $comunidad = Comunidad::find($comunidades);
+            //  $comunidad->usuarios()->delete($usuario);
 
-            //  return response()->json([
-            //      "message" => "Tarea con id =" . $task . " ha sido borrado con éxito"
-            //  ], 201);
-
-
-            $sql="DELETE from usuarios_comunidades where id_comunity=$comunidad and id_user=$usuario";
+            $sql="DELETE from comunidad_usuario where comunidad_id=$comunidades and usuario_id=$usuarios";
             DB::select($sql);
 
-             //Esta función obtendra el id de la tarea que hayamos seleccionado y la borrará de nuestra BD
+             
          }
          public function store(Request $request)
          {
@@ -125,16 +126,19 @@ class BdController extends Controller
              $task->description = $request->description;
              $task->master = $request->master;
              $task->save();
-             $otro= new UsuarioComunidad();
-
-             $otro->id_comunity= $task->id;
-             $otro->id_user=$request->id_user;
-
-             $otro->save();
+            $usuario=Usuario::find($request->id_user);
+              $comunidad = Comunidad::find($task->id);
+             $comunidad->usuarios()->attach($usuario);
              //Esta función guardará las tareas que enviaremos
              return response()->json([
                  "message" => "Tarea almacenada con éxito"
              ], 201);
+         }
+         public function intermedio(Request $request)
+         {
+             $usuario=Usuario::find($request->usuario_id);
+              $comunidad = Comunidad::find($request->comunidad_id);
+             $comunidad->usuarios()->attach($usuario);
          }
 
          public function totalCom(){
