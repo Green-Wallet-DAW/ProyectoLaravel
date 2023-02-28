@@ -53,9 +53,12 @@ Route::get('/serviceList', [serviceListController::class, 'showAllServices']);
 Route::get('/serviceList/user', [serviceListController::class, 'showUserServices']);
 Route::get('/serviceList/community', [serviceListController::class, 'showCommunityServices']);
 Route::get('/serviceList/search/{id}', [serviceListController::class, 'showServicesById']);
+
+
+
 Route::get('/serviceList/hire/{user_id}/{serv_id}', [Service_UserController::class, 'hireService']);
 Route::get('/serviceList/hireComm/{comm_id}/{serv_id}' , [Community_ServicesController::class, 'hireCommunityService']);
-Route::get('/serviceList/checkServices/{user_id}', [Service_UserController::class, 'checkHiredServices']);
+// Route::get('/serviceList/checkServices/{user_id}', [Service_UserController::class, 'checkHiredServices']);
 Route::get('/serviceList/checkCommunityServices/{comm_id}', [Community_ServicesController::class, 'checkCommunityHIredServices']);
 
 // Fin Rutas Servicios
@@ -116,7 +119,16 @@ Route::get('/intermedio', [BdController::class, 'insertarTablaIntermedia']);
     });
 });
 
+
+Route::get('/serviceList/checkServices/{user_id}', [Service_UserController::class, 'checkHiredServices']);
+
+
 Route::get('/miscomunidades/{id}', [BdController::class, 'miscomunidades']);
 Route::get('/misusuarios/{id}', [BdController::class, 'misusuarios']);
 Route::get('/unirseacomunidad', [BdController::class, 'unirseacomunidad']);
 Route::get('/globalcoms', [BdController::class, 'totalPro']);
+Route::get('/allComs', [BdController::class, 'totalCom']);
+
+
+
+

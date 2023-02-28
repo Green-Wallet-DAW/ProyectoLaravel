@@ -15,8 +15,10 @@ class Community_ServicesController extends Controller
         // Variables que se van a usar
         // Variables that we're going to use
       $subsctractedTokens = 0;
-        $newHiring = new ComunidadServicio();
-      
+        // $newHiring = new ComunidadServicio();
+        $comm = Comunidad::find($comm_id);
+        $serv = Servicio::find($serv_id);
+
         $communityTokens = Comunidad::select('token')->where('id', "=" ,$comm_id)->get();
         $servicePrice = Servicio::select('precio')->where('id', "=" ,$serv_id)->get();
         
@@ -43,11 +45,8 @@ class Community_ServicesController extends Controller
 
         // Se guarda las ids del usuario y del servicio
         //  We save the id of both user and service
+          $serv->comunidades()->attach($comm);
 
-        $newHiring->id_comunity = $comm_id;
-        $newHiring->id_service = $serv_id;
-        
-        $newHiring->save();
            }else{
                 echo "You don't have enough tokens";
              }
@@ -58,9 +57,5 @@ class Community_ServicesController extends Controller
         
      }
 
-    public function checkCommunityHiredServices($comm_id){
-      $checkHiring = ComunidadServicio::where("id_comunity", '=', $comm_id)->get();
 
-      return $checkHiring;
-    }
 }

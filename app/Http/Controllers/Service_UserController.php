@@ -16,9 +16,20 @@ class Service_UserController extends Controller
         
         // Variables que se van a usar
         // Variables that we're going to use
-      $subsctractedTokens = 0;
-        $newHiring = new UsuarioServicio();
-      
+
+
+      // $subsctractedTokens = 0;
+
+        
+        $usuario=Usuario::find($user_id);
+
+
+        
+        $servicio= Servicio::find($serv_id);
+
+
+
+
         $userTokens = Usuario::select('token')->where('id', "=" ,$user_id)->get();
         $servicePrice = Servicio::select('precio')->where('id', "=" ,$serv_id)->get();
         
@@ -45,14 +56,10 @@ class Service_UserController extends Controller
 
             $subsctractedTokens = $userTokens - $servicePrice;
 
-             Usuario::where('id', "=" ,$user_id)->update(['token'=>$subsctractedTokens]);
+             Usuario::find($user_id)->update(['token'=>$subsctractedTokens]);
 
-        // Se guarda las ids del usuario y del servicio
-        //  We save the id of both user and service
+             $servicio->usuarios()->attach($usuario);
 
-        $newHiring->id_service = $serv_id;
-        $newHiring->id_user = $user_id;
-        $newHiring->save();
            }else{
                 return false;
              }
@@ -63,32 +70,4 @@ class Service_UserController extends Controller
         
      }
 
-
-     
-     public function checkHiring($user_id, $serv_id){
-      $checkHiring = UsuarioServicio::where("id_service", "=", $serv_id)->get();
-
-      if($checkHiring->id_user != $user_id){
-         // $this->hireService($user_id, $serv_id);
-         return true;
-      }else{
-         return false;
-      }
-
-     }
-     public function checkHiredServices($user_id){
-      $checkHired = UsuarioServicio::where("id_user", '=', $user_id)->get('id_service');
-      // dd($checkHired)->toArray();
-      
-
-         $id_serv = $checkHired[0]->id_service;
-         // dd($id_serv);
-         $findServices = Servicio::all()->where('id', '=', $id_serv);
-         return $findServices;
-      
-
-
-      
-
-     }
 }

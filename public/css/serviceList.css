@@ -49,7 +49,7 @@
 }
 
 .boton-Editar{
-    /* margin-top: 2%; */
+    margin-top: 2%;
     /* margin-left: 50%; */
     margin-left: 42%;
     /* position: fixed; */
@@ -72,6 +72,9 @@
     margin-left: 5%;
     margin-top: 2%;
 }
-/* .contenedor{
+.contenedor{
     margin-left: 30%;
-} */
+}
+.boton-Eliminar{
+    margin-top: 2%;
+}

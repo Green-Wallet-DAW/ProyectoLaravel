@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('maquinas', function (Blueprint $table) {
-            
+            $table->increments('id');
             $table->string('modelo',25);
             $table->string('type',25);
             $table->string('components',100);

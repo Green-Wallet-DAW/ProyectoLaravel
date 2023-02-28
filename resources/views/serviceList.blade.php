@@ -12,14 +12,14 @@
 </body>
 </html>
 
-@extends('plantillaUser')
+@extends('plantilla')
 {{-- @extends('plantillaUser') Intenta en esta versión para que no se superpongan elementos --}}
 
 @section('contenidoPagina')
 
 
 
-<div class="contenedor">
+
 
   <a  href="{{route('createService')}}" class="btn btn-success boton-Agregar" title="Add a Service">Add a new Service</a>
 
@@ -39,7 +39,7 @@
             <span id="tituloCaja">{{$servicio->name}}</span><span id="precioEnTokens">{{$servicio->precio}}</span> </div>
             <div class="col">
               <a href="{{ route('editServices', $servicio->id)}}" class="btn btn-warning boton-Editar" title="Edit service {{$servicio->id}}">Edit</a>
-              <a href="{{ route('deleteService', $servicio->id)}}" class="btn btn-danger" title="Delete service {{$servicio->id}}">Delete</a></div>
+              <a href="{{ route('deleteService', $servicio->id)}}" class="btn btn-danger boton-Eliminar" title="Delete service {{$servicio->id}}">Delete</a></div>
           </button>
         </div>
       <div class="row">
@@ -66,6 +66,6 @@
 
 @endforelse
 </form>
-</div>
+
 
 @endsection()

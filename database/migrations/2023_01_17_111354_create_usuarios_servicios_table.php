@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('usuarios_servicios', function (Blueprint $table) {
-            $table->integer('id_service')->unsigned();
-            $table->integer('id_user')->unsigned();
-            $table->primary(array('id_service','id_user'));
-            $table->foreign('id_service')->references('id')->on('servicios')
+        Schema::create('servicio_usuario', function (Blueprint $table) {
+            $table->integer('servicio_id')->unsigned();
+            $table->integer('usuario_id')->unsigned();
+            $table->primary(array('servicio_id','usuario_id'));
+            $table->foreign('servicio_id')->references('id')->on('servicios')
             ->onDelete('cascade')
             ->onUpdate('cascade');
-            $table->foreign('id_user')->references('id')->on('usuarios')
+            $table->foreign('usuario_id')->references('id')->on('usuarios')
             ->onDelete('cascade')
             ->onUpdate('cascade');
             $table->timestamps();

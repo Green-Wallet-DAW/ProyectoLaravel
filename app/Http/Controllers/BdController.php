@@ -137,6 +137,19 @@ class BdController extends Controller
              ], 201);
          }
 
+         public function totalCom(){
+
+          $sql='SELECT usuarios.id, usuarios.name as member, IFNULL(concat(sum(datos_maquinas.energy_produced)," KWh" ),concat(0," KWh")) as Total_Production, IFNULL(concat(sum(datos_maquinas.carbono_ahorrado)," KWh" ),concat(0," KWh"))as Total_carbon_saved FROM `usuarios`
+          inner join instalaciones on usuarios.id=instalaciones.id_user
+          inner join maquinas on instalaciones.id=maquinas.id_instalation
+          inner join datos_maquinas on datos_maquinas.id_maquina=maquinas.id
+          group by id
+          order by sum(datos_maquinas.energy_produced) desc, sum(datos_maquinas.carbono_ahorrado) desc';
+          $comunidades=DB::select($sql);
+          return $comunidades;
+        
+         }
 
 }
+
 // https://sql2builder.github.io/

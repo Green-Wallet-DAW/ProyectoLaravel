@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('comunidades_servicios', function (Blueprint $table) {
+        Schema::create('comunidad_servicio', function (Blueprint $table) {
             $table->integer('id_comunity')->unsigned();
             $table->integer('id_service')->unsigned();
             $table->primary(array('id_comunity','id_service'));
