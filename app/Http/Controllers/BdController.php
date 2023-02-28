@@ -102,19 +102,15 @@ class BdController extends Controller
 
          public function abandonarCom($comunidades,$usuarios)
          {
-            //  $task = UsuarioComunidad::where('id_comunity','=', $comunidad)->where('id_user','=', $usuario)->delete();  //task tienen el id que se ha borrado
-     
-            //  return response()->json([
-            //      "message" => "Tarea con id =" . $task . " ha sido borrado con éxito"
-            //  ], 201);
-              $usuario=Usuario::find($usuarios);
-              $comunidad = Comunidad::find($comunidades);
-             $comunidad->usuarios()->attach($usuario);
+            
+            //   $usuario=Usuario::find($usuarios);
+            //   $comunidad = Comunidad::find($comunidades);
+            //  $comunidad->usuarios()->delete($usuario);
 
-            // $sql="DELETE from comunidad_usuario where comunidad_id=$comunidad and usuario_id=$usuario";
-            // DB::select($sql);
+            $sql="DELETE from comunidad_usuario where comunidad_id=$comunidades and usuario_id=$usuarios";
+            DB::select($sql);
 
-             //Esta función obtendra el id de la tarea que hayamos seleccionado y la borrará de nuestra BD
+             
          }
          public function store(Request $request)
          {
