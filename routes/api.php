@@ -70,20 +70,16 @@ Route::delete('/instalacion/borrar/{id}', [InstalacionController::class, 'destro
 Route::get('/instalacion/buscar/{id}', [InstalacionController::class, 'show']);
 
 
-Route::get('/maquinas', [MaquinaController::class, 'index']);
-Route::put('/maquina/actualizar/{id}', [MaquinaController::class, 'update']);
-Route::post('/maquina/guardar', [MaquinaController::class, 'store']);
-Route::delete('/maquina/borrar/{id}', [MaquinaController::class, 'destroy']);
-Route::get('/maquina/buscar/{id}', [MaquinaController::class, 'show']);
+
 
 //Rutas generalView
 Route::get('/instalaciontokens/{id}', [InstalacionController::class, 'instalaciontokens']);
-Route::get('/generalview/{id}', [InstalacionController::class, 'globalHomeOverview']);
 Route::get('/generalviewdaily/{id}', [InstalacionController::class, 'dailyHomeOverview']);
 Route::get('/generalviewweekly/{id}', [InstalacionController::class, 'weeklyHomeOverview']);
 Route::get('/generalviewmonth/{id}', [InstalacionController::class, 'monthHomeOverview']);
 Route::get('/generalviewyear/{id}', [InstalacionController::class, 'yearHomeOverview']);
-Route::get('/addfacility{id}', [InstalacionController::class, 'addfacility']);
+
+// Route::post('registerU', [AuthController::class,'registerU']);
 
 //Rutas mydevices
 Route::get('/mydevices/{id}', [MachinesController::class, 'globalDevicesOverview']);
@@ -92,20 +88,6 @@ Route::get('/mydevicesweekly/{id}', [MachinesController::class, 'weeklyDevicesOv
 Route::get('/mydevicesmontly/{id}', [MachinesController::class, 'monthlyDevicesOverview']);
 Route::get('/mydevicesyearly/{id}', [MachinesController::class, 'yearlyDevicesOverview']);
 
-
-//Rutas generalView
-Route::get('/generalview', [InstalacionController::class, 'globalHomeOverview']);
-Route::get('/generalviewdaily', [InstalacionController::class, 'dailyHomeOverview']);
-Route::get('/generalviewweekly', [InstalacionController::class, 'weeklyHomeOverview']);
-Route::get('/generalviewmonth', [InstalacionController::class, 'monthHomeOverview']);
-Route::get('/generalviewyear', [InstalacionController::class, 'yearHomeOverview']);
-
-//Rutas mydevices
-Route::get('/mydevices', [MachinesController::class, 'globalDevicesOverview']);
-Route::get('/mydevicesdaily', [MachinesController::class, 'dailyDevicesOverview']);
-Route::get('/mydevicesweekly', [MachinesController::class, 'weeklyDevicesOverview']);
-Route::get('/mydevicesmontly', [MachinesController::class, 'monthlyDevicesOverview']);
-Route::get('/mydevicesyearly', [MachinesController::class, 'yearlyDevicesOverview']);
 
 Route::get('/unirseacomunidad', [BdController::class, 'unirseacomunidad']);
 Route::get('/miscomunidades/{id}', [BdController::class, 'miscomunidades']);
@@ -131,4 +113,24 @@ Route::get('/allComs', [BdController::class, 'totalCom']);
 
 
 
+Route::post('/addfacility', [InstalacionController::class, 'addfacility']);
 
+Route::get('/addmachine/{id}', [MachinesController::class, 'addmachine']);
+
+Route::post('/storemachine', [MachinesController::class,'storemachine']);
+
+Route::get('/deletefacility/{id}', [InstalacionController::class, 'destroy']);
+
+
+Route::get('/deletemachine/{id}', [MachinesController::class, 'deletemachine']);
+
+
+
+Route::view('/mymachines', 'machines');
+// Route::get('/maquinas', [MaquinaController::class, 'index']);
+Route::get('/maquinas', [MaquinaController::class, 'index']);
+Route::put('/maquina/actualizar/{id}', [MaquinaController::class, 'update']);
+Route::post('/maquina/guardar', [MaquinaController::class, 'store']);
+Route::delete('/maquina/borrar/{id}', [MaquinaController::class, 'destroy']);
+Route::get('/maquina/buscar/{id}', [MaquinaController::class, 'show']);
+Route::get('/generalview/{id}', [InstalacionController::class, 'globalHomeOverview']);
