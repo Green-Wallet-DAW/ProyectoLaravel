@@ -15,9 +15,9 @@ use Ramsey\Uuid\Type\Integer;
 class BdController extends Controller
 {
     public function unirseacomunidad(){
-       $sql='SELECT comunidades.id, comunidades.name, comunidades.description as descripcion, IFNULL(concat(sum(datos_maquinas.energy_produced)," KWh" ),concat(0," KWh"))as energy_produced,count(usuarios_comunidades.id_user) as members FROM `usuarios_comunidades`
-       right join comunidades on usuarios_comunidades.id_comunity=comunidades.id
-       left join usuarios on usuarios.id=usuarios_comunidades.id_user
+       $sql='SELECT comunidades.id, comunidades.name, comunidades.description as descripcion, IFNULL(concat(sum(datos_maquinas.energy_produced)," KWh" ),concat(0," KWh"))as energy_produced,count(comunidad_usuario.usuario_id) as members FROM `comunidad_usuario`
+       right join comunidades on comunidad_usuario.comunidad_id=comunidades.id
+       left join usuarios on usuarios.id=comunidad_usuario.usuario_id
       left join instalaciones on instalaciones.id_user=usuarios.id
       left join maquinas on maquinas.id_instalation=instalaciones.id
       left join datos_maquinas on maquinas.id=datos_maquinas.id_maquina
@@ -40,7 +40,7 @@ class BdController extends Controller
     }
     public function miscomunidades($request){
      
-     $sql="SELECT comunidades.id, comunidades.name, comunidades.token, comunidades.description, IFNULL(concat(sum(maquinas.carbono_ahorrado),' KWh' ),concat(0,' KWh'))as carbono_ahorrado, IFNULL(concat(sum(maquinas.energy_produced),' KWh' ),concat(0,'KWh'))as energy_produced FROM `comunidad_usuario`
+     $sql="SELECT comunidades.id, comunidades.name, comunidades.token, comunidades.description, IFNULL(concat(sum(datos_maquinas.carbono_ahorrado),' KWh' ),concat(0,' KWh'))as carbono_ahorrado, IFNULL(concat(sum(datos_maquinas.energy_produced),' KWh' ),concat(0,'KWh'))as energy_produced FROM `comunidad_usuario`
         right join comunidades on comunidad_usuario.comunidad_id=comunidades.id
         left join usuarios on usuarios.id=comunidad_usuario.usuario_id
         left join instalaciones on instalaciones.id_user=usuarios.id
@@ -137,7 +137,7 @@ class BdController extends Controller
          public function intermedio(Request $request)
          {
              $usuario=Usuario::find($request->usuario_id);
-              $comunidad = Comunidad::find($request->comunidad_id);
+            $comunidad = Comunidad::find($request->comunidad_id);
              $comunidad->usuarios()->attach($usuario);
          }
 

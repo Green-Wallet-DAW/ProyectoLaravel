@@ -95,44 +95,9 @@ Route::get('/misusuarios/{id}', [BdController::class, 'misusuarios']);
 Route::get('/globalcoms', [BdController::class, 'totalPro']);
 Route::delete('/eliminarusucom/{com}/{usu}', [BdController::class, 'abandonarCom']);
 Route::post('/comunidad/guardar', [BdController::class, 'store']);
-Route::get('/intermedio', [BdController::class, 'insertarTablaIntermedia']);
-
+Route::post('/joincom', [BdController::class, 'intermedio']);
 
     });
 });
 
 
-// Route::get('/serviceList/checkServices/{user_id}', [Service_UserController::class, 'checkHiredServices']);
-
-
-// Route::get('/miscomunidades/{id}', [BdController::class, 'miscomunidades']);
-// Route::get('/misusuarios/{id}', [BdController::class, 'misusuarios']);
-// Route::get('/unirseacomunidad', [BdController::class, 'unirseacomunidad']);
-// Route::get('/globalcoms', [BdController::class, 'totalPro']);
-// Route::get('/allComs', [BdController::class, 'totalCom']);
-
-
-
-// Route::post('/addfacility', [InstalacionController::class, 'addfacility']);
-
-// Route::get('/addmachine/{id}', [MachinesController::class, 'addmachine']);
-
-// Route::post('/storemachine', [MachinesController::class,'storemachine']);
-
-// Route::get('/deletefacility/{id}', [InstalacionController::class, 'destroy']);
-
-
-// Route::get('/deletemachine/{id}', [MachinesController::class, 'deletemachine']);
-
-
-
-// Route::view('/mymachines', 'machines');
-// // Route::get('/maquinas', [MaquinaController::class, 'index']);
-// Route::get('/maquinas', [MaquinaController::class, 'index']);
-// Route::put('/maquina/actualizar/{id}', [MaquinaController::class, 'update']);
-// Route::post('/maquina/guardar', [MaquinaController::class, 'store']);
-// Route::delete('/maquina/borrar/{id}', [MaquinaController::class, 'destroy']);
-// Route::get('/maquina/buscar/{id}', [MaquinaController::class, 'show']);
-// Route::get('/generalview/{id}', [InstalacionController::class, 'globalHomeOverview']);
-// Route::post('/joincom', [BdController::class, 'intermedio']);
-// // Route::get('/intermedio', [BdController::class, 'insertarTablaIntermedia']);
