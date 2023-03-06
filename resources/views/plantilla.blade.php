@@ -18,7 +18,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="lista navbar-nav ms-auto">
               <li class="nav-item me-xl-2">
-                <a id="home" class="nav-link active" aria-current="page" href="#">HOME</a>
+                <a id="home" class="nav-link active" aria-current="page" href="{{route ('usuarios')}}">HOME</a>
               </li>
               <li class="nav-item mx-xl-2">
                 <a class="nav-link active" href="#">WHAT WE DO</a>

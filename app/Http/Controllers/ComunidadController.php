@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Comunidad;
+use App\Models\Usuario;
+use Illuminate\Support\Facades\DB;
+
 
 class ComunidadController extends Controller
 {
@@ -27,10 +30,14 @@ class ComunidadController extends Controller
             "message" => "Tarea almacenada con éxito"
         ], 201);
     }
-    public function show(Request $request)
+
+    public function showCom(Request $request)
     {
         $task = Comunidad::findOrFail($request->id);
-        return $task;
+        $user = Usuario::findOrFail($task->master);
+        $task->master = $user->name;
+        // return $task;
+        return view('showCom',['task'=>$task]);
         //Esta función devolverá los datos de una tarea que hayamos seleccionado para cargar el formulario con sus datos
     }
 
@@ -59,10 +66,14 @@ class ComunidadController extends Controller
         //Esta función obtendra el id de la tarea que hayamos seleccionado y la borrará de nuestra BD
     }
 
-    public function indexAdmin()
+    public function comunidadIndex()
     {
 
         $comunidades = Comunidad::all();
+        foreach ($comunidades as $comunidad){
+            $user = Usuario::findOrFail($comunidad->master);
+            $comunidad->master = $user->name;
+        }
 
         return view('comunidadIndex', ['comunidades' => $comunidades]);  //view('index',compact('datos');
     }
@@ -88,7 +99,9 @@ class ComunidadController extends Controller
     public function editarAdmin($id)
     {
 
-        $comunidad = Comunidad::findOrFail($id);  //como no está el dato si nos equivocamos de id nos muestra la página de error 404, podemos crear uno personalizado en la view->errors->404.blade.php , creamos carpeta "errors"
+        $comunidad = Comunidad::findOrFail($id);
+        $user = Usuario::findOrFail($comunidad->master);
+        $comunidad->master = $user->name;
         return view('comunidadEditar', compact('comunidad'));
     }
 
@@ -96,11 +109,18 @@ class ComunidadController extends Controller
     public function actualizarAdmin(Request $request)
     {
         $validacion = $request->validate([
-            'name' => 'required|max:25',
+            'name' => 'required|max:50',
             'token' => 'required',
             'description' => 'required',
             'master' => 'required'
         ]);
+
+        $user = DB::table('usuarios')->select('id')->where('name', $request->master)->get();
+        dd($user[0]->id);
+        $validacion->master = $user;
+
+        $task = new Comunidad();
+        $task
 
         Comunidad::whereId($request->id)->update($validacion); //otra opción
 

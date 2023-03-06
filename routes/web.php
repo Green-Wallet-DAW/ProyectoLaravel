@@ -84,12 +84,14 @@ Route::view('/plantillaUser', 'plantillaUser');
 
 
 
-Route::get('/comunidadIndex', [ComunidadController::class, 'indexAdmin'])->name('comunidadIndex');
-Route::post('/comunidadAlmacenar', [ComunidadController::class, 'almacenarAdmin'])->name('comunidadAlmacenar');
-Route::get('/comunidadEditar/{id}', [ComunidadController::class,'editarAdmin'])->name('comunidadEditar');
-Route::patch('/comunidadActualizar/{id}', [ComunidadController::class,'actualizarAdmin'])->name('comunidadActualizar');
-Route::delete('/comunidadBorrar/{id}', [ComunidadController::class,'borrarAdmin'])->name('comunidadBorrar');
-Route::view('/comunidadInsertar','comunidadInsertar')->name('comunidadInsertar');
+    Route::get('/comunidadIndex', [ComunidadController::class, 'comunidadIndex'])->name('comunidadIndex');
+    Route::post('/comunidadAlmacenar', [ComunidadController::class, 'almacenarAdmin'])->name('comunidadAlmacenar');
+    Route::get('/comunidadEditar/{id}', [ComunidadController::class,'editarAdmin'])->name('comunidadEditar');
+    Route::patch('/comunidadActualizar/{id}', [ComunidadController::class,'actualizarAdmin'])->name('comunidadActualizar');
+    Route::delete('/comunidadBorrar/{id}', [ComunidadController::class,'borrarAdmin'])->name('comunidadBorrar');
+    Route::view('/comunidadInsertar','comunidadInsertar')->name('comunidadInsertar');
+
+    Route::get('/showCom/{id}', [ComunidadController::class, 'showCom'])->name('showCom');
 
 });
 

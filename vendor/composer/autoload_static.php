@@ -4,11 +4,7 @@
 
 namespace Composer\Autoload;
 
-<<<<<<< HEAD
-class ComposerStaticInit833df7956dd5f9c69328b711d43c05f9
-=======
-class ComposerStaticInit70d52a9735ab7b6d8dd35b1ee611d139
->>>>>>> christian
+class ComposerStaticInit823ef1ab8eb665c9c56d63bde377b134
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -406,8 +402,8 @@ class ComposerStaticInit70d52a9735ab7b6d8dd35b1ee611d139
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -455,8 +451,8 @@ class ComposerStaticInit70d52a9735ab7b6d8dd35b1ee611d139
         ),
         'League\\Uri\\' => 
         array (
-            0 => __DIR__ . '/..' . '/league/uri-interfaces/src',
-            1 => __DIR__ . '/..' . '/league/uri/src',
+            0 => __DIR__ . '/..' . '/league/uri/src',
+            1 => __DIR__ . '/..' . '/league/uri-interfaces/src',
         ),
         'League\\OAuth2\\Server\\' => 
         array (
@@ -562,8 +558,8 @@ class ComposerStaticInit70d52a9735ab7b6d8dd35b1ee611d139
         ),
         'Fruitcake\\Cors\\' => 
         array (
-            0 => __DIR__ . '/..' . '/fruitcake/php-cors/src',
-            1 => __DIR__ . '/..' . '/fruitcake/laravel-cors/src',
+            0 => __DIR__ . '/..' . '/fruitcake/laravel-cors/src',
+            1 => __DIR__ . '/..' . '/fruitcake/php-cors/src',
         ),
         'Firebase\\JWT\\' => 
         array (
@@ -6741,6 +6737,9 @@ class ComposerStaticInit70d52a9735ab7b6d8dd35b1ee611d139
         'Whoops\\Handler\\PlainTextHandler' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Handler/PlainTextHandler.php',
         'Whoops\\Handler\\PrettyPageHandler' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Handler/PrettyPageHandler.php',
         'Whoops\\Handler\\XmlResponseHandler' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Handler/XmlResponseHandler.php',
+        'Whoops\\Inspector\\InspectorFactory' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Inspector/InspectorFactory.php',
+        'Whoops\\Inspector\\InspectorFactoryInterface' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Inspector/InspectorFactoryInterface.php',
+        'Whoops\\Inspector\\InspectorInterface' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Inspector/InspectorInterface.php',
         'Whoops\\Run' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Run.php',
         'Whoops\\RunInterface' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/RunInterface.php',
         'Whoops\\Util\\HtmlDumperOutput' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/HtmlDumperOutput.php',
@@ -7101,17 +7100,10 @@ class ComposerStaticInit70d52a9735ab7b6d8dd35b1ee611d139
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-<<<<<<< HEAD
-            $loader->prefixLengthsPsr4 = ComposerStaticInit833df7956dd5f9c69328b711d43c05f9::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit833df7956dd5f9c69328b711d43c05f9::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit833df7956dd5f9c69328b711d43c05f9::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit833df7956dd5f9c69328b711d43c05f9::$classMap;
-=======
-            $loader->prefixLengthsPsr4 = ComposerStaticInit70d52a9735ab7b6d8dd35b1ee611d139::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit70d52a9735ab7b6d8dd35b1ee611d139::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit70d52a9735ab7b6d8dd35b1ee611d139::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit70d52a9735ab7b6d8dd35b1ee611d139::$classMap;
->>>>>>> christian
+            $loader->prefixLengthsPsr4 = ComposerStaticInit823ef1ab8eb665c9c56d63bde377b134::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit823ef1ab8eb665c9c56d63bde377b134::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit823ef1ab8eb665c9c56d63bde377b134::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit823ef1ab8eb665c9c56d63bde377b134::$classMap;
 
         }, null, ClassLoader::class);
     }

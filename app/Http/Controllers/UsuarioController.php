@@ -21,31 +21,6 @@ class UsuarioController extends Controller
         //Esta función nos devolvera todas las tareas que tenemos en nuestra BD
     }
 
-    // public function getUsers(Request $request)
-    // {
-
-    //     if ($request->ajax()) {
-    //         $data = Usuario::latest()->get();
-    //         return Datatables::of($data)
-    //             ->addIndexColumn()
-    //             ->addColumn('action', function($row){
-    //                 $actionBtn = "<a href='' class='btn btn-info' data-bs-toggle='tooltip' title='User  details'><i class='bi bi-eye'></i></a>
-    //                 <a href='' class='btn btn-warning mx-1' data-bs-toggle='tooltip' title='Edit user '><i class='bi bi-pencil'></i></a>
-    //                 <form id='ppp' action='' method='post'>
-    //                     @csrf
-    //                     @method('DELETE')
-    //                     <button type='submit' class='btn btn-danger' data-bs-toggle='tooltip' title='Delete user'>
-    //                         <i class='bi bi-trash'></i>
-    //                     </button>
-    //                 </form>";
-    //                 return $actionBtn;
-    //             })
-    //             ->rawColumns(['action'])
-    //             ->make(true);
-    //     }
-
-    // }
-
     public function addUser(Request $request)
     {
 
