@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Comunidad;
 use App\Models\Usuario;
 use Illuminate\Support\Facades\DB;
+use App\Models\UsuarioComunidad;
 
 
 class ComunidadController extends Controller
@@ -24,6 +25,7 @@ class ComunidadController extends Controller
         $task->description = $request->description;
         $task->master = $request->master;
 
+
         $task->save();
         //Esta función guardará las tareas que enviaremos
         return response()->json([
@@ -36,9 +38,18 @@ class ComunidadController extends Controller
         $task = Comunidad::findOrFail($request->id);
         $user = Usuario::findOrFail($task->master);
         $task->master = $user->name;
-        // return $task;
-        return view('showCom',['task'=>$task]);
-        //Esta función devolverá los datos de una tarea que hayamos seleccionado para cargar el formulario con sus datos
+
+        $idu = UsuarioComunidad::all()->where('id', $request->id);
+        $array['com'] = $task;
+        $i = 0;
+        foreach($idu as $user){
+            $prueba = Usuario::findOrFail($user->id_user);
+            $array['user'][$i] = $prueba->name;
+            $i++;
+        }
+        
+        return view('showCom',['array'=>$array]); // Si no hay usuarios en la comunidad se valida en la vista
+
     }
 
     public function update(Request $request)
@@ -82,20 +93,38 @@ class ComunidadController extends Controller
     {
 
         //LA MEJOR FORMA DE INSERTAR DATOS ya que se hace la comprobación de los campos obligatorios para que no hagan inyeccion y luego inserta.
-        $comunidades = request()->validate(
+        // dd($request->name);
+        $request->validate(
             [
-                'name' => 'required|max:25',
-                'token' => 'required',
+                'name' => 'required|max:50|unique:comunidades,name',
                 'description' => 'required',
                 'master' => 'required'
             ]
         );
+        
+        $user = DB::table('usuarios')->select('id')->where('name', $request->master)->get();
+        // dd($request->token);
+        if(isset($user[0])){
+            $task = new Comunidad();
+            $task->name = $request->name;
+            if($request->token == null){
+                $task->token = 0;
+            }else{
+                $task->token = $request->token;
+            }
+            $task->description = $request->description;
+            $task->master = $user[0]->id;
+            $task->save();
 
-        Comunidad::create($comunidades);
+            return redirect()->route('comunidadIndex');
+        }else{
+            return redirect()->back();
+        }
 
-        return redirect()->route('comunidadIndex');
+        
         //return back(); //te redirecciona a la misma página
     }
+    
     public function editarAdmin($id)
     {
 
@@ -110,19 +139,41 @@ class ComunidadController extends Controller
     {
         $validacion = $request->validate([
             'name' => 'required|max:50',
-            'token' => 'required',
             'description' => 'required',
             'master' => 'required'
         ]);
 
-        $user = DB::table('usuarios')->select('id')->where('name', $request->master)->get();
-        dd($user[0]->id);
-        $validacion->master = $user;
+        $user = DB::table('usuarios')->select('id')->where('name', $validacion['master'])->get();
 
-        $task = new Comunidad();
-        $task
+        if(isset($user[0])){
+            $task = Comunidad::findOrFail($request->id);
+            $task->name = $validacion['name'];
+            $task->token = $validacion['token'];
+            $task->description = $validacion['description'];
+            $task->master = $user[0]->id;
+            $task->update();
 
-        Comunidad::whereId($request->id)->update($validacion); //otra opción
+            $task2 = new UsuarioComunidad();
+            $task2->id = $request->id;
+            $task2->id_user = $task->master;
+
+            $task3 = UsuarioComunidad::findOrFail($task2->id);
+            $task3->id = $task2->id;
+            $task3->id_user = $task2->id_user;
+            $task3->save();
+
+            return redirect()->route('comunidadIndex');
+        }else{
+            return redirect()->back();
+        }
+
+        // try{
+
+        // }catch(\Illuminate\Database\QueryException $ex){
+        //     return $errors;
+        // }
+        
+        // Comunidad::whereId($request->id)->update($task); //otra opción
 
         /*  //otra forma de almacenar
          $datos = Dato::find($id);   //podremos utilizar findOrFail($id) para que en caso de no encontrar no falle
@@ -130,7 +181,6 @@ class ComunidadController extends Controller
          $datos->descripcion = $validacion['descripcion'];
          $datos->update();*/
 
-        return redirect()->route('comunidadIndex');
     }
 
     // formar de recuperar datos de un formulario. $request->get('nombre'); $request->nombre;  $request->input('nombre');

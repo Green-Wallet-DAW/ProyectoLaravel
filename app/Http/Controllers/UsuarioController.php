@@ -47,6 +47,7 @@ class UsuarioController extends Controller
         $task->save();
         return redirect()->route('usuarios');
     }
+    
     public function showUser(Request $request)
     {
         $task = Usuario::findOrFail($request->id);

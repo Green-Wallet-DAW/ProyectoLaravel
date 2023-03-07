@@ -19,14 +19,17 @@
         <div class="col-8 mt-5 mb-3">
             <div class="userBox userEBox">
                 @if ($errors->any())
-                <div class="alert alert-danger">
-                    <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
+                    <div class="alert alert-danger">
+                        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                        {{-- @if ($notFound == true)
+                            <li>The master introduced was not found in the database</li>
+                        @endif --}}
+                    </div>
                 @endif
                 <form class="row" method="post" action="{{route('comunidadActualizar', $comunidad)}}">
                     @method('PATCH')

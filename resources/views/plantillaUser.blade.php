@@ -12,7 +12,7 @@
 <body>
     <nav id="nav" class="navbar navbar-expand-xl navbar-light d-none d-xl-block">
         <div class="container-fluid px-2">
-          <a class="navbar-brand fw-bold" href="#">Green Wallets</a>
+          <a class="navbar-brand fw-bold" href="{{route ('usuarios')}}">Green Wallets</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -58,10 +58,10 @@
           </a>
           <ul class="list-unstyled ps-0">
             <li class="mb-1">
-              <button class="btn btn-toggle align-items-center rounded collapsed fs-3 text-light" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+              <button class="btn btn-toggle align-items-center rounded collapsed fs-3 text-light" data-bs-toggle="collapse" data-bs-target="#home-collapse">
                 QUERIES
               </button>
-              <div class="subelement collapse show" id="home-collapse">
+              <div class="subelement collapse" id="home-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                   <li><a href="{{route('usuarios')}}" class="link-light rounded fs-4">Users</a></li>
                   <li><a href="{{route('comunidadIndex')}}" class="link-light rounded fs-4">Communities</a></li>
@@ -70,10 +70,10 @@
               </div>
             </li>
             <li class="mb-1">
-              <button class="btn btn-toggle align-items-center rounded collapsed fs-3 text-light" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+              <button class="btn btn-toggle align-items-center rounded collapsed fs-3 text-light" data-bs-toggle="collapse" data-bs-target="#orders-collapse">
                 TOKEN STORE
               </button>
-              <div class="subelement collapse show" id="orders-collapse">
+              <div class="subelement collapse" id="orders-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                   <li><a href="serviceList" class="link-light rounded fs-4">Services</a></li>
                 </ul>

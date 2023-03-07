@@ -20,7 +20,7 @@
         @section('contenidoPagina')
             <div class="col-8 mt-5 mb-3">
                 <div id="cUser">
-                    <a href="#"><button type="button" class="btn btn-success fs-5">Create Community</button></a>
+                    <a href="{{route('comunidadInsertar')}}"><button type="button" class="btn btn-success fs-5">Create Community</button></a>
                 </div>
                 <br>
                 <table class="table table-hover" id="tabla" style="width:100%">
@@ -34,7 +34,7 @@
                     <tbody id="myTableU">
                     @forelse ($comunidades as $item)
                         <tr>
-                            <td class="align-middle text-center">{{$item->name}}</td>
+                            <td id="name" class="align-middle text-center">{{$item->name}}</td>
                             <td class="align-middle text-center">{{$item->master}}</td>
                             <td class="d-flex justify-content-center">
                                 <a href="{{route('showCom', $item->id)}}" class="btn btn-info" data-bs-toggle="tooltip" title="{{$item->name}} community details"><i class="bi bi-eye"></i></a>
@@ -60,48 +60,9 @@
     <script>
         $(document).ready(function(){
             alert = function() {};
-            $('#tabla').DataTable();
+            $('#tabla').DataTable(
+            );
         });
     </script>
 
 </body>
-{{-- @extends('plantillaUser')
-
-
-@section('contenidoPagina')
-<table class="default">
-
-    <tr>
-        <th>Name</th>
-        <th>Token</th>
-        <th>Description</th>
-        <th>master</th>
-    </tr>
-
-
-    @forelse ($comunidades as $item)
-
-    <tr>
-        <td>{{$item->name}}</td>
-        <td>{{$item->token}}</td>
-        <td>{{$item->description}}</td>
-        <td>{{$item->master}}</td>
-        <td><a href="{{ route('comunidadEditar', $item->id)}}">Edit</a> <!--añadimos también EDITAR--></td>
-        <td>
-            <form action="{{ route('comunidadBorrar', $item->id)}}" method="post"> <!--añadimos también BORRAR-->
-                @csrf
-                @method('DELETE')
-                <button type="submit">borrar</button>
-            </form>
-        </td>
-    </tr>
-
-
-
-
-    @empty
-    <li>NO HAY NADA </li>
-    @endforelse
-</table>
-
-@endsection --}}
