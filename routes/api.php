@@ -69,7 +69,7 @@ Route::post('/instalacion/guardar', [InstalacionController::class, 'store']);
 Route::delete('/instalacion/borrar/{id}', [InstalacionController::class, 'destroy']);
 Route::get('/instalacion/buscar/{id}', [InstalacionController::class, 'show']);
 
-
+Route::get('/showUserServices/{user_id}', [Service_UserController::class, 'showUserServices']);
 
 
 //Rutas generalView

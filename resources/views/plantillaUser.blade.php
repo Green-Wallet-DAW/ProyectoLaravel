@@ -63,9 +63,10 @@
               </button>
               <div class="subelement collapse" id="home-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                  <li><a href="{{route('usuarios')}}" class="link-light rounded fs-4">Users</a></li>
-                  <li><a href="{{route('comunidadIndex')}}" class="link-light rounded fs-4">Communities</a></li>
-                  <li><a href="{{route('machines')}}" class="link-light rounded fs-4">Machines</a></li>
+                  <li><a href="{{route('usuarios')}}" class="link-light rounded fs-4" style="text-decoration: none">Users</a></li>
+                  <li><a href="{{route('comunidadIndex')}}" class="link-light rounded fs-4" style="text-decoration: none"
+                  ">Communities</a></li>
+                  <li><a href="{{route('machines')}}" class="link-light rounded fs-4" style="text-decoration: none">Machines</a></li>
                 </ul>
               </div>
             </li>
@@ -75,7 +76,7 @@
               </button>
               <div class="subelement collapse" id="orders-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                  <li><a href="serviceList" class="link-light rounded fs-4">Services</a></li>
+                  <li><a href="serviceList" class="link-light rounded fs-4" style="text-decoration: none">Services</a></li>
                 </ul>
               </div>
             </li>

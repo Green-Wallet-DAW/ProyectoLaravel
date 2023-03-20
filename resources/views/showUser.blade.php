@@ -45,13 +45,13 @@
             <div class="uCon">
                 <strong>Phone number: </strong>{{$task->phone_number}}
             </div>
-            <div class="uCon">
+            {{-- <div class="uCon">
                 <strong>Number of communities: </strong>@if (isset($task->number_comunity))
                 {{$task->number_comunity}}
                 @else
                     No number registered
                 @endif
-            </div>
+            </div> --}}
             <div class="uCon">
                 <!-- <strong>Subscribed to newsletter: </strong>@if ($task->newsletter == 1)
                     YES
