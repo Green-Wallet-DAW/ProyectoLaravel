@@ -31,4 +31,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    // TELEGRAM_BOT_TOKEN esta en .env línea 7
+    'telegram-bot-api' => [
+        'token' => env('TELEGRAM_BOT_TOKEN', '6291616570:AAGbMbDCksD4sLcfQNuwzH2o559A8YNVf9c')
+        ],
+
 ];
