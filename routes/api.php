@@ -70,6 +70,7 @@ Route::delete('/instalacion/borrar/{id}', [InstalacionController::class, 'destro
 Route::get('/instalacion/buscar/{id}', [InstalacionController::class, 'show']);
 
 Route::get('/showUserServices/{user_id}', [Service_UserController::class, 'showUserServices']);
+Route::get('/showUserService/{user_id}/{serv_id}', [Service_UserController::class, 'showUserService']);
 
 
 //Rutas generalView
