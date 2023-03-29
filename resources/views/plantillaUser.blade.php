@@ -64,8 +64,7 @@
               <div class="subelement collapse" id="home-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                   <li><a href="{{route('usuarios')}}" class="link-light rounded fs-4" style="text-decoration: none">Users</a></li>
-                  <li><a href="{{route('comunidadIndex')}}" class="link-light rounded fs-4" style="text-decoration: none"
-                  ">Communities</a></li>
+                  <li><a href="{{route('comunidadIndex')}}" class="link-light rounded fs-4" style="text-decoration: none">Communities</a></li>
                   <li><a href="{{route('machines')}}" class="link-light rounded fs-4" style="text-decoration: none">Machines</a></li>
                 </ul>
               </div>
@@ -76,7 +75,18 @@
               </button>
               <div class="subelement collapse" id="orders-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                  <li><a href="serviceList" class="link-light rounded fs-4" style="text-decoration: none">Services</a></li>
+                  <li><a href="{{route('serviceList')}}" class="link-light rounded fs-4" style="text-decoration: none">Services</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="mb-1">
+              <button class="btn btn-toggle align-items-center rounded collapsed fs-3 text-light" data-bs-toggle="collapse" data-bs-target="#messages-collapse">
+                SUPPORT
+              </button>
+              <div class="subelement collapse" id="messages-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li><a href="{{route('usuarios')}}" class="link-light rounded fs-4" style="text-decoration: none">Telegram</a></li>
+                  <li><a href="{{route('usuarios')}}" class="link-light rounded fs-4" style="text-decoration: none">Messages</a></li>
                 </ul>
               </div>
             </li>

@@ -24,6 +24,9 @@
           <div id="cUser">
             <a href="{{route('createUser')}}"><button type="button" class="btn btn-success fs-5">Create User</button></a>
           </div>
+          <div id="cUser">
+            <a href="{{route('mensaje')}}"><button type="button" class="btn btn-success fs-5">Mensaje</button></a>
+          </div>
           <br>
           <table class="table table-hover" id="tabla" style="width:100%">
               <thead>

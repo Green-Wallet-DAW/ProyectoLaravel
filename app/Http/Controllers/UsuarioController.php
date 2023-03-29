@@ -146,6 +146,4 @@ class UsuarioController extends Controller
         //Esta función obtendra el id de la tarea que hayamos seleccionado y la borrará de nuestra BD
     }
 
-
-
 }

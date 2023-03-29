@@ -10,6 +10,7 @@ use App\Http\Controllers\MachinesController;
 
 use App\Http\Controllers\ComunidadController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\MensajesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,6 +70,7 @@ Route::get('/deleteServices{id}', [serviceListController::class, 'deleteService'
 Route::view('/plantilla', 'plantilla');
 Route::view('/plantillaUser', 'plantillaUser');
 
+    Route::get('/mensaje', [MensajesController::class, 'pruebaTelegram'])->name('mensaje');
 
     Route::get('/usuarios', [UsuarioController::class, 'indexUsers'])->name('usuarios');
     // Route::get('/usuarios', [UsuarioController::class, 'indexUsers'])->name('usuarios');

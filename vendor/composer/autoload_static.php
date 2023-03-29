@@ -725,6 +725,7 @@ class ComposerStaticInit823ef1ab8eb665c9c56d63bde377b134
         'App\\Models\\Usuario' => __DIR__ . '/../..' . '/app/Models/Usuario.php',
         'App\\Models\\UsuarioComunidad' => __DIR__ . '/../..' . '/app/Models/UsuarioComunidad.php',
         'App\\Models\\available_machines' => __DIR__ . '/../..' . '/app/Models/available_machines.php',
+        'App\\Notifications\\SendNotification' => __DIR__ . '/../..' . '/app/Notifications/SendNotification.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
