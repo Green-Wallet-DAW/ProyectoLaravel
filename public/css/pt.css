@@ -1,0 +1,12 @@
+.uCon{
+    padding-left: 30px;
+    font-size: 20px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+.userBox{
+    z-index: 1;
+}
+#nav{
+    z-index: 9999;
+}
