@@ -18,7 +18,7 @@
     @else
         @extends('plantillaUser');
         @section('contenidoPagina')
-            <div class="col-8 mt-5 mb-3">
+            <div class="col-9 mt-5 mb-3">
                 <div id="cUser">
                     <a href="{{route('comunidadInsertar')}}"><button type="button" class="btn btn-success fs-5">Create Community</button></a>
                 </div>

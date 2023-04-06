@@ -16,7 +16,7 @@
     {{-- <h1>USUARIOS</h1> --}}
   @extends('plantilla');
   @section('contenidoPagina')
-  <div class="col-8 mt-5 mb-3">
+  <div class="col-9 mt-5 mb-3">
     <div id="main">
       <div class="container">
         <div class="input-group">

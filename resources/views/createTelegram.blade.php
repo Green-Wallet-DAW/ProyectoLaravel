@@ -16,7 +16,7 @@
     @else
         @extends('plantillaUser');
         @section('contenidoPagina')
-        <div class="col-8 mt-5 mb-3">
+        <div class="col-9 mt-5 mb-3">
             <div class="userBox userEBox">
                 <form method="post" action="{{ route('saveTelegram') }}">
                     @method('PATCH')
@@ -34,7 +34,7 @@
 
                     <div class="eUser">
                         <label for="content"><strong>Content: </strong></label><br>
-                        <textarea name="content" cols="67" rows="8" value="{{old('content')}}"></textarea>
+                        <textarea name="content" cols="65" rows="6" value="{{old('content')}}"></textarea>
                         {!! $errors->first('content', '<small>:message</small><br>' )!!}
                     </div>
 

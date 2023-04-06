@@ -62,4 +62,23 @@ class MensajesController extends Controller
         $telegram = $telegram = Mensaje::findOrFail($id);
         return view('editTelegram',['telegram'=>$telegram]);
     }
+
+    public function updateTelegram(Request $request)
+    {
+
+        $request->validate([
+            'name'=>'required',
+            'content'=>'required'
+        ]);
+
+        $telegram = Mensaje::findOrFail($request->id);
+
+        $telegram->name = $request->name;
+        $telegram->content = $request->content;
+        $telegram->update();
+
+        return redirect()->route('telegram');
+        //Esta función actualizará la tarea que hayamos seleccionado
+
+    }
 }

@@ -75,6 +75,9 @@ Route::group(['middleware' => 'admin'], function(){
     Route::get('/send/{id}', [MensajesController::class, 'sendTelegram'])->name('send');
     Route::view('/createTelegram', 'createTelegram')->name('createTelegram');
     Route::patch('/saveTelegram', [MensajesController::class, 'saveTelegram'])->name('saveTelegram');
+    Route::get('/editTelegram/{id}', [MensajesController::class, 'editTelegram'])->name('editTelegram');
+    Route::patch('/updateTelegram/{id}', [MensajesController::class, 'updateTelegram'])->name('updateTelegram');
+    Route::delete('/deleteTelegram/{id}', [MensajesController::class,'deleteTelegram'])->name('deleteTelegram');
 
     Route::get('/usuarios', [UsuarioController::class, 'indexUsers'])->name('usuarios');
     // Route::get('/usuarios', [UsuarioController::class, 'indexUsers'])->name('usuarios');

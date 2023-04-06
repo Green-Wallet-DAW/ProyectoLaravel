@@ -16,7 +16,7 @@
     @else
         @extends('plantillaUser');
         @section('contenidoPagina')
-        <div class="col-8 mt-5 mb-3">
+        <div class="col-9 mt-5 mb-3">
             <div class="userBox">
                 <div class="uCon fs-1 pt-4">
                     <strong>Details of {{$array['com']->name}}</strong>

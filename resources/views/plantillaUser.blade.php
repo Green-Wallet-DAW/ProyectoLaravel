@@ -10,7 +10,7 @@
     <title>Document</title>
 </head>
 <body>
-    <nav id="nav" class="navbar navbar-expand-xl navbar-light d-none d-xl-block">
+    <nav class="navbar navbar-expand-xl navbar-light d-none d-xl-block" id="nav">
         <div class="container-fluid px-2">
           <a class="navbar-brand fw-bold" href="{{route ('usuarios')}}">Green Wallets</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
