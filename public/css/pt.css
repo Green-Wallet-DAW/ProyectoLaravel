@@ -71,9 +71,11 @@
 .titulo{
     font-size: 1.5rem;
 }
-.card-body{
+.scrolls{
     max-height: 60vh;
     overflow-y: scroll;
+    padding-left: 10px;
+    padding-right: 15px;
 }
 
 /* Parece estúpido pero esto es para sobreescribir una variable de bootstrap en la que fija el margin-bottom */
