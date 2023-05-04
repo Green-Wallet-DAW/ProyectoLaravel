@@ -37,3 +37,64 @@
     border-radius: 10px;
     font-size: 20px;
 }
+#messages{
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: baseline;
+}
+.left{
+    box-sizing: border-box;
+    background-color: rgb(128, 128, 128);
+    padding: 15px 0px 10px 0px;
+    color: white;
+    border-radius: 10px;
+    margin-left: 10px;
+    max-width: 60%;
+    /* border-bottom-left-radius: 0px; */
+}
+.right{
+    box-sizing: border-box;
+    background-color: rgb(64, 64, 254);
+    color: white;
+    padding: 15px 0px 10px 0px;
+    border-radius: 10px;
+    margin-right: 10px;
+    max-width: 60%;
+    /* border-bottom-right-radius: 0px; */
+}
+.mensaje{
+    font-size: 1.2rem;
+    margin: 0px;
+}
+.titulo{
+    font-size: 1.5rem;
+}
+.card-body{
+    max-height: 60vh;
+    overflow-y: scroll;
+}
+
+/* Parece estúpido pero esto es para sobreescribir una variable de bootstrap en la que fija el margin-bottom */
+.row:first-of-type{
+    margin-bottom: 20px;
+}
+.mes{
+    margin-bottom: 20px;
+}
+.chat{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.chat2{
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.btn-success{
+    max-height: 40px;
+    margin-left: 15px;
+    
+}

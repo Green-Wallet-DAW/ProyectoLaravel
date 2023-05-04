@@ -37,7 +37,7 @@
                     </div>
                     <div class="eUser">
                         <label for="name"><strong>Name: </strong></label>
-                        <input type="text"  name="name" value="{{ $telegram->name }}"/>
+                        <input type="text"  name="name" style="width: 88%" value="{{ $telegram->name }}"/>
                     </div>
                     <div class="eUser">
                         <label for="content"><strong>Content: </strong></label><br>

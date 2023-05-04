@@ -11,6 +11,7 @@ use App\Http\Controllers\MachinesController;
 use App\Http\Controllers\ComunidadController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MensajesController;
+use App\Http\Controllers\ChatsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -78,6 +79,12 @@ Route::group(['middleware' => 'admin'], function(){
     Route::get('/editTelegram/{id}', [MensajesController::class, 'editTelegram'])->name('editTelegram');
     Route::patch('/updateTelegram/{id}', [MensajesController::class, 'updateTelegram'])->name('updateTelegram');
     Route::delete('/deleteTelegram/{id}', [MensajesController::class,'deleteTelegram'])->name('deleteTelegram');
+
+    Route::get('/chats', [ChatsController::class, 'getMessages'])->name('chats');
+    Route::patch('/sendMessage', [ChatsController::class, 'sendMessage'])->name('sendMessage');
+
+
+
 
     Route::get('/usuarios', [UsuarioController::class, 'indexUsers'])->name('usuarios');
     // Route::get('/usuarios', [UsuarioController::class, 'indexUsers'])->name('usuarios');

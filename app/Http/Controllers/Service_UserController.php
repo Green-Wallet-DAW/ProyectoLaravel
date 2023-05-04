@@ -43,7 +43,7 @@ class Service_UserController extends Controller
     $services = [];
     $servusers = DB::table('servicio_usuario')->select()->where('usuario_id', $user_id)->get();
 
-    $prueba = new Servicio();
+    $servicio = new Servicio();
 
     foreach($servusers as $servuser){
       $service = Servicio::findOrFail($servuser->servicio_id);
@@ -51,12 +51,12 @@ class Service_UserController extends Controller
       $service->updated_at = $servuser->updated_at;
       $services[] = $service;
       if($service->id == $serv_id){
-        $prueba = $service;
+        $servicio = $service;
       }
 
     }
 
-    return $prueba;
+    return $servicio;
 
   }
 

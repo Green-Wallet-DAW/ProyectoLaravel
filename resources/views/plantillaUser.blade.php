@@ -86,7 +86,7 @@
               <div class="subelement collapse" id="messages-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                   <li><a href="{{route('telegram')}}" class="link-light rounded fs-4" style="text-decoration: none">Telegram</a></li>
-                  <li><a href="{{route('usuarios')}}" class="link-light rounded fs-4" style="text-decoration: none">Messages</a></li>
+                  <li><a href="{{route('chats')}}" class="link-light rounded fs-4" style="text-decoration: none">Messages</a></li>
                 </ul>
               </div>
             </li>

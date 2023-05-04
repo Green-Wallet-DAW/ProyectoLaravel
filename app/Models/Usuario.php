@@ -28,6 +28,10 @@ class Usuario extends Model implements Authenticatable
        {
            return $this->hasMany('App\Models\Instalacion');
        }
+       public function chat()
+       {
+           return $this->hasMany('App\Models\Chat');
+       }
 
     /**
      * The attributes that should be hidden for serialization.
