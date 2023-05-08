@@ -13,6 +13,7 @@ use App\Http\Controllers\Service_UserController;
 
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ChatsController;
 use App\Http\Controllers\Community_ServicesController;
 
 /*
@@ -40,6 +41,9 @@ Route::group(['middleware' => 'cors'], function(){
         Route::put('updatePass', [AuthController::class, 'updatePass']);
         Route::get('detailsU', [AuthController::class,'detailsU']);
         Route::get('logoutU', [AuthController::class,'logoutU']);
+
+        Route::get('getMessagesU', [ChatsController::class, 'getMessagesU']);
+        Route::patch('sendMessageU', [ChatsController::class, 'sendMessageU']);
 
 
 Route::get('/comunidades', [ComunidadController::class, 'index']);
@@ -97,6 +101,8 @@ Route::get('/globalcoms', [BdController::class, 'totalPro']);
 Route::delete('/eliminarusucom/{com}/{usu}', [BdController::class, 'abandonarCom']);
 Route::post('/comunidad/guardar', [BdController::class, 'store']);
 Route::get('/intermedio', [BdController::class, 'insertarTablaIntermedia']);
+
+
 
 
     });

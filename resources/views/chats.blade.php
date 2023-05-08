@@ -79,6 +79,7 @@
                         </div>
                       @endif
                     @empty
+                      <p>Try to write something!</p>
                     @endforelse
                   </div>
                   <form method="post" action="{{ route('sendMessage') }}">
@@ -112,6 +113,7 @@
                         </div>
                       @endif
                     @empty
+                      <p>Try to write something!</p>
                     @endforelse
                   </div>
                   <form method="post" action="{{ route('sendMessage') }}">
@@ -121,15 +123,11 @@
                       <input type="number" name="receiver" value="{{$item[0]->sender}}" hidden>
                       <input type="text" name="tipo" value="soporte" hidden>
                       <input type="text" name="message" id="message" class="form-control chat2" placeholder="Help {{$item[0]->record}} by writing something here!">
-                      <button type="submit" class="btn btn-success" style="border-radius: 20px;"><i class="bi bi-envelope-fill"></i></button>
+                      <button type="submit" class="btn btn-success" style="border-radius: 20px;" title="Send message"><i class="bi bi-envelope-fill"></i></button>
                     </div>
                   </form>
                 </div>
               </div>
-
-
-
-
             </div>
             
           </div>
